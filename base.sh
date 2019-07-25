@@ -2,8 +2,8 @@
 
 ## Variable Declarations
 EDITOR=vim
-COUNTRY=uk
-PART_ROOT_ENC_PASS="archlinux"
+COUNTRY=gb
+PART_ROOT_ENC_PASS=""
 KEYMAP=uk
 host_name=zangetsu
 
@@ -21,19 +21,19 @@ mount -o remount,size=2G /run/archiso/cowspace
 loadkeys uk
 
 ## Connect to internet
-wifi-menu
+#wifi-menu
 
 ## Editor
-pacman -S $EDITOR
+pacman -Sy $EDITOR --noconfirm
 
 ## Mirror
 read -p "SEtting Mirrors.. Hit Enter"
-URL="https://www.archlinux.org/mirrorlist/?country=${COUNTRY}&use_mirror_status=on"
+URL="https://www.archlinux.org/mirrorlist/?country=GB&use_mirror_status=on"
 tmpfile=$(mktemp --suffix=-mirrorlist)
 curl -so ${tmpfile} ${URL}
 sed -i 's/^#Server/Server/g' ${tmpfile}
-mv -i /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.orig
-mv -i ${tmpfile} /etc/pacman.d/mirrorlist
+mv  /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.orig
+mv  ${tmpfile} /etc/pacman.d/mirrorlist
 pacman -Sy pacman-contrib --noconfirm
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.tmp
 rankmirrors /etc/pacman.d/mirrorlist.tmp > /etc/pacman.d/mirrorlist
@@ -61,10 +61,10 @@ sgdisk -t=2:8e00 $DEVICE
 
 ## LUKS Creation
 read -p "Creating LUKS... Hit Enter"
-echo -n "$PARTITION_ROOT_ENCRYPTION_PASSWORD" | cryptsetup --key-size=512 --key-file=- luksFormat --type luks2 ${DEVICE}p2
+echo -n "$PART_ROOT_ENC_PASS" | cryptsetup --key-size=512 --key-file=- luksFormat --type luks2 ${DEVICE}p2
 ##cryptsetup --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-random --verify-passphrase luksFormat ${DEVICE}p2
 
-echo -n "$PARTITION_ROOT_ENCRYPTION_PASSWORD" | cryptsetup --key-file=- open ${DEVICE}p2 cryptlvm
+echo -n "$PART_ROOT_ENC_PASS" | cryptsetup --key-file=- open ${DEVICE}p2 cryptlvm
 sleep 5
 
 ### LVM Creation
