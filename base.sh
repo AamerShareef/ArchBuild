@@ -15,8 +15,6 @@ function arch_chroot() { #{{{
 ## Initialise 
 mount -o remount,size=2G /run/archiso/cowspace
 
-
-
 ## Loadkeys
 loadkeys uk
 
