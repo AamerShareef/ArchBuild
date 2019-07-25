@@ -94,7 +94,7 @@ mount /dev/lvm/root /mnt
 
 read -p "Installing Base System . Hit Enter"
 pacman -Sy archlinux-keyring --noconfirm
-pacstrap /mnt base-devel parted f2fs-tools net-tools iw wireless_tools wpa_supplicant dialog git grub os-prober
+pacstrap /mnt base base-devel parted f2fs-tools net-tools iw wireless_tools wpa_supplicant dialog git grub os-prober
 
 ## Keymap
 
