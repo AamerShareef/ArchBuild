@@ -86,6 +86,7 @@ mkfs.fat -F32 ${DEVICE}p1
 
 ###Mounting 
 read -p "Mounting ... Hit Enter"
+mount /dev/lvm/root /mnt
 mkdir /mnt/boot
 mount ${DEVICE}p1 /mnt/boot
 mount /dev/lvm/root /mnt
@@ -140,4 +141,4 @@ arch_chroot "mkinitcpio -p linux"
 read -p "Installing Bootloader. Hit Enter"
 sed -i -e 's/GRUB_CMDLINE_LINUX="\(.\+\)"/GRUB_CMDLINE_LINUX="\1 cryptdevice=\/dev\/'"${DEVICE}p2"':cryptlvm:allow-discards acpi_rev_override=1 root_trim=yes"/g' -e 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=\/dev\/'"${DEVICE}p2"':cryptlvm:allow-discards acpi_rev_override=1 root_trim=yes"/g' /mnt/etc/default/grub
 
-arch_chroot "grub-install --target=x86_64-efi --efi-directory=/mnt/boot --bootloader-id=arch_grub --recheck"
+arch_chroot "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch_grub --recheck"
