@@ -139,7 +139,10 @@ arch_chroot "mkinitcpio -p linux"
 LUKS_DISK=nvme0n1p2
 read -p "Installing Bootloader. Hit Enter"
 #sed -i -e 's/GRUB_CMDLINE_LINUX="\(.\+\)"/GRUB_CMDLINE_LINUX="\1 cryptdevice=\/dev\/'"${DEVICE}p2"':cryptlvm:allow-discards acpi_rev_override=1 root_trim=yes"/g' -e 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=\/dev\/'"${DEVICE}p2"':cryptlvm:allow-discards acpi_rev_override=1 root_trim=yes"/g' /mnt/etc/default/grub
-sed -i -e 's/GRUB_CMDLINE_LINUX="\(.\+\)"/GRUB_CMDLINE_LINUX="\1 cryptdevice=\/dev\/'"${LUKS_DISK}"':crypt"/g' -e 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=\/dev\/'"${LUKS_DISK}"':crypt"/g' /mnt/etc/default/grub
+# below works
+#sed -i -e 's/GRUB_CMDLINE_LINUX="\(.\+\)"/GRUB_CMDLINE_LINUX="\1 cryptdevice=\/dev\/'"${LUKS_DISK}"':crypt"/g' -e 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=\/dev\/'"${LUKS_DISK}"':crypt"/g' /mnt/etc/default/grub
+# Sed test 1
+sed -i 's/^GRUB_CMDLINE_LINUX=.*/& cryptdevice=\/dev\/nvme0n1p2:cryptlvm:allow-discards root_trim=yes acpi_rev_override=1'  /mnt/etc/default/grub
 arch_chroot "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch --recheck"
 arch_chroot "grub-mkconfig -o /boot/grub/grub.cfg"
 ## Fix Grub config changes specifically for XPS 15 grub.efi location. - Done. 
