@@ -93,7 +93,7 @@ mount /dev/lvm/root /mnt
 
 read -p "Installing Base System . Hit Enter"
 pacman -Sy archlinux-keyring --noconfirm
-pacstrap /mnt base base-devel parted f2fs-tools net-tools iw wireless_tools wpa_supplicant dialog git grub os-prober
+pacstrap /mnt base base-devel parted f2fs-tools net-tools iw wireless_tools wpa_supplicant dialog git grub os-prober zsh
 
 ## Keymap
 
@@ -130,8 +130,8 @@ arch_chroot "locale-gen"
 ## Configure mkinitcpio
 
 read -p "Installing mkinitcpio. Hit Enter"
-sed -i '/^HOOK/s/block/block keymap encrypt/' ${MOUNTPOINT}/etc/mkinitcpio.conf
-sed -i '/^HOOK/s/filesystems/lvm2 filesystems/' ${MOUNTPOINT}/etc/mkinitcpio.conf
+sed -i '/^HOOK/s/block/block keymap encrypt/' /mnt/etc/mkinitcpio.conf
+sed -i '/^HOOK/s/filesystems/lvm2 filesystems/' /mnt/etc/mkinitcpio.conf
 
 arch_chroot "mkinitcpio -p linux"
 
