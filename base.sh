@@ -3,7 +3,7 @@
 ## Variable Declarations
 EDITOR=vim
 COUNTRY=GB
-PART_ROOT_ENC_PASS=""
+PART_ROOT_ENC_PASS="archlinux"
 KEYMAP=uk
 host_name=zangetsu
 
