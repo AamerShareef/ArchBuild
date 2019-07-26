@@ -2,7 +2,7 @@
 
 ## Variable Declarations
 EDITOR=vim
-COUNTRY=gb
+COUNTRY=GB
 PART_ROOT_ENC_PASS=""
 KEYMAP=uk
 host_name=zangetsu
@@ -26,7 +26,7 @@ pacman -Sy $EDITOR --noconfirm
 
 ## Mirror
 read -p "SEtting Mirrors.. Hit Enter"
-URL="https://www.archlinux.org/mirrorlist/?country=GB&use_mirror_status=on"
+URL="https://www.archlinux.org/mirrorlist/?country=${COUNTRY}&use_mirror_status=on"
 tmpfile=$(mktemp --suffix=-mirrorlist)
 curl -so ${tmpfile} ${URL}
 sed -i 's/^#Server/Server/g' ${tmpfile}
