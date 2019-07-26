@@ -59,10 +59,10 @@ sgdisk -t=2:8e00 $DEVICE
 
 ## LUKS Creation
 read -p "Creating LUKS... Hit Enter"
-echo -n "$PART_ROOT_ENC_PASS" | cryptsetup --key-size=512 --key-file=- luksFormat --type luks2 ${DEVICE}p2
+echo -n "$PART_ROOT_ENC_PASS" | cryptsetup --cipher aes-xts-plain64 --allow-discards --persistent --key-size=512 --key-file=- luksFormat --type luks2 ${DEVICE}p2
 ##cryptsetup --cipher aes-xts-plain64 --key-size 512 --hash sha512 --iter-time 5000 --use-random --verify-passphrase luksFormat ${DEVICE}p2
-
-echo -n "$PART_ROOT_ENC_PASS" | cryptsetup --key-file=- open ${DEVICE}p2 cryptlvm
+## cryptsetup --allow-discards --persistent
+echo -n "$PART_ROOT_ENC_PASS" | cryptsetup --allow-discards --persistent --key-file=- open ${DEVICE}p2 cryptlvm
 sleep 5
 
 ### LVM Creation
