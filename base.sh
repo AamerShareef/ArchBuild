@@ -89,12 +89,6 @@ mkdir /mnt/boot
 mount ${DEVICE}p1 /mnt/boot
 mount /dev/lvm/root /mnt
 
-## Installing Base System
-
-read -p "Installing Base System . Hit Enter"
-pacman -Sy archlinux-keyring --noconfirm
-pacstrap /mnt base base-devel parted f2fs-tools net-tools iw wireless_tools wpa_supplicant dialog git grub os-prober zsh
-
 ## Keymap
 
 read -p "Installing keymap. Hit Enter"
@@ -127,16 +121,23 @@ arch_chroot "sed -i 's/#\('${LOCALE_UTF8}'\)/\1/' /etc/locale.gen"
 arch_chroot "locale-gen"
 
 
+## Installing Base System
+
+read -p "Installing Base System . Hit Enter"
+pacman -Sy archlinux-keyring --noconfirm
+pacstrap /mnt base base-devel parted f2fs-tools net-tools iw wireless_tools wpa_supplicant dialog git grub os-prober efibootmgr zsh
+
 ## Configure mkinitcpio
 
 read -p "Installing mkinitcpio. Hit Enter"
 sed -i '/^HOOK/s/block/block keymap encrypt/' /mnt/etc/mkinitcpio.conf
 sed -i '/^HOOK/s/filesystems/lvm2 filesystems/' /mnt/etc/mkinitcpio.conf
-
 arch_chroot "mkinitcpio -p linux"
 
 ## Install Bootloader
 read -p "Installing Bootloader. Hit Enter"
 sed -i -e 's/GRUB_CMDLINE_LINUX="\(.\+\)"/GRUB_CMDLINE_LINUX="\1 cryptdevice=\/dev\/'"${DEVICE}p2"':cryptlvm:allow-discards acpi_rev_override=1 root_trim=yes"/g' -e 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="cryptdevice=\/dev\/'"${DEVICE}p2"':cryptlvm:allow-discards acpi_rev_override=1 root_trim=yes"/g' /mnt/etc/default/grub
 
-arch_chroot "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch_grub --recheck"
+arch_chroot "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch --recheck"
+
+## Fix Grub config changes specifically for XPS 15 grub.efi location.
