@@ -128,3 +128,6 @@ arch_chroot "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader
 arch_chroot "grub-mkconfig -o /boot/grub/grub.cfg"
 ## Fix Grub config changes specifically for XPS 15 grub.efi location. - Done. 
 #https://unix.stackexchange.com/questions/69112/how-can-i-use-variables-in-the-lhs-and-rhs-of-a-sed-substitution
+
+## Phase 2 
+## Setting up basic applications
