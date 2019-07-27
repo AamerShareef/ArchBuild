@@ -1,11 +1,12 @@
 #!/bin/bash
 
 ## Variable Declarations
+USERNAME="value"
 EDITOR=vim
 COUNTRY=GB
 ENC_PASS="archlinux"
 KEYMAP=uk
-HOSTNAME=zangetsu
+HOST_NAME=zangetsu
 DEVICE=/dev/nvme0n1
 LOCALE="en_GB"
 LOCALE_UTF8="${LOCALE}.UTF-8"
@@ -47,10 +48,11 @@ read -p "Press Enter"
 ## Partitioning
 read -p "Partitioning .. Hit Enter"
 fdisk -l 
-read -p "Press Enter when ready"
-umount -R /mnt
-sgdisk --zap-all $DEVICE
-wipefs -a $DEVICE
+echo "Running blkdiscard. All data will be destroyed!"
+blkdiscard $DEVICE
+lslbk
+read -p "Press Enter"
+
 
 parted -s $DEVICE mklabel gpt mkpart primary fat32 1MiB 512MiB mkpart primary ext4 512MiB 100% set 1 boot on
 sgdisk -t=1:ef00 $DEVICE
@@ -88,7 +90,7 @@ mount /dev/lvm/root /mnt
 ## Installing Base System
 read -p "Installing Base System . Hit Enter"
 pacman -Sy archlinux-keyring --noconfirm
-pacstrap /mnt base base-devel parted f2fs-tools net-tools iw wireless_tools wpa_supplicant dialog git grub os-prober efibootmgr 
+pacstrap /mnt base base-devel parted f2fs-tools net-tools iw wireless_tools wpa_supplicant dialog grub os-prober efibootmgr 
 
 ## Keymap
 read -p "Installing keymap. Hit Enter"
@@ -100,9 +102,9 @@ genfstab -t PARTUUID -p /mnt >> /mnt/etc/fstab
 
 ## Hostname
 read -p "Hostname stuff.Hit Enter"  
-echo "$host_name" > /mnt/etc/hostname
-arch_chroot "sed -i '/127.0.0.1/s/$/ '${host_name}'/' /etc/hosts"
-arch_chroot "sed -i '/::1/s/$/ '${host_name}'/' /etc/hosts"
+echo "$HOST_NAME" > /mnt/etc/hostname
+arch_chroot "sed -i '/127.0.0.1/s/$/ '${HOST_NAME}'/' /etc/hosts"
+arch_chroot "sed -i '/::1/s/$/ '${HOST_NAME}'/' /etc/hosts"
 
 ## TimeZone 
 read -p "Installing Timezone. Hit Enter"
@@ -129,5 +131,68 @@ arch_chroot "grub-mkconfig -o /boot/grub/grub.cfg"
 ## Fix Grub config changes specifically for XPS 15 grub.efi location. - Done. 
 #https://unix.stackexchange.com/questions/69112/how-can-i-use-variables-in-the-lhs-and-rhs-of-a-sed-substitution
 
+# Root passwd
+echo "Enter root password"
+arch_chroot "passwd"
+
 ## Phase 2 
-## Setting up basic applications
+
+# Create new users
+echo "Creating user $USERNAME..."
+arch_chroot "useradd -m $USERNAME -s /bin/zsh"
+arch_chroot "passwd $USERNAME"
+arch_chroot "gpasswd -a $USERNAME bumblebee"
+
+# Drivers: GFX
+arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee nvidia lib32-virtualgl lib32-nvidia-utils"
+arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
+
+# Necessary Applications
+arch_chroot "pacman -S --noconfirm ntfs-3g zsh dosfstools exfat-utils f2fs-tools fuse fuse-exfat autofs mtpfs fs-utils gparted grsync"
+arch_chroot "pacman -S --noconfirm  bc rsync mlocate bash-completion pkgstats arch-wiki-lite zip unzip unrar p7zip lzop cpio"
+arch_chroot "pacman -S --noconfirm  alsa-utils alsa-plugins pulseaudio pulseaudio-alsa"
+arch_chroot "pacman -S --noconfirm  git wget samba smbnetfs"
+arch_chroot "pacman -S --noconfirm  tlp powertop htop"
+arch_chroot "pacman -S --asdeps --needed --noconfirm cairo fontconfig freetype2"
+arch_chroot "pacman -S --noconfirm cups cups-pdf"
+arch_chroot "pacman -S --noconfirm hexchat"
+arch_chroot "pacman -S --noconfirm vlc kdenlive" 
+
+# Xorg
+arch_chroot "pacman -S --noconfirm xorg-server xorg-apps xorg-xinit xorg-xkill xorg-xinput xf86-input-libinput xdotool wmctrl xclip mesa"
+#libinput-gestures"
+
+# Other necessary applications
+arch_chroot "pacman -S --noconfirm  firefox chrome-gnome-shell network-manager"
+arch_chroot "pacman -S  --noconfirm noto-fonts-emoji,ttf-overpass,ttf-ibm-plex,ttf-hack"
+arch_chroot "pacman -S --noconfirm tmux atom libreoffice-fresh-en-gb"
+
+# DE
+arch_chroot "pacman -S --noconfirm gdm gnome gnome-extra gnome-tweak-tool gpaste gnome-bluetooth network-manager extra/network-manager-applet pygtk,pygtksourceview2 dconf-editor gcolor3 gconf neofetch gnome-software gnome-initial-setup"
+arch_chroot "pacman -S --noconfirm deja-dup gedit-plugins gnome-power-manager nautilus-share"
+arch_chroot "pacman -Rcsn --noconfirm aisleriot atomix four-in-a-row five-or-more gnome-2048 gnome-chess gnome-klotski gnome-mahjongg gnome-mines gnome-nibbles gnome-robots gnome-sudoku gnome-tetravex gnome-taquin swell-foop hitori iagno quadrapassel lights
+off tali"
+
+arch_chroot "cp -fv /etc/X11/xinit/xinitrc /home/${USERNAME}/.xinitrc"
+arch_chroot "echo -e exec gnome-session >> /home/${USERNAME}/.xinitrc"
+arch_chroot  "chown -R ${USERNAME}:users /home/${USERNAME}/.xinitrc"
+
+# Fonts
+arch_chroot "pacman -S --noconfirm noto-fonts-emoji ttf-roboto ttf-overpass ttf-ibm-plex ttf-hack ttf-liberation ttf-ubuntu-font-family"
+
+## Enable services
+echo "Enabling services"
+arch_chroot "system_ctl enable org.cups.cupsd.service"
+arch_chroot "systemctl enable bumbleed"
+arch_chroot "systemctl enable gdm"
+#systemctl enable libinput-gestures
+#systemctl enable undervolt
+arch_chroot "systemctl enable bluetooth.service"
+arch_chroot "systemctl enable NetworkManager.service"
+
+
+
+
+
+
+
