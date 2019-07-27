@@ -141,11 +141,13 @@ arch_chroot "passwd"
 echo "Creating user $USERNAME..."
 arch_chroot "useradd -m $USERNAME -s /bin/zsh"
 arch_chroot "passwd $USERNAME"
-arch_chroot "gpasswd -a $USERNAME bumblebee"
 
-# Drivers: GFX
+
+# Drivers: GFX and Bluetooth
 arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee nvidia lib32-virtualgl lib32-nvidia-utils"
 arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
+
+arch_chroot "gpasswd -a $USERNAME bumblebee"
 
 # Necessary Applications
 arch_chroot "pacman -S --noconfirm ntfs-3g zsh dosfstools exfat-utils f2fs-tools fuse fuse-exfat autofs mtpfs fs-utils gparted grsync"
