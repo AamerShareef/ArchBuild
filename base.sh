@@ -142,6 +142,10 @@ echo "Creating user $USERNAME..."
 arch_chroot "useradd -m $USERNAME -s /bin/zsh"
 arch_chroot "passwd $USERNAME"
 
+# Enable Multilib
+read -p "Enable multilib: Press Enter"
+arch_chroot "nano /etc/pacman.conf"
+arch_chroot "pacman -Syyy"
 
 # Drivers: GFX and Bluetooth
 arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee nvidia lib32-virtualgl lib32-nvidia-utils"
@@ -150,7 +154,7 @@ arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
 arch_chroot "gpasswd -a $USERNAME bumblebee"
 
 # Necessary Applications
-arch_chroot "pacman -S --noconfirm ntfs-3g zsh dosfstools exfat-utils f2fs-tools fuse fuse-exfat autofs mtpfs fs-utils gparted grsync"
+arch_chroot "pacman -S --noconfirm vim ntfs-3g zsh dosfstools exfat-utils f2fs-tools fuse fuse-exfat autofs mtpfs fs-utils gparted grsync"
 arch_chroot "pacman -S --noconfirm  bc rsync mlocate bash-completion pkgstats arch-wiki-lite zip unzip unrar p7zip lzop cpio"
 arch_chroot "pacman -S --noconfirm  alsa-utils alsa-plugins pulseaudio pulseaudio-alsa"
 arch_chroot "pacman -S --noconfirm  git wget samba smbnetfs"
