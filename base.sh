@@ -185,7 +185,7 @@ arch_chroot "systemctl enable NetworkManager"
 # Other necessary applications
 read -p "install other applications "
 arch_chroot "pacman -S --noconfirm firefox"
-arch_chroot "pacman -S atom libreoffice-fresh-en-gb"
+arch_chroot "pacman -S --noconfirm atom libreoffice-fresh-en-gb"
 ## Noto fonts select
 
 
@@ -204,7 +204,7 @@ arch_chroot "useradd -m -G bumblebee,wheel -s /bin/zsh $USERNAME"
 arch_chroot "passwd $USERNAME"
 arch_chroot "visudo"
 
-#arch_chroot "gpasswd -a $USERNAME bumblebee"
+arch_chroot "gpasswd -a $USERNAME bumblebee"
 
 
 # Enable sudo access to users
@@ -223,6 +223,7 @@ arch_chroot "visudo"
 arch_chroot "su $USERNAME && cd /home/$USERNAME && git clone https://aur.archlinux.org/yay.git && cd yay && makepgk -si"
 read -p "Enable color"
 arch_chroot "nano /etc/pacman.conf"
+
 #libinput-gestures"
 #undervolt
 # smb services rpcbind nfs services? refer lilo
