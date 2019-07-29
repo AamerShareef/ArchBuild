@@ -50,7 +50,7 @@ cat /etc/pacman.d/mirrorlist
 fdisk -l 
 echo "Running blkdiscard. All data will be destroyed!"
 blkdiscard $DEVICE
-lslbk
+lsblk
 #read -p "Press Enter"
 
 parted -s $DEVICE mklabel gpt mkpart primary fat32 1MiB 512MiB mkpart primary ext4 512MiB 100% set 1 boot on
