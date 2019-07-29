@@ -164,7 +164,7 @@ arch_chroot "pacman -S --noconfirm zip unzip unrar p7zip lzop cpio"
 arch_chroot "pacman -S  --noconfirm alsa-utils alsa-plugins"
 arch_chroot "pacman -S --noconfirm pulseaudio pulseaudio-alsa"
 arch_chroot "pacman -S --noconfirm ntfs-3g dosfstools exfat-utils f2fs-tools fuse fuse-exfat autofs mtpfs"
-arch_chroot "pacman -S nfs-utils"
+arch_chroot "pacman -S --noconfirm nfs-utils"
 arch_chroot "pacman -S --noconfirm wget samba smbnetfs"
 arch_chroot "pacman -S --noconfirm tlp powertop htop"
 
