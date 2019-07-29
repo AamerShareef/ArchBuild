@@ -153,7 +153,7 @@ arch_chroot "pacman -S --noconfirm xorg-server xorg-apps xorg-xinit xorg-xkill x
 
 # Drivers: GFX and Bluetooth
 read -p "Enable driver installations Press Enter"
-arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee nvidia lib32-virtualgl lib32-nvidia-utils"
+arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee bbswitch nvidia lib32-virtualgl lib32-nvidia-utils "
 arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
 arch_chroot "systemctl enable bumblebeed"
 arch_chroot "systemctl enable bluetooth"
