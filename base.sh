@@ -143,6 +143,8 @@ read -p "Enable multilib: Press Enter"
 arch_chroot "nano /etc/pacman.conf"
 arch_chroot "pacman -Syyy"
 
+# Install Microcode 
+arch_chroot "pacman -S --noconfirm intel-ucode"
 
 # Drivers: GFX and Bluetooth
 read -p "Enable driver installations Press Enter"
