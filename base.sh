@@ -59,7 +59,7 @@ sgdisk -t=2:8e00 $DEVICE
 
 ## LUKS Creation
 #read -p "Creating LUKS... Hit Enter"
-echo -n "$ENC_PASS" | cryptsetup --cipher aes-xts-plain64 --key-size=512 --key-file=- luksFormat --type luks2 ${DEVICE}p2
+echo -n "$ENC_PASS" | cryptsetup --cipher aes-xts-plain64 --key-size=256 --key-file=- luksFormat --type luks2 ${DEVICE}p2
 echo -n "$ENC_PASS" | cryptsetup --allow-discards --persistent --key-file=- open ${DEVICE}p2 cryptlvm
 sleep 5
 
@@ -202,6 +202,25 @@ arch_chroot "systemctl enable bluetooth.service"
 arch_chroot "systemctl enable NetworkManager.service"
 
 
+# Desktop Environment
+# Customizations - Setting Tweaking 
+# Extensions Fonts Themes Icons Cursors
+
+#### Objectives left to do ######
+
+#Gaming setup
+##Lutris
+##Steam
+
+#Pentest Toolkits
+##BlackArch Repos
+##Tools based on categorisation
+##Tools configuration
+
+#Note Taking Setup
+
+#Automation of Backup and Restoration
+#
 
 
 
