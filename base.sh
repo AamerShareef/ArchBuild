@@ -176,7 +176,7 @@ arch_chroot "systemctl enable gdm"
 
 # Other necessary applications
 read -p "install other applications "
-arch_chroot "pacman -S --noconfirm  firefox chrome-gnome-shell network-manager"
+arch_chroot "pacman -S --noconfirm firefox chrome-gnome-shell networkmanager"
 arch_chroot "pacman -S --noconfirm tmux atom libreoffice-fresh-en-gb"
 
 # Fonts
