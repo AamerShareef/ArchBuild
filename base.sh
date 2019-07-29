@@ -146,16 +146,19 @@ arch_chroot "pacman -Syyy"
 # Install Microcode 
 arch_chroot "pacman -S --noconfirm intel-ucode"
 
-# Drivers: GFX and Bluetooth
-read -p "Enable driver installations Press Enter"
-arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee nvidia lib32-virtualgl lib32-nvidia-utils"
-arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
-arch_chroot "systemctl enable bumbleed"
 
 # Xorg
 read -p "Enable Xorg installation Press Enter"
 arch_chroot "pacman -S --noconfirm xorg-server xorg-apps xorg-xinit xorg-xkill xorg-xinput xf86-input-libinput xdotool wmctrl xclip mesa"
+
+# Drivers: GFX and Bluetooth
+read -p "Enable driver installations Press Enter"
+arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee nvidia lib32-virtualgl lib32-nvidia-utils"
+arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
+arch_chroot "systemctl enable bumblebeed"
+
 #libinput-gestures"
+#undervolt
 
 
 # Create new users
@@ -164,6 +167,8 @@ echo "Creating user $USERNAME..."
 arch_chroot "useradd -m $USERNAME -s /bin/zsh"
 arch_chroot "passwd $USERNAME"
 arch_chroot "gpasswd -a $USERNAME bumblebee"
+
+# Enable sudo access to users
 
 # DE
 read -p "install gnome and desktop manager"
