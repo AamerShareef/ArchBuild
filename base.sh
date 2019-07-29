@@ -178,7 +178,7 @@ arch_chroot "cd yay && makepkg -si"
 #virtual box and vmware ?
 
 # DE - GNOME
-arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gpaste dconf-editor gnome-nettool gnome-usage polari lightsoff ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
+arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gpaste dconf-editor gnome-nettool gnome-usage polari ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
 arch_chroot "systemctl enable gdm" 
 arch_chroot "systemctl enable NetworkManager"
 
@@ -235,6 +235,7 @@ arch_chroot "nano /etc/pacman.conf"
 
 # Desktop Environment
 # Customizations - Setting Tweaking 
+# Dot Files management
 # Extensions Fonts Themes Icons Cursors
 ## USer directory fix
 ## Use x11 as default login
