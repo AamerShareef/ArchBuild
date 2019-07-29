@@ -170,15 +170,15 @@ arch_chroot "pacman -S --noconfirm tlp powertop htop"
 
 
 #AUR yay - This cannot be done as root ! 
-arch_chroot "git clone https://aur.archlinux.org/yay.git"
-arch_chroot "cd yay && makepkg -si"
+#arch_chroot "git clone https://aur.archlinux.org/yay.git"
+#arch_chroot "cd yay && makepkg -si"
 #libinput-gestures"
 #undervolt
 # smb services rpcbind nfs services? refer lilo
 #virtual box and vmware ?
 
 # DE - GNOME
-arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gpaste dconf-editor gnome-nettool gnome-usage polari ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
+arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gpaste dconf-editor gnome-nettool gnome-usage polari ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourceview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
 arch_chroot "systemctl enable gdm" 
 arch_chroot "systemctl enable NetworkManager"
 
