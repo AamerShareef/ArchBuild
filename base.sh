@@ -200,9 +200,11 @@ arch_chroot "systemctl enable org.cups.cupsd.service"
 # Create new users
 read -p "Create new users?"
 echo "Creating user $USERNAME..."
-arch_chroot "useradd -m $USERNAME -s /bin/zsh"
+arch_chroot "useradd -m -G bumblebee,wheel -s /bin/zsh $USERNAME"
 arch_chroot "passwd $USERNAME"
-arch_chroot "gpasswd -a $USERNAME bumblebee"
+arch_chroot "visudo"
+
+#arch_chroot "gpasswd -a $USERNAME bumblebee"
 
 
 # Enable sudo access to users
@@ -218,8 +220,9 @@ arch_chroot "gpasswd -a $USERNAME bumblebee"
 
 
 #AUR yay - This cannot be done as root ! 
-arch_chroot "git clone https://aur.archlinux.org/yay.git"
-arch_chroot "cd yay && makepkg -si"
+arch_chroot "su $USERNAME && cd /home/$USERNAME && git clone https://aur.archlinux.org/yay.git && cd yay && makepgk -si"
+read -p "Enable color"
+arch_chroot "nano /etc/pacman.conf"
 #libinput-gestures"
 #undervolt
 # smb services rpcbind nfs services? refer lilo
@@ -227,13 +230,8 @@ arch_chroot "cd yay && makepkg -si"
 
 
 ## Enable services
-read -p "Enabling services: Press Enter"
-arch_chroot "systemctl enable org.cups.cupsd.service"
 #systemctl enable libinput-gestures
 #systemctl enable undervolt
-arch_chroot "systemctl enable bluetooth.service"
-arch_chroot "systemctl enable NetworkManager.service"
-
 
 # Desktop Environment
 # Customizations - Setting Tweaking 
