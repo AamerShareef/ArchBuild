@@ -156,10 +156,46 @@ read -p "Enable driver installations Press Enter"
 arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee nvidia lib32-virtualgl lib32-nvidia-utils"
 arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
 arch_chroot "systemctl enable bumblebeed"
+arch_chroot "systemctl enable bluetooth"
 
+arch_chroot "pacman -S --noconfirm bc rsync mlocate bash-completion pkgstats arch-wiki-lite vim git tree tmux"
+arch_chroot "updatedb"
+arch_chroot "pacman -S --noconfirm zip unzip unrar p7zip lzop cpio"
+arch_chroot "pacman -S  --noconfirm alsa-utils alsa-plugins"
+arch_chroot "pacman -S --noconfirm pulseaudio pulseaudio-alsa"
+arch_chroot "pacman -S --noconfirm ntfs-3g dosfstools exfat-utils f2fs-tools fuse fuse-exfat autofs mtpfs"
+arch_chroot "pacman -S nfs-utils"
+arch_chroot "pacman -S --noconfirm wget samba smbnetfs"
+arch_chroot "pacman -S --noconfirm tlp powertop htop"
+
+
+#AUR yay - This cannot be done as root ! 
+arch_chroot "git clone https://aur.archlinux.org/yay.git"
+arch_chroot "cd yay && makepkg -si"
 #libinput-gestures"
 #undervolt
+# smb services rpcbind nfs services? refer lilo
+#virtual box and vmware ?
 
+# DE - GNOME
+arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gpaste dconf-editor gnome-nettool gnome-usage polari lightsoff ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
+arch_chroot "systemctl enable gdm" 
+arch_chroot "systemctl enable NetworkManager"
+
+# Other necessary applications
+read -p "install other applications "
+arch_chroot "pacman -S --noconfirm firefox"
+arch_chroot "pacman -S atom libreoffice-fresh-en-gb"
+## Noto fonts select
+
+
+# Fonts
+reap -p "install fonts"
+arch_chroot "pacman -S --noconfirm noto-fonts-emoji ttf-roboto otf-overpass ttf-ibm-plex ttf-hack ttf-liberation ttf-ubuntu-font-family fontconfig"
+
+# CUPS
+arch_chroot "pacman -S --noconfirm cups cups-pdf" 
+arch_chroot "systemctl enable org.cups.cupsd.service"
 
 # Create new users
 read -p "Create new users?"
@@ -168,30 +204,27 @@ arch_chroot "useradd -m $USERNAME -s /bin/zsh"
 arch_chroot "passwd $USERNAME"
 arch_chroot "gpasswd -a $USERNAME bumblebee"
 
+
 # Enable sudo access to users
 
 # DE
-read -p "install gnome and desktop manager"
-arch_chroot "pacman -S --noconfirm gdm gnome gnome-extra gnome-tweak-tool gpaste gnome-bluetooth networkmanager network-manager-applet pygtk pygtksourceview2 dconf-editor gcolor3 gconf neofetch gnome-software gnome-initial-setup"
-arch_chroot "pacman -S --noconfirm deja-dup gedit-plugins gnome-power-manager nautilus-share"
-arch_chroot "pacman -Rcsn --noconfirm aisleriot atomix four-in-a-row five-or-more gnome-2048 gnome-chess gnome-klotski gnome-mahjongg gnome-mines gnome-nibbles gnome-robots gnome-sudoku gnome-tetravex gnome-taquin swell-foop hitori iagno quadrapassel lights
-off tali"
-arch_chroot "systemctl enable gdm"
+#read -p "install gnome and desktop manager"
+#arch_chroot "pacman -S --noconfirm gdm gnome gnome-extra gnome-tweak-tool gpaste gnome-bluetooth networkmanager network-manager-applet pygtk pygtksourceview2 dconf-editor gcolor3 gconf neofetch gnome-software gnome-initial-setup"
+#arch_chroot "pacman -S --noconfirm deja-dup gedit-plugins gnome-power-manager nautilus-share"
+#arch_chroot "pacman -Rcsn --noconfirm aisleriot atomix four-in-a-row five-or-more gnome-2048 gnome-chess gnome-klotski gnome-mahjongg gnome-mines gnome-nibbles gnome-robots gnome-sudoku gnome-tetravex gnome-taquin swell-foop hitori iagno quadrapassel lights
+#off tali"
+#arch_chroot "systemctl enable gdm"
+#arch_chroot "systemctl enable NetworkManager.service"
 
 
-# Other necessary applications
-read -p "install other applications "
-arch_chroot "pacman -S --noconfirm firefox chrome-gnome-shell networkmanager"
-arch_chroot "pacman -S --noconfirm tmux atom libreoffice-fresh-en-gb"
+#AUR yay - This cannot be done as root ! 
+arch_chroot "git clone https://aur.archlinux.org/yay.git"
+arch_chroot "cd yay && makepkg -si"
+#libinput-gestures"
+#undervolt
+# smb services rpcbind nfs services? refer lilo
+#virtual box and vmware ?
 
-# Fonts
-reap -p "install fonts"
-arch_chroot "pacman -S --noconfirm noto-fonts-emoji ttf-roboto ttf-overpass ttf-ibm-plex ttf-hack ttf-liberation ttf-ubuntu-font-family"
-
-# Enable gnome-session for user
-#arch_chroot "cp -fv /etc/X11/xinit/xinitrc /home/${USERNAME}/.xinitrc"
-#arch_chroot "echo -e exec gnome-session >> /home/${USERNAME}/.xinitrc"
-#arch_chroot  "chown -R ${USERNAME}:users /home/${USERNAME}/.xinitrc"
 
 ## Enable services
 read -p "Enabling services: Press Enter"
@@ -205,12 +238,14 @@ arch_chroot "systemctl enable NetworkManager.service"
 # Desktop Environment
 # Customizations - Setting Tweaking 
 # Extensions Fonts Themes Icons Cursors
-
+## USer directory fix
+## Use x11 as default login
 #### Objectives left to do ######
 
 #Gaming setup
 ##Lutris
 ##Steam
+##nvidia-xrun
 
 #Pentest Toolkits
 ##BlackArch Repos
