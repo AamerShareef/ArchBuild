@@ -186,8 +186,6 @@ arch_chroot "systemctl enable NetworkManager"
 read -p "install other applications "
 arch_chroot "pacman -S --noconfirm firefox"
 arch_chroot "pacman -S --noconfirm atom libreoffice-fresh-en-gb"
-## Noto fonts select
-
 
 # Fonts
 reap -p "install fonts"
@@ -204,19 +202,8 @@ arch_chroot "useradd -m -G bumblebee,wheel -s /bin/zsh $USERNAME"
 arch_chroot "passwd $USERNAME"
 arch_chroot "visudo"
 
-arch_chroot "gpasswd -a $USERNAME bumblebee"
-
-
 # Enable sudo access to users
 
-# DE
-#read -p "install gnome and desktop manager"
-#arch_chroot "pacman -S --noconfirm gdm gnome gnome-extra gnome-tweak-tool gpaste gnome-bluetooth networkmanager network-manager-applet pygtk pygtksourceview2 dconf-editor gcolor3 gconf neofetch gnome-software gnome-initial-setup"
-#arch_chroot "pacman -S --noconfirm deja-dup gedit-plugins gnome-power-manager nautilus-share"
-#arch_chroot "pacman -Rcsn --noconfirm aisleriot atomix four-in-a-row five-or-more gnome-2048 gnome-chess gnome-klotski gnome-mahjongg gnome-mines gnome-nibbles gnome-robots gnome-sudoku gnome-tetravex gnome-taquin swell-foop hitori iagno quadrapassel lights
-#off tali"
-#arch_chroot "systemctl enable gdm"
-#arch_chroot "systemctl enable NetworkManager.service"
 
 
 #AUR yay - This cannot be done as root ! 
