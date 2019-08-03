@@ -120,6 +120,7 @@ arch_chroot "locale-gen"
 #read -p "Installing mkinitcpio. Hit Enter"
 sed -i '/^HOOK/s/block/block keymap encrypt/' /mnt/etc/mkinitcpio.conf
 sed -i '/^HOOK/s/filesystems/lvm2 filesystems/' /mnt/etc/mkinitcpio.conf
+sed -i 's/^MODULES=(/MODULES=(i915/' /mnt/etc/mkinitcpio.conf.bak 
 arch_chroot "mkinitcpio -p linux"
 
 ## Install Bootloader
@@ -140,7 +141,12 @@ clear
 echo "Starting Phase 2"
 # Enable Multilib
 read -p "Enable multilib: Press Enter"
+sed -i '95s/#//' /mnt/etc/pacman.conf
+sed -i '96s/#//' /mnt/etc/pacman.conf
+
+
 arch_chroot "nano /etc/pacman.conf"
+read -p "Did it work?"
 arch_chroot "pacman -Syyy"
 
 # Install Microcode 
@@ -163,14 +169,6 @@ arch_chroot "pacman -S --noconfirm nfs-utils"
 arch_chroot "pacman -S --noconfirm wget samba smbnetfs"
 arch_chroot "pacman -S --noconfirm tlp powertop htop"
 
-
-#AUR yay - This cannot be done as root ! 
-#arch_chroot "git clone https://aur.archlinux.org/yay.git"
-#arch_chroot "cd yay && makepkg -si"
-#libinput-gestures"
-#undervolt
-# smb services rpcbind nfs services? refer lilo
-#virtual box and vmware ?
 
 # DE - GNOME
 arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gparted gpaste dconf-editor gnome-nettool gnome-usage polari ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourceview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
@@ -206,13 +204,27 @@ arch_chroot "systemctl enable bumblebeed"
 
 # Intel Module
 arch_chroot "vim /etc/mkinitcpio.conf"
-arch_chroot "mkinitcpio -p linux"
 arch_chroot "echo options i915 enable_fbc=1 fastboot=1  enable_guc=2 > /etc/modprobe.d/i915.conf"
+arch_chroot "mkinitcpio -p linux"
+
 
 # Unmount and reboot
 read -p "Umount and reboot?"
 umount -R /mnt
 reboot
+
+
+
+
+
+#AUR yay - This cannot be done as root ! 
+#arch_chroot "git clone https://aur.archlinux.org/yay.git"
+#arch_chroot "cd yay && makepkg -si"
+#libinput-gestures"
+#undervolt
+# smb services rpcbind nfs services? refer lilo
+#virtual box and vmware ?
+
 
 
 #AUR yay - This cannot be done as root ! 
