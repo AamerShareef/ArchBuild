@@ -151,12 +151,7 @@ arch_chroot "pacman -S --noconfirm intel-ucode"
 read -p "Enable Xorg installation Press Enter"
 arch_chroot "pacman -S --noconfirm xorg-server xorg-apps xorg-xinit xorg-xkill xorg-xinput xf86-input-libinput xdotool wmctrl xclip mesa"
 
-# Drivers: GFX and Bluetooth
-read -p "Enable driver installations Press Enter"
-arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee bbswitch nvidia lib32-virtualgl lib32-nvidia-utils "
-arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
-arch_chroot "systemctl enable bumblebeed"
-arch_chroot "systemctl enable bluetooth"
+# Basic Tools
 
 arch_chroot "pacman -S --noconfirm bc rsync mlocate bash-completion pkgstats arch-wiki-lite vim git tree tmux"
 arch_chroot "updatedb"
@@ -195,21 +190,35 @@ arch_chroot "pacman -S --noconfirm noto-fonts-emoji ttf-roboto otf-overpass ttf-
 arch_chroot "pacman -S --noconfirm cups cups-pdf" 
 arch_chroot "systemctl enable org.cups.cupsd.service"
 
+# Drivers: GFX and Bluetooth
+read -p "Enable driver installations Press Enter"
+arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee bbswitch nvidia lib32-virtualgl lib32-nvidia-utils"
+arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
+arch_chroot "systemctl enable bluetooth"
+
 # Create new users
 read -p "Create new users?"
 echo "Creating user $USERNAME..."
 arch_chroot "useradd -m -G bumblebee,wheel -s /bin/zsh $USERNAME"
 arch_chroot "passwd $USERNAME"
 arch_chroot "visudo"
+arch_chroot "systemctl enable bumblebeed"
 
-# Enable sudo access to users
+# Intel Module
+arch_chroot "vim /etc/mkinitcpio.conf"
+arch_chroot "mkinitcpio -p linux"
+arch_chroot "echo options i915 enable_fbc=1 fastboot=1  enable_guc=2 > /etc/modprobe.d/i915.conf"
 
+# Unmount and reboot
+read -p "Umount and reboot?"
+umount -R /mnt
+reboot
 
 
 #AUR yay - This cannot be done as root ! 
-arch_chroot "su $USERNAME && cd /home/$USERNAME && git clone https://aur.archlinux.org/yay.git && cd yay && makepgk -si"
-read -p "Enable color"
-arch_chroot "nano /etc/pacman.conf"
+#arch_chroot "su $USERNAME && cd /home/$USERNAME && git clone https://aur.archlinux.org/yay.git && cd yay && makepgk -si"
+#read -p "Enable color"
+#arch_chroot "nano /etc/pacman.conf"
 
 #libinput-gestures"
 #undervolt
