@@ -108,3 +108,9 @@ sudo cp -r ./* /usr/share/icons/
 
 # Cursor
 # Restore eye candy from BACKUP
+
+  ## Gnome Extensions
+sudo pacman -S jq
+rm -f ./install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./install-gnome-extensions.sh && chmod +x install-gnome-extensions.sh && ./install-gnome-extensions.sh
+./install-gnome-extensions.sh -e --file gnome-extensions.txt   
+
