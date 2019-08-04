@@ -28,6 +28,7 @@ cd ..
 rm -rf yay
 
 # Install VMWare Workstation
+sudo pacman -S linux-headers fuse2 gtkmm libcanberra pcsclite
 yay vmware-workstation
 # VMWare start up script
 # sudo systemctl start vmware-networks.service
