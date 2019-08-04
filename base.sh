@@ -230,13 +230,9 @@ makepkg -si
 cd ..
 rm -rf yay
 
-
-# Install Nvidia-Xrun
-yay nvidia-xrun
-
 # Install VMWare Workstation
 yay vmware-workstation
-# Vmware start up script
+# VMWare start up script
 # sudo sysmtectl start vmware-networks.service 
 # sudo sysmtectl start vmware-usbarbitrator.service 
 # sudo sysmtectl start vmware-hostd.service 
@@ -246,7 +242,13 @@ yay vmware-workstation
 # about:config
 # layers.acceleration.force-enabled = true
 # Create a new string -> network.security.ports.banned.override add values 1-65535
+# Plugins: Foxy Proxy Ublock origin
 
+
+
+# Gaming Setup
+sudo pacman -S steam lutris --noconfirm
+yay nvidia-xrun
 
 # smb services rpcbind nfs services? refer lilo
 #undervolt
@@ -257,22 +259,52 @@ yay vmware-workstation
 
 ## USer directory fix
 ## Use x11 as default login
+# https://unix.stackexchange.com/questions/269940/remove-folders-from-left-panel-in-nautilus
+vim ~/.config/user-dirs.dirs
 
-#Gaming setup
-##Lutris
-##Steam
-##nvidia-xrun
+# Fixing permissions
+# chmod -R g-w,o-w ./*
+
+# Making Workspaces
+cd ~
+mkdir -p {space,pwn}
+mkdir -p ./space/pictures
+mkdir -p ./space/downloads
 
 #Pentest Toolkits
 ##BlackArch Repos
+curl -O https://blackarch.org/strap.sh
+chmod +x ./strap.sh
+sudo ./strap.sh
+rm strap.sh
+
 ##Tools based on categorisation
 ##Tools configuration
 
 #Note Taking Setup
 #Marktext
+
 #Automation of Backup and Restoration
+## GNOME settings
 #dconf dump / > saved_settings.dconf
 #dconf load / < saved_settings.dconf
+# zshrc ohmyzsh 
+
+# Gnome Themes
+wget https://github.com/daniruiz/flat-remix-gtk/archive/master.zip
+unzip master.zip
+cd flat-remix-gtk-master 
+sudo cp ./* /usr/share/themes/
+
+# Icons
+wget https://github.com/OrancheloTeam/oranchelo-icon-theme/archive/v0.8.0.1.tar.gz
+tar xvf v0.8.0.1.tar.gz
+cd oranchelo-icon-theme-0.8.0.1
+sudo cp -r ./* /usr/share/icons/
+
+# Cursor
+
+
 
 
 
