@@ -89,7 +89,7 @@ document-font-name='Roboto Light 11'
 enable-animations=true
 font-name='Roboto Light 11'
 gtk-im-module='gtk-im-context-simple'
-gtk-theme='aurora-next-monokai'
+gtk-theme='Numix'
 icon-theme='Oranchelo'
 monospace-font-name='IBM Plex Mono 10'
 
@@ -257,7 +257,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [org/gnome/nautilus/window-state]
-initial-size=(946, 642)
+initial-size=(946, 635)
 maximized=false
 sidebar-width=211
 start-with-sidebar=true
@@ -299,7 +299,7 @@ hinting='slight'
 app-picker-view=uint32 1
 command-history=['r']
 disable-user-extensions=false
-enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'pixel-saver@deadalnix.me', 'Hide_Activities@shay.shayel.org', 'transparency@franglais125.gmail.com', 'transparent-top-bar@zhanghai.me', 'no-workspace-switcher-popup@devbury.com', 'wsmatrix@martin.zurowietz.de', 'remove-dropdown-arrows@mpdeimos.com', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'dash-to-panel@jderose9.github.com', 'cpupower@mko-sl.de', 'simplenetspeed@biji.extension']
+enabled-extensions=['user-theme@gnome-shell-extensions.gcampax.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'pixel-saver@deadalnix.me', 'Hide_Activities@shay.shayel.org', 'transparency@franglais125.gmail.com', 'transparent-top-bar@zhanghai.me', 'no-workspace-switcher-popup@devbury.com', 'wsmatrix@martin.zurowietz.de', 'dash-to-panel@jderose9.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'cpupower@mko-sl.de']
 favorite-apps=['firefox.desktop', 'org.gnome.Nautilus.desktop', 'cherrytree.desktop', 'org.gnome.Terminal.desktop']
 
 [org/gnome/shell/extensions/caffeine]
@@ -314,8 +314,8 @@ show-freq-in-taskbar=true
 taskbar-freq-unit-ghz=true
 
 [org/gnome/shell/extensions/dash-to-panel]
-appicon-margin=8
-appicon-padding=4
+appicon-margin=6
+appicon-padding=3
 dot-color-1='#5294e2'
 dot-color-2='#5294e2'
 dot-color-3='#5294e2'
@@ -347,9 +347,9 @@ isolate-workspaces=true
 leave-timeout=100
 leftbox-padding=-1
 leftbox-size=0
-location-clock='STATUSLEFT'
+location-clock='BUTTONSRIGHT'
 panel-position='TOP'
-panel-size=30
+panel-size=27
 secondarymenu-contains-showdetails=false
 show-activities-button=false
 show-appmenu=false
@@ -357,7 +357,7 @@ show-favorites=true
 show-show-apps-button=false
 show-showdesktop-button=true
 show-tooltip=true
-status-icon-padding=-1
+status-icon-padding=3
 stockgs-keep-dash=false
 stockgs-panelbtn-click-only=false
 taskbar-position='LEFTPANEL_FLOATCENTER'
@@ -365,7 +365,7 @@ trans-panel-opacity=0.0
 trans-use-custom-bg=false
 trans-use-custom-opacity=true
 trans-use-dynamic-opacity=false
-tray-padding=-1
+tray-padding=4
 tray-size=0
 window-preview-height=160
 window-preview-padding=10
@@ -403,7 +403,7 @@ x-pos=100.0
 y-pos=100.0
 
 [org/gnome/shell/extensions/simplenetspeed]
-mode=3
+mode=2
 
 [org/gnome/shell/extensions/status-area-horizontal-spacing]
 hpadding=6
