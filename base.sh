@@ -169,7 +169,7 @@ arch_chroot "pacman -S --noconfirm atom libreoffice-fresh-en-gb"
 
 # Fonts
 #read -p "install fonts"
-arch_chroot "pacman -S --noconfirm noto-fonts-emoji ttf-roboto otf-overpass ttf-ibm-plex ttf-hack ttf-liberation ttf-ubuntu-font-family fontconfig"
+arch_chroot "pacman -S --noconfirm noto-fonts-emoji noto-fonts ttf-roboto otf-overpass ttf-ibm-plex ttf-hack ttf-liberation ttf-ubuntu-font-family fontconfig"
 
 # CUPS
 arch_chroot "pacman -S --noconfirm cups cups-pdf"
