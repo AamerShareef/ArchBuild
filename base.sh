@@ -242,7 +242,10 @@ yay vmware-workstation
 # sudo sysmtectl start vmware-hostd.service 
 # sudo modprobe -a vmw_vmci vmmon
 
-
+# Firefox Tweaks
+# about:config
+# layers.acceleration.force-enabled = true
+# Create a new string -> network.security.ports.banned.override add values 1-65535
 
 
 # smb services rpcbind nfs services? refer lilo
