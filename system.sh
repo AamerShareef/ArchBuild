@@ -1,6 +1,7 @@
 #!/bin/bash
 USERNAME=""
 
+
 ################ Next Phase
 # Restore Backups
 # [BACKUP] Settings in ~/.config/libinput-gestures.conf
@@ -30,7 +31,7 @@ cd ..
 rm -rf yay
 
 # Install VMWare Workstation
-sudo pacman -S linux-headers fuse2 gtkmm libcanberra pcsclite
+sudo pacman -S linux-headers fuse2 gtkmm libcanberra pcsclite --noconfirm
 yay vmware-workstation
 # VMWare start up script
 # sudo systemctl start vmware-networks.service
@@ -52,9 +53,6 @@ yay nvidia-xrun
 #undervolt
 
 
-## User directory fix - Nautilus side bar
-# https://unix.stackexchange.com/questions/269940/remove-folders-from-left-panel-in-nautilus
-vim ~/.config/user-dirs.dirs
 
 # Fixing permissions
 # chmod -R g-w,o-w ./*
@@ -94,3 +92,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 sudo pacman -S jq
 rm -f ./install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./install-gnome-extensions.sh && chmod +x install-gnome-extensions.sh && ./install-gnome-extensions.sh
 ./install-gnome-extensions.sh -e --file gnome-extensions.txt
+
+## User directory fix - Nautilus side bar
+# https://unix.stackexchange.com/questions/269940/remove-folders-from-left-panel-in-nautilus
+vim ~/.config/user-dirs.dirs
