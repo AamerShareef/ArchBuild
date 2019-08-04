@@ -39,15 +39,7 @@ yay vmware-workstation
 sudo pacman -S steam lutris --noconfirm
 yay nvidia-xrun
 
-# Making Workspaces
-cd ~
-mkdir -p {space,pwn,notes}
-mkdir -p ./space/pictures
-mkdir -p ./space/downloads
-mkdir -p ./pwn/{binaries/{win,unix},boxes,connect,exploits,opt,vm}
-
-#Note Taking Setup
-#Marktext
+# Installing Mark Text
 wget https://github.com/marktext/marktext/releases/download/v0.15.0-rc.3/marktext-0.15.0-rc.3-x64.tar.gz -O marktext.tar.gz
 gunzip marktext.tar.gz
 tar xvf marktext.tar
@@ -71,6 +63,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 
 ########## Gnome Things
 # Gnome restore saved_settings
+pwd
 read -p "gnome restore?"
 dconf load / < ./gnome/gnome_settings
 sleep 3
@@ -85,6 +78,14 @@ sudo pacman -S jq
 rm -f ./install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./install-gnome-extensions.sh && chmod +x install-gnome-extensions.sh && ./install-gnome-extensions.sh
 ./install-gnome-extensions.sh -e --file ./gnome/gnome_extensions
 rm install-gnome-extensions.sh
+
+# Making Workspaces
+cd ~
+mkdir -p {space,pwn,notes}
+mkdir -p ./space/pictures
+mkdir -p ./space/downloads
+mkdir -p ./pwn/{binaries/{win,unix},boxes,connect,exploits,opt,vm}
+rm -rf Desktop Do* Mus* Pict* Vid* Temp* Publi*
 
 ## User directory fix - Nautilus side bar
 # https://unix.stackexchange.com/questions/269940/remove-folders-from-left-panel-in-nautilus
