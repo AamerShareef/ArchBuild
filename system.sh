@@ -1,5 +1,4 @@
 #!/bin/bash
-cp ./dotfiles/.zshrc ~/
 # Installing Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -90,7 +89,7 @@ rm -rf Desktop Do* Mus* Pict* Vid* Temp* Publi*
 ## User directory fix - Nautilus side bar
 # https://unix.stackexchange.com/questions/269940/remove-folders-from-left-panel-in-nautilus
 vim ~/.config/user-dirs.dirs
-
+cp ./dotfiles/.zshrc ~/
 # smb services rpcbind nfs services? refer lilo
 #undervolt
 
