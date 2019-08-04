@@ -268,8 +268,8 @@ yay vmware-workstation
 #Note Taking Setup
 #Marktext
 #Automation of Backup and Restoration
-
-
+#dconf dump / > saved_settings.dconf
+#dconf load / < saved_settings.dconf
 
 
 
