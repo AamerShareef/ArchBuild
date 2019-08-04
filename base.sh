@@ -46,13 +46,9 @@ cat /etc/pacman.d/mirrorlist
 #read -p "Press Enter"
 
 ## Partitioning
-#read -p "Partitioning .. Hit Enter"
-fdisk -l 
 echo "Running blkdiscard. All data will be destroyed!"
 blkdiscard $DEVICE
 lsblk
-#read -p "Press Enter"
-
 parted -s $DEVICE mklabel gpt mkpart primary fat32 1MiB 512MiB mkpart primary ext4 512MiB 100% set 1 boot on
 sgdisk -t=1:ef00 $DEVICE
 sgdisk -t=2:8e00 $DEVICE
@@ -61,16 +57,15 @@ sgdisk -t=2:8e00 $DEVICE
 #read -p "Creating LUKS... Hit Enter"
 echo -n "$ENC_PASS" | cryptsetup --cipher aes-xts-plain64 --key-size=256 --key-file=- luksFormat --type luks2 ${DEVICE}p2
 echo -n "$ENC_PASS" | cryptsetup --allow-discards --persistent --key-file=- open ${DEVICE}p2 cryptlvm
-sleep 5
+sleep 2
 
 ## LVM Creation
 #read -p "Creating LVM.. Hit Enter"
 pvcreate /dev/mapper/cryptlvm
 vgcreate lvm /dev/mapper/cryptlvm
-
 lvcreate -L 8G lvm -n swap
 lvcreate -l 100%FREE lvm -n root
-sleep 5
+sleep 2
 
 ## Format paritionsi
 #read -p "Formatting partitions ... Hit Enter"
@@ -135,30 +130,23 @@ arch_chroot "grub-mkconfig -o /boot/grub/grub.cfg"
 echo "Enter root password"
 arch_chroot "passwd"
 
-read -p "Phase 1 Done! Press Enter"
+#read -p "Phase 1 Done! Press Enter"
 ## Phase 2 
 clear
 echo "Starting Phase 2"
 # Enable Multilib
-read -p "Enable multilib: Press Enter"
-sed -i '95s/#//' /mnt/etc/pacman.conf
-sed -i '96s/#//' /mnt/etc/pacman.conf
-
-
+#read -p "Enable multilib: Press Enter"
 arch_chroot "nano /etc/pacman.conf"
-read -p "Did it work?"
 arch_chroot "pacman -Syyy"
 
 # Install Microcode 
 arch_chroot "pacman -S --noconfirm intel-ucode"
 
-
 # Xorg
-read -p "Enable Xorg installation Press Enter"
+#read -p "Enable Xorg installation Press Enter"
 arch_chroot "pacman -S --noconfirm xorg-server xorg-apps xorg-xinit xorg-xkill xorg-xinput xf86-input-libinput xdotool wmctrl xclip mesa"
 
 # Basic Tools
-
 arch_chroot "pacman -S --noconfirm bc rsync mlocate bash-completion pkgstats arch-wiki-lite vim git tree tmux"
 arch_chroot "updatedb"
 arch_chroot "pacman -S --noconfirm zip unzip unrar p7zip lzop cpio"
@@ -169,19 +157,18 @@ arch_chroot "pacman -S --noconfirm nfs-utils"
 arch_chroot "pacman -S --noconfirm wget samba smbnetfs"
 arch_chroot "pacman -S --noconfirm tlp powertop htop"
 
-
 # DE - GNOME
 arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gparted gpaste dconf-editor gnome-nettool gnome-usage polari ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourceview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
 arch_chroot "systemctl enable gdm" 
 arch_chroot "systemctl enable NetworkManager"
 
 # Other necessary applications
-read -p "install other applications "
+#read -p "install other applications "
 arch_chroot "pacman -S --noconfirm firefox"
 arch_chroot "pacman -S --noconfirm atom libreoffice-fresh-en-gb"
 
 # Fonts
-reap -p "install fonts"
+#read -p "install fonts"
 arch_chroot "pacman -S --noconfirm noto-fonts-emoji ttf-roboto otf-overpass ttf-ibm-plex ttf-hack ttf-liberation ttf-ubuntu-font-family fontconfig"
 
 # CUPS
@@ -189,13 +176,13 @@ arch_chroot "pacman -S --noconfirm cups cups-pdf"
 arch_chroot "systemctl enable org.cups.cupsd.service"
 
 # Drivers: GFX and Bluetooth
-read -p "Enable driver installations Press Enter"
+#read -p "Enable driver installations Press Enter"
 arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee bbswitch nvidia lib32-virtualgl lib32-nvidia-utils"
 arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
 arch_chroot "systemctl enable bluetooth"
 
 # Create new users
-read -p "Create new users?"
+#read -p "Create new users?"
 echo "Creating user $USERNAME..."
 arch_chroot "useradd -m -G bumblebee,wheel -s /bin/zsh $USERNAME"
 arch_chroot "passwd $USERNAME"
@@ -214,41 +201,59 @@ umount -R /mnt
 reboot
 
 
+################ Next Phase
+# Restore Backups 
+# [BACKUP] Settings in ~/.config/libinput-gestures.conf
+# [BACKUP] Dconf - restore gnome settings
+# [BACKUP] Grab zshrc and ohmyzsh files from backup
+# [BACKUP] Gnome Extensions
+# [BACKUP] Gnome themes, icons and cursors 
+
+
+# Installing Oh My Zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+# Installing Libinput gestures
+sudo pacman -S xdotool wmctrl
+sudo gpasswd -a $USERNAME input
+git clone https://github.com/bulletmark/libinput-gestures.git
+cd libinput-gestures
+sudo make install
+sudo libinput-gestures-setup autostart
+cd ..
+rm -rf libinput-gestures
+
+# Install yay
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ..
+rm -rf yay
+
+
+# Install Nvidia-Xrun
+yay nvidia-xrun
+
+# Install VMWare Workstation
+yay vmware-workstation
+# Vmware start up script
+# sudo sysmtectl start vmware-networks.service 
+# sudo sysmtectl start vmware-usbarbitrator.service 
+# sudo sysmtectl start vmware-hostd.service 
+# sudo modprobe -a vmw_vmci vmmon
 
 
 
-#AUR yay - This cannot be done as root ! 
-#arch_chroot "git clone https://aur.archlinux.org/yay.git"
-#arch_chroot "cd yay && makepkg -si"
-#libinput-gestures"
-#undervolt
+
 # smb services rpcbind nfs services? refer lilo
+#undervolt
 #virtual box and vmware ?
 
-
-
-#AUR yay - This cannot be done as root ! 
-#arch_chroot "su $USERNAME && cd /home/$USERNAME && git clone https://aur.archlinux.org/yay.git && cd yay && makepgk -si"
-#read -p "Enable color"
-#arch_chroot "nano /etc/pacman.conf"
-
-#libinput-gestures"
-#undervolt
-# smb services rpcbind nfs services? refer lilo
-#virtual box and vmware ?
-
-
-## Enable services
-#systemctl enable libinput-gestures
-#systemctl enable undervolt
-
-# Desktop Environment
 # Customizations - Setting Tweaking 
 # Dot Files management
-# Extensions Fonts Themes Icons Cursors
+
 ## USer directory fix
 ## Use x11 as default login
-#### Objectives left to do ######
 
 #Gaming setup
 ##Lutris
@@ -261,9 +266,9 @@ reboot
 ##Tools configuration
 
 #Note Taking Setup
-
+#Marktext
 #Automation of Backup and Restoration
-#
+
 
 
 
