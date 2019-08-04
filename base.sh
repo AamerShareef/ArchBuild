@@ -158,7 +158,7 @@ arch_chroot "pacman -S --noconfirm wget samba smbnetfs"
 arch_chroot "pacman -S --noconfirm tlp powertop htop"
 
 # DE - GNOME
-arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gparted dconf-editor gnome-nettool gnome-usage polari ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourceview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
+arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gparted gpaste dconf-editor gnome-nettool gnome-usage polari ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourceview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
 arch_chroot "systemctl enable gdm"
 arch_chroot "systemctl enable NetworkManager"
 
