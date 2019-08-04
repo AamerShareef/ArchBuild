@@ -64,7 +64,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 # Gnome restore saved_settings
 dconf load / < ./gnome/gnome_settings
 # Gnome install themes
-sudo unzip ./gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes
+sudo unzip ./gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes/
 # Gnome install icons
 sudo unzip ./gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
 # Gnome install cursors
