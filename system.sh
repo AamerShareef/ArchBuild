@@ -1,5 +1,5 @@
 #!/bin/bash
-
+cp ./dotfiles/.zshrc ~
 # Installing Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -71,7 +71,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 
 ########## Gnome Things
 # Gnome restore saved_settings
+read -p "gnome restore?"
 dconf load / < ./gnome/gnome_settings
+sleep 3
 # Gnome install themes
 sudo unzip ./gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes/
 # Gnome install icons
