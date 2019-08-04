@@ -17,7 +17,7 @@ function arch_chroot() {
    arch-chroot /mnt /bin/bash -c "${1}"
 }
 
-## Initialise 
+## Initialise
 mount -o remount,size=2G /run/archiso/cowspace
 
 ## Loadkeys
@@ -74,7 +74,7 @@ mkswap /dev/lvm/swap
 swapon /dev/lvm/swap
 mkfs.fat -F32 ${DEVICE}p1
 
-## Mounting 
+## Mounting
 #read -p "Mounting ... Hit Enter"
 mount /dev/lvm/root /mnt
 mkdir /mnt/boot
@@ -95,12 +95,12 @@ echo "KEYMAP=$KEYMAP" > /mnt/etc/vconsole.conf
 genfstab -t PARTUUID -p /mnt >> /mnt/etc/fstab
 
 ## Hostname
-#read -p "Hostname stuff.Hit Enter"  
+#read -p "Hostname stuff.Hit Enter"
 echo "$HOST_NAME" > /mnt/etc/hostname
 arch_chroot "sed -i '/127.0.0.1/s/$/ '${HOST_NAME}'/' /etc/hosts"
 arch_chroot "sed -i '/::1/s/$/ '${HOST_NAME}'/' /etc/hosts"
 
-## TimeZone 
+## TimeZone
 #read -p "Installing Timezone. Hit Enter"
 arch_chroot "ln -sf /usr/share/zoneinfo/Europe/London /etc/localtime"
 arch_chroot "hwclock --systohc --utc"
@@ -115,7 +115,7 @@ arch_chroot "locale-gen"
 #read -p "Installing mkinitcpio. Hit Enter"
 sed -i '/^HOOK/s/block/block keymap encrypt/' /mnt/etc/mkinitcpio.conf
 sed -i '/^HOOK/s/filesystems/lvm2 filesystems/' /mnt/etc/mkinitcpio.conf
-sed -i 's/^MODULES=(/MODULES=(i915/' /mnt/etc/mkinitcpio.conf.bak 
+sed -i 's/^MODULES=(/MODULES=(i915/' /mnt/etc/mkinitcpio.conf.bak
 arch_chroot "mkinitcpio -p linux"
 
 ## Install Bootloader
@@ -123,7 +123,7 @@ arch_chroot "mkinitcpio -p linux"
 sed -i 's/^GRUB_CMDLINE_LINUX="[^"]*/& cryptdevice=\/dev\/'"${LUKS_DEVICE}"'p2:cryptlvm:allow-discards root_trim=yes acpi_rev_override=1/g'  /mnt/etc/default/grub
 arch_chroot "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader-id=arch --recheck"
 arch_chroot "grub-mkconfig -o /boot/grub/grub.cfg"
-## Fix Grub config changes specifically for XPS 15 grub.efi location. - Done. 
+## Fix Grub config changes specifically for XPS 15 grub.efi location. - Done.
 #https://unix.stackexchange.com/questions/69112/how-can-i-use-variables-in-the-lhs-and-rhs-of-a-sed-substitution
 
 # Root passwd
@@ -131,7 +131,7 @@ echo "Enter root password"
 arch_chroot "passwd"
 
 #read -p "Phase 1 Done! Press Enter"
-## Phase 2 
+## Phase 2
 clear
 echo "Starting Phase 2"
 # Enable Multilib
@@ -139,7 +139,7 @@ echo "Starting Phase 2"
 arch_chroot "nano /etc/pacman.conf"
 arch_chroot "pacman -Syyy"
 
-# Install Microcode 
+# Install Microcode
 arch_chroot "pacman -S --noconfirm intel-ucode"
 
 # Xorg
@@ -159,7 +159,7 @@ arch_chroot "pacman -S --noconfirm tlp powertop htop"
 
 # DE - GNOME
 arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gparted gpaste dconf-editor gnome-nettool gnome-usage polari ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourceview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
-arch_chroot "systemctl enable gdm" 
+arch_chroot "systemctl enable gdm"
 arch_chroot "systemctl enable NetworkManager"
 
 # Other necessary applications
@@ -172,7 +172,7 @@ arch_chroot "pacman -S --noconfirm atom libreoffice-fresh-en-gb"
 arch_chroot "pacman -S --noconfirm noto-fonts-emoji ttf-roboto otf-overpass ttf-ibm-plex ttf-hack ttf-liberation ttf-ubuntu-font-family fontconfig"
 
 # CUPS
-arch_chroot "pacman -S --noconfirm cups cups-pdf" 
+arch_chroot "pacman -S --noconfirm cups cups-pdf"
 arch_chroot "systemctl enable org.cups.cupsd.service"
 
 # Drivers: GFX and Bluetooth
@@ -196,120 +196,6 @@ arch_chroot "mkinitcpio -p linux"
 
 
 # Unmount and reboot
-read -p "Umount and reboot?"
+read -p "Unmount and reboot?"
 umount -R /mnt
 reboot
-
-
-################ Next Phase
-# Restore Backups 
-# [BACKUP] Settings in ~/.config/libinput-gestures.conf
-# [BACKUP] Dconf - restore gnome settings
-# [BACKUP] Grab zshrc and ohmyzsh files from backup
-# [BACKUP] Gnome Extensions
-# [BACKUP] Gnome themes, icons and cursors 
-
-
-# Installing Oh My Zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-
-# Installing Libinput gestures
-sudo pacman -S xdotool wmctrl
-sudo gpasswd -a $USERNAME input
-git clone https://github.com/bulletmark/libinput-gestures.git
-cd libinput-gestures
-sudo make install
-cd ..
-libinput-gestures-setup autostart
-rm -rf libinput-gestures
-
-# Install yay
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-cd ..
-rm -rf yay
-
-# Install VMWare Workstation
-yay vmware-workstation
-# VMWare start up script
-# sudo sysmtectl start vmware-networks.service 
-# sudo sysmtectl start vmware-usbarbitrator.service 
-# sudo sysmtectl start vmware-hostd.service 
-# sudo modprobe -a vmw_vmci vmmon
-
-# Firefox Tweaks
-# about:config
-# layers.acceleration.force-enabled = true
-# Create a new string -> network.security.ports.banned.override add values 1-65535
-# Plugins: Foxy Proxy Ublock origin
-
-
-
-# Gaming Setup
-sudo pacman -S steam lutris --noconfirm
-yay nvidia-xrun
-
-# smb services rpcbind nfs services? refer lilo
-#undervolt
-#virtual box and vmware ?
-
-# Customizations - Setting Tweaking 
-# Dot Files management
-
-## USer directory fix
-## Use x11 as default login
-# https://unix.stackexchange.com/questions/269940/remove-folders-from-left-panel-in-nautilus
-vim ~/.config/user-dirs.dirs
-
-# Fixing permissions
-# chmod -R g-w,o-w ./*
-
-# Making Workspaces
-cd ~
-mkdir -p {space,pwn}
-mkdir -p ./space/pictures
-mkdir -p ./space/downloads
-
-#Pentest Toolkits
-##BlackArch Repos
-curl -O https://blackarch.org/strap.sh
-chmod +x ./strap.sh
-sudo ./strap.sh
-rm strap.sh
-
-##Tools based on categorisation
-##Tools configuration
-
-#Note Taking Setup
-#Marktext
-
-#Automation of Backup and Restoration
-## GNOME settings
-#dconf dump / > saved_settings.dconf
-#dconf load / < saved_settings.dconf
-
-# zshrc ohmyzsh 
-# Copy zshrc and ohmyzsh files from backup
-git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-
-# Gnome Themes
-wget https://github.com/daniruiz/flat-remix-gtk/archive/master.zip
-unzip master.zip
-cd flat-remix-gtk-master 
-sudo cp ./* /usr/share/themes/
-
-# Icons
-wget https://github.com/OrancheloTeam/oranchelo-icon-theme/archive/v0.8.0.1.tar.gz
-tar xvf v0.8.0.1.tar.gz
-cd oranchelo-icon-theme-0.8.0.1
-sudo cp -r ./* /usr/share/icons/
-
-# Cursor
-
-
-
-
-
-
