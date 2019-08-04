@@ -62,6 +62,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 
 ########## Gnome Things
 # Gnome restore saved_settings
+# gnome terminal themes https://mayccoll.github.io/Gogh/#0
+#  bash -c  "$(wget -qO- https://git.io/vQgMr)" 
 pwd
 read -p "gnome restore?"
 dconf load / < ./gnome/gnome_settings
