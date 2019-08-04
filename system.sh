@@ -1,4 +1,6 @@
 #!/bin/bash
+USERNAME=""
+
 ################ Next Phase
 # Restore Backups
 # [BACKUP] Settings in ~/.config/libinput-gestures.conf
