@@ -49,6 +49,16 @@ mkdir -p ./pwn/{binaries/{win,unix},boxes,connect,exploits,opt,vm}
 
 #Note Taking Setup
 #Marktext
+wget https://github.com/marktext/marktext/releases/download/v0.15.0-rc.3/marktext-0.15.0-rc.3-x64.tar.gz -O marktext.tar.gz
+gunzip marktext.tar.gz
+tar xvf marktext.tar
+cd marktext-0.15.0-rc.3-x64
+sudo mkdir /usr/share/marktext
+sudo cp ./* /usr/share/marktext
+sudo ln -s /usr/share/marktext /usr/bin/marktext
+cd ..
+rm -rf marktext*
+
 
 #Automation of Backup and Restoration
 ## GNOME settings
