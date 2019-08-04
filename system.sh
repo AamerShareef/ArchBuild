@@ -78,6 +78,8 @@ rm -f ./install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.c
 ./install-gnome-extensions.sh -e --file ./gnome/gnome_extensions
 rm install-gnome-extensions.sh
 
+# zshrc restore
+cp ./dotfiles/.zshrc ~/
 # Making Workspaces
 cd ~
 mkdir -p {space,pwn,notes}
@@ -89,7 +91,6 @@ rm -rf Desktop Do* Mus* Pict* Vid* Temp* Publi*
 ## User directory fix - Nautilus side bar
 # https://unix.stackexchange.com/questions/269940/remove-folders-from-left-panel-in-nautilus
 vim ~/.config/user-dirs.dirs
-cp ./dotfiles/.zshrc ~/
 # smb services rpcbind nfs services? refer lilo
 #undervolt
 
