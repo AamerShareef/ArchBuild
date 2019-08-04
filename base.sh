@@ -288,7 +288,11 @@ rm strap.sh
 ## GNOME settings
 #dconf dump / > saved_settings.dconf
 #dconf load / < saved_settings.dconf
+
 # zshrc ohmyzsh 
+# Copy zshrc and ohmyzsh files from backup
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
 # Gnome Themes
 wget https://github.com/daniruiz/flat-remix-gtk/archive/master.zip
