@@ -1,15 +1,6 @@
 #!/bin/bash
 USERNAME=""
 
-
-################ Next Phase
-# Restore Backups
-# [BACKUP] Settings in ~/.config/libinput-gestures.conf
-# [BACKUP] Dconf - restore gnome settings
-# [BACKUP] Grab zshrc and ohmyzsh files from backup
-# [BACKUP] Gnome Extensions
-# [BACKUP] Gnome themes, icons and cursors
-
 # Installing Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
@@ -45,17 +36,9 @@ yay vmware-workstation
 # Create a new string -> network.security.ports.banned.override add values 1-65535
 # Plugins: Foxy Proxy Ublock origin
 
-# Gaming Setup
+# Installing Gaming Setup
 sudo pacman -S steam lutris --noconfirm
 yay nvidia-xrun
-
-# smb services rpcbind nfs services? refer lilo
-#undervolt
-
-
-
-# Fixing permissions
-# chmod -R g-w,o-w ./*
 
 # Making Workspaces
 cd ~
@@ -63,8 +46,6 @@ mkdir -p {space,pwn,notes}
 mkdir -p ./space/pictures
 mkdir -p ./space/downloads
 mkdir -p ./pwn/{binaries/{win,unix},boxes,connect,exploits,opt,vm}
-
-
 
 #Note Taking Setup
 #Marktext
@@ -79,20 +60,27 @@ mkdir -p ./pwn/{binaries/{win,unix},boxes,connect,exploits,opt,vm}
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
 
-# Gnome Themes
-
-
-# Icons
-
-
-# Cursor
-
-
-# Gnome Extensions
+########## Gnome Things
+# Gnome restore saved_settings
+dconf load / < ./gnome/gnome_settings
+# Gnome install themes
+sudo unzip ./gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes
+# Gnome install icons
+sudo unzip ./gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
+# Gnome install cursors
+sudo unzip ./gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
+# Gnome install Extensions
 sudo pacman -S jq
 rm -f ./install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./install-gnome-extensions.sh && chmod +x install-gnome-extensions.sh && ./install-gnome-extensions.sh
-./install-gnome-extensions.sh -e --file gnome-extensions.txt
+./install-gnome-extensions.sh -e --file ./gnome/gnome_extensions
+rm install-gnome-extensions.sh
 
 ## User directory fix - Nautilus side bar
 # https://unix.stackexchange.com/questions/269940/remove-folders-from-left-panel-in-nautilus
 vim ~/.config/user-dirs.dirs
+
+# smb services rpcbind nfs services? refer lilo
+#undervolt
+
+# Fixing permissions
+# chmod -R g-w,o-w ./*
