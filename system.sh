@@ -66,7 +66,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 #  bash -c  "$(wget -qO- https://git.io/vQgMr)" 
 pwd
 read -p "gnome restore?"
-dconf load / < ./gnome/gnome_settings
+dconf load /org/gnome/ < ./gnome/gnome_settings
 sleep 3
 # Gnome install themes
 sudo unzip ./gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes/
@@ -75,10 +75,7 @@ sudo unzip ./gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
 # Gnome install cursors
 sudo unzip ./gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
 # Gnome install Extensions
-sudo pacman -S jq
-rm -f ./install-gnome-extensions.sh; wget -N -q "https://raw.githubusercontent.com/cyfrost/install-gnome-extensions/master/install-gnome-extensions.sh" -O ./install-gnome-extensions.sh && chmod +x install-gnome-extensions.sh && ./install-gnome-extensions.sh
-./install-gnome-extensions.sh -e --file ./gnome/gnome_extensions
-rm install-gnome-extensions.sh
+
 
 # zshrc restore
 cp ./dotfiles/.zshrc ~/
