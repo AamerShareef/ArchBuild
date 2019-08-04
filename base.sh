@@ -219,8 +219,8 @@ sudo gpasswd -a $USERNAME input
 git clone https://github.com/bulletmark/libinput-gestures.git
 cd libinput-gestures
 sudo make install
-sudo libinput-gestures-setup autostart
 cd ..
+libinput-gestures-setup autostart
 rm -rf libinput-gestures
 
 # Install yay
