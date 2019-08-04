@@ -1,12 +1,11 @@
 #!/bin/bash
-USERNAME=""
 
 # Installing Oh My Zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 # Installing Libinput gestures
 sudo pacman -S xdotool wmctrl
-sudo gpasswd -a $USERNAME input
+sudo gpasswd -a $USER input
 git clone https://github.com/bulletmark/libinput-gestures.git
 cd libinput-gestures
 sudo make install
