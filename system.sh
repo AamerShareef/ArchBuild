@@ -55,7 +55,7 @@ tar xvf marktext.tar
 cd marktext-0.15.0-rc.3-x64
 sudo mkdir /usr/share/marktext
 sudo cp -r ./* /usr/share/marktext
-sudo ln -s /usr/share/marktext /usr/bin/marktext
+sudo ln -s /usr/share/marktext/marktext /usr/bin/marktext
 cd ..
 rm -rf marktext*
 
