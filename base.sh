@@ -2,14 +2,15 @@
 # https://askubuntu.com/questions/474556/hiding-output-of-a-command
 
 ## Variable Declarations
+HOST_NAME=zangetsu
+ENC_PASS="archlinux"
 USERNAME="value"
 USERPASS=""
 ROOTPASS=""
+
 EDITOR=vim
 COUNTRY=GB
-ENC_PASS="archlinux"
 KEYMAP=uk
-HOST_NAME=zangetsu
 DEVICE=/dev/nvme0n1
 LOCALE="en_GB"
 LOCALE_UTF8="${LOCALE}.UTF-8"
@@ -44,7 +45,7 @@ rm /etc/pacman.d/mirrorlist.tmp
 chmod +r /etc/pacman.d/mirrorlist
 cat /etc/pacman.d/mirrorlist
 #read -p "Press Enter"
-) > /dev/null
+) > /dev/null 2>&1
 
 ## Partitioning
 echo "Setting up Drives!"
@@ -82,7 +83,7 @@ mount /dev/lvm/root /mnt
 mkdir /mnt/boot
 mount ${DEVICE}p1 /mnt/boot
 mount /dev/lvm/root /mnt
-) > /dev/null 
+) > /dev/null 2>&1
 
 ## Installing Base System
 echo "Installing Base System"
@@ -136,11 +137,11 @@ arch_chroot "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader
 arch_chroot "grub-mkconfig -o /boot/grub/grub.cfg"
 ## Fix Grub config changes specifically for XPS 15 grub.efi location. - Done.
 #https://unix.stackexchange.com/questions/69112/how-can-i-use-variables-in-the-lhs-and-rhs-of-a-sed-substitution
-) > /dev/null
+) > /dev/null 2>&1
 
 # Root passwd
 echo "Setting Root Password!"
-printf "$ROOTPASS\n$ROOTPASS" | arch-chroot /mnt passwd root
+(printf "$ROOTPASS\n$ROOTPASS" | arch-chroot /mnt passwd root) > /dev/null 2>&1
 #arch_chroot "passwd"
 
 echo "Phase 1 Done! Press Enter"
@@ -193,18 +194,19 @@ arch_chroot "systemctl enable org.cups.cupsd.service"
 arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee bbswitch nvidia lib32-virtualgl lib32-nvidia-utils"
 arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
 arch_chroot "systemctl enable bluetooth"
-) > /dev/null
+) > /dev/null 2>&1
 
 # Create new users
 #read -p "Create new users?"
 echo "Creating user $USERNAME..."
-arch_chroot "useradd -m -G bumblebee,wheel -s /bin/zsh $USERNAME"
+(arch_chroot "useradd -m -G bumblebee,wheel -s /bin/zsh $USERNAME"
 printf "$USERPASS\n$USERPASS" | arch-chroot /mnt passwd $USERNAME
 #arch_chroot "passwd $USERNAME"
 sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /mnt/etc/sudoers
 arch_chroot "systemctl enable bumblebeed"
+) >/dev/null 2>&1
 
-read -p "Done! Enjoy your arch linux installation!"
+echo "Done! Enjoy your arch linux installation!"
 # Unmount and reboot
 read -p "Unmount and reboot?"
 umount -R /mnt
