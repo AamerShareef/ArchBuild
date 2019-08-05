@@ -101,7 +101,7 @@ default-folder-viewer='icon-view'
 search-filter-time-type='last_modified'
 
 [nautilus/window-state]
-initial-size=(890, 547)
+initial-size=(890, 546)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
@@ -135,7 +135,7 @@ hinting='slight'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['cpupower@mko-sl.de', 'dash-to-panel@jderose9.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']
+enabled-extensions=['cpupower@mko-sl.de', 'dash-to-panel@jderose9.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'remove-rounded-corners@markbokil.com', 'no-workspace-switcher-popup@devbury.com']
 favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop']
 
 [shell/extensions/cpupower]
@@ -172,10 +172,13 @@ test-notification=false
 x-pos=100.0
 
 [shell/extensions/simplenetspeed]
-mode=2
+mode=4
 
 [shell/keybindings]
 toggle-overview=@as []
+
+[software]
+check-timestamp=int64 1564988732
 
 [terminal/legacy/profiles:]
 default='5aaea1e5-8835-4458-8fa3-5c5ea2ee9050'
