@@ -48,6 +48,7 @@ cat /etc/pacman.d/mirrorlist
 
 ## Partitioning
 echo "Running blkdiscard. All data will be destroyed!"
+(
 blkdiscard $DEVICE
 lsblk
 parted -s $DEVICE mklabel gpt mkpart primary fat32 1MiB 512MiB mkpart primary ext4 512MiB 100% set 1 boot on
@@ -66,7 +67,7 @@ pvcreate /dev/mapper/cryptlvm
 vgcreate lvm /dev/mapper/cryptlvm
 lvcreate -L 8G lvm -n swap
 lvcreate -l 100%FREE lvm -n root
-sleep 2
+sleep 1
 
 ## Format paritionsi
 #read -p "Formatting partitions ... Hit Enter"
@@ -81,7 +82,7 @@ mount /dev/lvm/root /mnt
 mkdir /mnt/boot
 mount ${DEVICE}p1 /mnt/boot
 mount /dev/lvm/root /mnt
-
+) > /dev/null 
 ## Installing Base System
 #read -p "Installing Base System . Hit Enter"
 pacman -Sy archlinux-keyring --noconfirm
@@ -98,8 +99,8 @@ genfstab -t PARTUUID -p /mnt >> /mnt/etc/fstab
 ## Hostname
 #read -p "Hostname stuff.Hit Enter"
 echo "$HOST_NAME" > /mnt/etc/hostname
-arch_chroot "sed -i '/127.0.0.1/s/$/ '${HOST_NAME}'/' /etc/hosts"
-arch_chroot "sed -i '/::1/s/$/ '${HOST_NAME}'/' /etc/hosts"
+sed -i '/127.0.0.1/s/$/ '${HOST_NAME}'/' /mnt/etc/hosts
+sed -i '/::1/s/$/ '${HOST_NAME}'/' /mnt/etc/hosts
 
 ## TimeZone
 #read -p "Installing Timezone. Hit Enter"
@@ -164,7 +165,7 @@ arch_chroot "pacman -S --noconfirm wget samba smbnetfs"
 arch_chroot "pacman -S --noconfirm tlp powertop htop"
 
 # DE - GNOME
-arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gparted gpaste dconf-editor gnome-nettool gnome-usage polari ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourceview2 gnome-software nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
+arch_chroot "pacman -S --noconfirm gnome gnome-tweak-tool gparted gpaste dconf-editor gnome-nettool gnome-usage polari ghex gnome-bluetooth network-manager-applet gcolor3 gconf pygtk pygtksourceview2  nautilus-share gnome-power-manager gedit-plugins chrome-gnome-shell gnome-initial-setup dmenu"
 arch_chroot "systemctl enable gdm"
 arch_chroot "systemctl enable NetworkManager"
 
@@ -192,15 +193,10 @@ arch_chroot "systemctl enable bluetooth"
 echo "Creating user $USERNAME..."
 arch_chroot "useradd -m -G bumblebee,wheel -s /bin/zsh $USERNAME"
 arch_chroot "passwd $USERNAME"
-arch_chroot "visudo"
+sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /mnt/etc/sudoers
 arch_chroot "systemctl enable bumblebeed"
 
-# Intel Module
-read -p "DEBUG: Did it work?"
-arch_chroot "vim /etc/mkinitcpio.conf"
-#arch_chroot "echo options i915 enable_fbc=1 fastboot=1  enable_guc=2 > /etc/modprobe.d/i915.conf"
-arch_chroot "mkinitcpio -p linux"
-
+read -p "Done! Enjoy your arch linux installation!"
 # Unmount and reboot
 read -p "Unmount and reboot?"
 umount -R /mnt
