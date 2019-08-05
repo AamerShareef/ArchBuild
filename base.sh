@@ -3,6 +3,9 @@
 
 ## Variable Declarations
 USERNAME="value"
+USERPASS=""
+ROOTPASS=""
+
 EDITOR=vim
 COUNTRY=GB
 ENC_PASS="archlinux"
@@ -137,7 +140,8 @@ arch_chroot "grub-mkconfig -o /boot/grub/grub.cfg"
 
 # Root passwd
 echo "Enter root password"
-arch_chroot "passwd"
+printf "$ROOTPASS\n$ROOTPASS" | arch-chroot /mnt passwd root
+#arch_chroot "passwd"
 
 #read -p "Phase 1 Done! Press Enter"
 
@@ -145,7 +149,6 @@ arch_chroot "passwd"
 ## Phase 2
 clear
 echo "Starting Phase 2"
-
 # Install Microcode
 arch_chroot "pacman -S --noconfirm intel-ucode"
 
@@ -192,7 +195,8 @@ arch_chroot "systemctl enable bluetooth"
 #read -p "Create new users?"
 echo "Creating user $USERNAME..."
 arch_chroot "useradd -m -G bumblebee,wheel -s /bin/zsh $USERNAME"
-arch_chroot "passwd $USERNAME"
+printf "$USERPASS\n$USERPASS" | arch-chroot /mnt passwd $USERNAME
+#arch_chroot "passwd $USERNAME"
 sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /mnt/etc/sudoers
 arch_chroot "systemctl enable bumblebeed"
 
@@ -201,3 +205,4 @@ read -p "Done! Enjoy your arch linux installation!"
 read -p "Unmount and reboot?"
 umount -R /mnt
 reboot
+
