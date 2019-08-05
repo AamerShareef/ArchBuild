@@ -64,6 +64,8 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 # Gnome restore saved_settings
 # gnome terminal themes https://mayccoll.github.io/Gogh/#0
 #  bash -c  "$(wget -qO- https://git.io/vQgMr)" 
+# Extensions 
+# http://www.bernaerts-nicolas.fr/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script#h2-all-in-one-installation-removal-script
 pwd
 read -p "gnome restore?"
 dconf load /org/gnome/ < ./gnome/gnome_settings
