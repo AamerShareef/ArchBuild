@@ -112,6 +112,12 @@ echo 'LANG="'$LOCALE_UTF8'"' > /mnt/etc/locale.conf
 arch_chroot "sed -i 's/#\('${LOCALE_UTF8}'\)/\1/' /etc/locale.gen"
 arch_chroot "locale-gen"
 
+# Enable Multilib
+#read -p "Enable multilib: Press Enter"
+sed -i "/\[multilib\]/,/Include/"'s/^#//' /mnt/etc/pacman.conf
+arch_chroot "nano /etc/pacman.conf"
+arch_chroot "pacman -Syyy"
+
 ## Configure mkinitcpio
 #read -p "Installing mkinitcpio. Hit Enter"
 sed -i '/^HOOK/s/block/block keymap encrypt/' /mnt/etc/mkinitcpio.conf
@@ -133,13 +139,11 @@ echo "Enter root password"
 arch_chroot "passwd"
 
 #read -p "Phase 1 Done! Press Enter"
+
+###########################################################################################################################################
 ## Phase 2
 clear
 echo "Starting Phase 2"
-# Enable Multilib
-#read -p "Enable multilib: Press Enter"
-arch_chroot "nano /etc/pacman.conf"
-arch_chroot "pacman -Syyy"
 
 # Install Microcode
 arch_chroot "pacman -S --noconfirm intel-ucode"
@@ -196,7 +200,6 @@ read -p "DEBUG: Did it work?"
 arch_chroot "vim /etc/mkinitcpio.conf"
 #arch_chroot "echo options i915 enable_fbc=1 fastboot=1  enable_guc=2 > /etc/modprobe.d/i915.conf"
 arch_chroot "mkinitcpio -p linux"
-
 
 # Unmount and reboot
 read -p "Unmount and reboot?"
