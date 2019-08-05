@@ -1,8 +1,10 @@
 [GPaste]
+save-history=false
 synchronize-clipboards=true
+track-changes=false
 
 [control-center]
-last-panel='power'
+last-panel='search'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -56,7 +58,7 @@ disable-microphone=true
 remember-recent-files=false
 
 [desktop/search-providers]
-disabled=['org.gnome.Epiphany.desktop', 'org.gnome.Software.desktop']
+disabled=['org.gnome.Epiphany.desktop', 'org.gnome.Software.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Characters.desktop', 'org.gnome.clocks.desktop', 'org.gnome.GPaste.Ui.desktop']
 sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
 
 [desktop/session]
@@ -99,7 +101,7 @@ default-folder-viewer='icon-view'
 search-filter-time-type='last_modified'
 
 [nautilus/window-state]
-initial-size=(890, 548)
+initial-size=(890, 547)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
