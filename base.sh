@@ -20,6 +20,7 @@ LUKS_DEVICE=nvme0n1
 function arch_chroot() {
    arch-chroot /mnt /bin/bash -c "${1}"
 }
+clear
 echo "Initialising..."
 (
 ## Initialise
