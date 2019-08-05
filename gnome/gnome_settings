@@ -135,11 +135,11 @@ hinting='slight'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['cpupower@mko-sl.de', 'dash-to-panel@jderose9.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension']
+enabled-extensions=['cpupower@mko-sl.de', 'dash-to-panel@jderose9.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']
 favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop']
 
 [shell/extensions/dash-to-panel]
-appicon-margin=4
+appicon-margin=8
 appicon-padding=2
 dot-position='TOP'
 dot-style-focused='DASHES'
@@ -163,8 +163,12 @@ trans-use-custom-opacity=true
 tray-padding=0
 tray-size=0
 
+[shell/extensions/panel-osd]
+test-notification=false
+x-pos=100.0
+
 [shell/extensions/simplenetspeed]
-mode=4
+mode=1
 
 [shell/keybindings]
 toggle-overview=@as []
