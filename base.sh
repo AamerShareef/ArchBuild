@@ -5,7 +5,6 @@
 USERNAME="value"
 USERPASS=""
 ROOTPASS=""
-
 EDITOR=vim
 COUNTRY=GB
 ENC_PASS="archlinux"
@@ -20,19 +19,16 @@ LUKS_DEVICE=nvme0n1
 function arch_chroot() {
    arch-chroot /mnt /bin/bash -c "${1}"
 }
-
+echo "Initialising..."
+(
 ## Initialise
 mount -o remount,size=2G /run/archiso/cowspace
-
 ## Loadkeys
 loadkeys uk
-
 ## Connect to internet
 #wifi-menu
-
 ## Editor
 pacman -Sy $EDITOR --noconfirm
-
 ## Mirror
 #read -p "Setting Mirrors.. Hit Enter"
 URL="https://www.archlinux.org/mirrorlist/?country=${COUNTRY}&use_mirror_status=on"
@@ -48,9 +44,10 @@ rm /etc/pacman.d/mirrorlist.tmp
 chmod +r /etc/pacman.d/mirrorlist
 cat /etc/pacman.d/mirrorlist
 #read -p "Press Enter"
+) > /dev/null
 
 ## Partitioning
-echo "Running blkdiscard. All data will be destroyed!"
+echo "Setting up Drives!"
 (
 blkdiscard $DEVICE
 lsblk
@@ -86,8 +83,10 @@ mkdir /mnt/boot
 mount ${DEVICE}p1 /mnt/boot
 mount /dev/lvm/root /mnt
 ) > /dev/null 
+
 ## Installing Base System
-#read -p "Installing Base System . Hit Enter"
+echo "Installing Base System"
+(
 pacman -Sy archlinux-keyring --noconfirm
 pacstrap /mnt base base-devel parted f2fs-tools net-tools iw wireless_tools wpa_supplicant dialog grub os-prober efibootmgr zsh
 
@@ -119,7 +118,7 @@ arch_chroot "locale-gen"
 # Enable Multilib
 #read -p "Enable multilib: Press Enter"
 sed -i "/\[multilib\]/,/Include/"'s/^#//' /mnt/etc/pacman.conf
-arch_chroot "nano /etc/pacman.conf"
+#arch_chroot "nano /etc/pacman.conf"
 arch_chroot "pacman -Syyy"
 
 ## Configure mkinitcpio
@@ -137,18 +136,22 @@ arch_chroot "grub-install --target=x86_64-efi --efi-directory=/boot --bootloader
 arch_chroot "grub-mkconfig -o /boot/grub/grub.cfg"
 ## Fix Grub config changes specifically for XPS 15 grub.efi location. - Done.
 #https://unix.stackexchange.com/questions/69112/how-can-i-use-variables-in-the-lhs-and-rhs-of-a-sed-substitution
+) > /dev/null
 
 # Root passwd
-echo "Enter root password"
+echo "Setting Root Password!"
 printf "$ROOTPASS\n$ROOTPASS" | arch-chroot /mnt passwd root
 #arch_chroot "passwd"
 
-#read -p "Phase 1 Done! Press Enter"
+echo "Phase 1 Done! Press Enter"
 
 ###########################################################################################################################################
 ## Phase 2
-clear
+#clear
 echo "Starting Phase 2"
+
+echo "Installing components..."
+(
 # Install Microcode
 arch_chroot "pacman -S --noconfirm intel-ucode"
 
@@ -190,6 +193,7 @@ arch_chroot "systemctl enable org.cups.cupsd.service"
 arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee bbswitch nvidia lib32-virtualgl lib32-nvidia-utils"
 arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
 arch_chroot "systemctl enable bluetooth"
+) > /dev/null
 
 # Create new users
 #read -p "Create new users?"
