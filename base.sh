@@ -3,8 +3,8 @@
 
 ## Variable Declarations
 HOST_NAME=zangetsu
-ENC_PASS="archlinux"
 USERNAME="value"
+ENC_PASS="archlinux"
 USERPASS=""
 ROOTPASS=""
 
