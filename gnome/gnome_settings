@@ -138,29 +138,33 @@ app-picker-view=uint32 1
 enabled-extensions=['cpupower@mko-sl.de', 'dash-to-panel@jderose9.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']
 favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop']
 
+[shell/extensions/cpupower]
+profiles=[(0, 10, false, 'Energy Saver', '2235255354'), (0, 30, false, 'Quiet', '3492177154'), (20, 80, true, 'Multimedia', '3385255986'), (50, 100, true, 'High Performance', '1354971301')]
+taskbar-freq-unit-ghz=true
+
 [shell/extensions/dash-to-panel]
-appicon-margin=8
-appicon-padding=2
+appicon-margin=4
+appicon-padding=3
 dot-position='TOP'
 dot-style-focused='DASHES'
 dot-style-unfocused='SEGMENTED'
 hotkeys-overlay-combo='TEMPORARILY'
 intellihide=true
 intellihide-hide-from-windows=true
-leftbox-padding=1
-location-clock='BUTTONSRIGHT'
+leftbox-padding=-1
+location-clock='BUTTONSLEFT'
 panel-position='TOP'
-panel-size=26
+panel-size=27
 show-favorites=true
 show-show-apps-button=false
 show-showdesktop-button=false
 show-window-previews=false
 status-icon-padding=4
-taskbar-position='LEFTPANEL_FLOATCENTER'
+taskbar-position='LEFTPANEL_FIXEDCENTER'
 trans-panel-opacity=0.0
 trans-use-custom-bg=false
 trans-use-custom-opacity=true
-tray-padding=0
+tray-padding=4
 tray-size=0
 
 [shell/extensions/panel-osd]
@@ -168,7 +172,7 @@ test-notification=false
 x-pos=100.0
 
 [shell/extensions/simplenetspeed]
-mode=1
+mode=2
 
 [shell/keybindings]
 toggle-overview=@as []
