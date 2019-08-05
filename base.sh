@@ -1,4 +1,5 @@
 #!/bin/bash
+# https://askubuntu.com/questions/474556/hiding-output-of-a-command
 
 ## Variable Declarations
 USERNAME="value"
@@ -115,7 +116,8 @@ arch_chroot "locale-gen"
 #read -p "Installing mkinitcpio. Hit Enter"
 sed -i '/^HOOK/s/block/block keymap encrypt/' /mnt/etc/mkinitcpio.conf
 sed -i '/^HOOK/s/filesystems/lvm2 filesystems/' /mnt/etc/mkinitcpio.conf
-sed -i 's/^MODULES=(/MODULES=(i915/' /mnt/etc/mkinitcpio.conf.bak
+sed -i 's/^MODULES=(/MODULES=(i915/' /mnt/etc/mkinitcpio.conf
+arch_chroot "echo options i915 enable_fbc=1 fastboot=1  enable_guc=2 > /etc/modprobe.d/i915.conf"
 arch_chroot "mkinitcpio -p linux"
 
 ## Install Bootloader
@@ -190,8 +192,9 @@ arch_chroot "visudo"
 arch_chroot "systemctl enable bumblebeed"
 
 # Intel Module
+read -p "DEBUG: Did it work?"
 arch_chroot "vim /etc/mkinitcpio.conf"
-arch_chroot "echo options i915 enable_fbc=1 fastboot=1  enable_guc=2 > /etc/modprobe.d/i915.conf"
+#arch_chroot "echo options i915 enable_fbc=1 fastboot=1  enable_guc=2 > /etc/modprobe.d/i915.conf"
 arch_chroot "mkinitcpio -p linux"
 
 
