@@ -867,6 +867,7 @@ default-size-rows=34
 font='IBM Plex Mono 10'
 foreground-color='#C7C7C8C8FFFF'
 palette=['#202024242d2d', '#FFFF8E8E8E8E', '#7E7EFDFDD0D0', '#FCFCADAD3F3F', '#6969B4B4F9F9', '#DDDD9292F6F6', '#8C8CE8E8ffff', '#C9C9CCCCCDCD', '#202024242d2d', '#FFFF8E8E8E8E', '#7E7EFDFDD0D0', '#FCFCADAD3F3F', '#6969B4B4F9F9', '#DDDD9292F6F6', '#8C8CE8E8ffff', '#C9C9CCCCCDCD']
+scrollback-lines=990000
 use-system-font=false
 use-theme-background=false
 use-theme-colors=false
