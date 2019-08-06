@@ -70,10 +70,13 @@ cd ..
 rm -rf marktext*
 
 # Setting up ZSH and ohmyzsh
-sh -c $(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)
+curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > install.#!/bin/sh
+chmod +x install.#!/bin/sh
+./install.sh
 git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-cp ./dotfiles/.zshrc ~/.zshrc
+cp ./dotfiles/.zshrc ~/
+rm install.sh
 
 # Install yay
 git clone https://aur.archlinux.org/yay.git
