@@ -21,7 +21,7 @@ rm -rf yay
 
 # Install VMWare Workstation
 sudo pacman -S linux-headers fuse2 gtkmm libcanberra pcsclite --noconfirm
-yay vmware-workstation
+#yay vmware-workstation
 # VMWare start up script
 # sudo systemctl start vmware-networks.service
 # sudo systemctl start vmware-usbarbitrator.service
@@ -67,9 +67,9 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/p
 # Extensions 
 # http://www.bernaerts-nicolas.fr/linux/76-gnome/345-gnome-shell-install-remove-extension-command-line-script#h2-all-in-one-installation-removal-script
 pwd
-read -p "gnome restore?"
+#read -p "gnome restore?"
 dconf load /org/gnome/ < ./gnome/gnome_settings
-sleep 3
+#sleep 3
 # Gnome install themes
 sudo unzip ./gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes/
 # Gnome install icons
@@ -77,6 +77,7 @@ sudo unzip ./gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
 # Gnome install cursors
 sudo unzip ./gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
 # Gnome install Extensions
+#./gnome-install.sh --install --extension-id 448 --user --version latest
 
 
 # zshrc restore
