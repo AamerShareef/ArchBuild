@@ -222,6 +222,12 @@ arch_chroot "pacman -S xdotool wmctrl --noconfirm"
 arch_chroot "chown -hR $USERNAME:$USERNAME /home/$USERNAME/"
 ) >/dev/null 2>&1
 
+echo "Setting up BlackArch Repos.."
+arch_chroot "curl -O https://blackarch.org/strap.sh"
+arch_chroot "chmod +x /root/strap.sh"
+arch_chroot "/root/strap.sh"
+arch_chroot "rm /root/strap.sh"
+
 echo "Done! Enjoy your arch linux installation!"
 # Unmount and reboot
 read -p "Unmount and reboot?"
