@@ -2,16 +2,27 @@
 
 # Run this script after rebooting into DE
 
+# Setting up ZSH and ohmyzsh
+echo "Setting up Oh My Zsh!"
+rm -rf ~/.oh-my-zsh
+curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > install.sh
+chmod +x install.sh
+./install.sh
+git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+cp ./dotfiles/.zshrc ~/
+rm install.sh
+
 # Gnome Environment restore
 echo "Setting up you Gnome environment!"
-(
+
 dconf load /org/gnome/ < ./gnome/gnome_settings
 # eyecandy - themes,icons & cursors
-unzip -o ./gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes/
-unzip -o ./gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
-unzip -o ./gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
+sudo unzip -o -q ./gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes/
+sudo unzip -o -q ./gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
+sudo unzip -o -q ./gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
 # Dash to Panel
-./gnome/gnome-install.sh --install --extension-id 1160 --system --version latest
+( ./gnome/gnome-install.sh --install --extension-id 1160 --system --version latest
 # Panel OSD
 ./gnome/gnome-install.sh --install --extension-id 708 --system --version latest
 # Caffeine
@@ -68,15 +79,6 @@ sudo cp -r ./* /usr/share/marktext
 sudo ln -s /usr/share/marktext/marktext /usr/bin/marktext
 cd ..
 rm -rf marktext*
-
-# Setting up ZSH and ohmyzsh
-curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > install.#!/bin/sh
-chmod +x install.#!/bin/sh
-./install.sh
-git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions
-git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
-cp ./dotfiles/.zshrc ~/
-rm install.sh
 
 # Install yay
 git clone https://aur.archlinux.org/yay.git
