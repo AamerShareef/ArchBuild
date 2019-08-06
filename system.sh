@@ -77,7 +77,26 @@ sudo unzip ./gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
 # Gnome install cursors
 sudo unzip ./gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
 # Gnome install Extensions
-#./gnome-install.sh --install --extension-id 448 --user --version latest
+# Dash to Panel
+./gnome/gnome-install.sh --install --extension-id 1160 --system --version latest
+# Panel OSD
+./gnome/gnome-install.sh --install --extension-id 708 --system --version latest
+# Caffeine
+./gnome/gnome-install.sh --install --extension-id 517 --system --version latest
+# CPU Power Manager
+./gnome/gnome-install.sh --install --extension-id 945 --system --version latest
+# Simple Net Speed
+./gnome/gnome-install.sh --install --extension-id 1085 --system --version latest
+# Extended Gestures
+./gnome/gnome-install.sh --install --extension-id 1253 --system --version latest
+# Status Area Horizontal Spacing
+./gnome/gnome-install.sh --install --extension-id 355 --system --version latest
+# No workspace switcher popop
+./gnome/gnome-install.sh --install --extension-id 758 --system --version latest
+# Remove Drop Down Arrows
+./gnome/gnome-install.sh --install --extension-id 800 --system --version latest
+# Remove Rounded Arrows
+./gnome/gnome-install.sh --install --extension-id 448 --system --version latest
 
 
 # zshrc restore
