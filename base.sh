@@ -15,6 +15,7 @@ DEVICE=/dev/nvme0n1
 LOCALE="en_GB"
 LOCALE_UTF8="${LOCALE}.UTF-8"
 LUKS_DEVICE=nvme0n1
+BUILD_DIR=/home/$USERNAME/ArchBuild
 
 ## Change root
 function arch_chroot() {
@@ -207,9 +208,22 @@ sed -i '/%wheel ALL=(ALL) ALL/s/^#//' /mnt/etc/sudoers
 arch_chroot "systemctl enable bumblebeed"
 ) >/dev/null 2>&1
 
+####### System installation
+# Move files to Arch-Chroot
+
+
+#Other application dependencies
+echo "Setting up last stage...installing other dependencies"
+(
+cp --recursive ../ArchBuild /mnt$BUILD_DIR
+arch_chroot "pacman -S linux-headers fuse2 gtkmm libcanberra pcsclite --noconfirm --needed"
+arch_chroot "pacman -S steam lutris --noconfirm --needed"
+arch_chroot "pacman -S xdotool wmctrl --noconfirm"
+arch_chroot "chown -hR $USERNAME:$USERNAME /home/$USERNAME/"
+) >/dev/null 2>&1
+
 echo "Done! Enjoy your arch linux installation!"
 # Unmount and reboot
 read -p "Unmount and reboot?"
 umount -R /mnt
 reboot
-
