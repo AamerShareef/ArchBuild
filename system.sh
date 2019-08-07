@@ -47,7 +47,7 @@ sudo unzip -o -q ./gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
 mkdir -p /home/$USER/{space,pwn,notes}
 mkdir -p /home/$USER/space/pictures
 mkdir -p /home/$USER/space/downloads
-mkdir -p /home/$USER/pwn/{binaries/{win,unix},boxes,connect,exploits,opt,vm}
+mkdir -p /home/$USER/pwn/{binaries/{win,unix},boxes{oscp,htb},connect,exploits/{win,unix},opt,vm}
 rm -rf /home/$USER/D* /home/$USER/Mus* /home/$USER/Pict* /home/$USER/Vid* /home/$USER/Temp* /home/$USER/Publi*
 #echo XDG_DOWNLOAD_DIR=\$HOME/Downloads\
 #vim /home/$USER/.config/user-dirs.dirs
