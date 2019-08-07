@@ -70,7 +70,7 @@ libinput-gestures-setup autostart
 rm -rf libinput-gestures
 
 # Installing Mark Text
-wget https://github.com/marktext/marktext/releases/download/v0.15.0-rc.3/marktext-0.15.0-rc.3-x64.tar.gz -O marktext.tar.gz
+wget https://github.com/marktext/marktext/releases/download/v0.15.0/marktext-0.15.0-x64.tar.gz -O marktext.tar.gz
 gunzip marktext.tar.gz
 tar xvf marktext.tar
 cd ./marktext-*
