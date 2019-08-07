@@ -4,7 +4,7 @@ synchronize-clipboards=true
 track-changes=false
 
 [control-center]
-last-panel='search'
+last-panel='power'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -20,7 +20,14 @@ categories=['X-SuSE-YaST']
 name='suse-yast.directory'
 translate=true
 
+[desktop/background]
+picture-options='zoom'
+picture-uri='file:///usr/share/backgrounds/gnome/Fabric.jpg'
+primary-color='#ffffff'
+secondary-color='#000000'
+
 [desktop/input-sources]
+current=uint32 0
 sources=[('xkb', 'gb')]
 xkb-options=['caps:backspace']
 
@@ -56,13 +63,14 @@ two-finger-scrolling-enabled=true
 [desktop/privacy]
 disable-microphone=true
 remember-recent-files=false
+report-technical-problems=true
 
 [desktop/search-providers]
 disabled=['org.gnome.Epiphany.desktop', 'org.gnome.Software.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Characters.desktop', 'org.gnome.clocks.desktop', 'org.gnome.GPaste.Ui.desktop']
 sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
 
 [desktop/session]
-idle-delay=uint32 0
+idle-delay=uint32 300
 
 [desktop/sound]
 allow-volume-above-100-percent=true
@@ -126,8 +134,8 @@ command='gnome-terminal'
 name='Terminal'
 
 [settings-daemon/plugins/power]
-sleep-inactive-ac-type='nothing'
-sleep-inactive-battery-type='nothing'
+sleep-inactive-ac-type='suspend'
+sleep-inactive-battery-type='suspend'
 
 [settings-daemon/plugins/xsettings]
 antialiasing='grayscale'
@@ -135,8 +143,11 @@ hinting='slight'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['cpupower@mko-sl.de', 'dash-to-panel@jderose9.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'remove-rounded-corners@markbokil.com', 'no-workspace-switcher-popup@devbury.com']
+enabled-extensions=['cpupower@mko-sl.de', 'dash-to-panel@jderose9.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'remove-rounded-corners@markbokil.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'extendedgestures@mpiannucci.github.com', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com']
 favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop']
+
+[shell/extensions/caffeine]
+user-enabled=true
 
 [shell/extensions/cpupower]
 profiles=[(0, 10, false, 'Energy Saver', '2235255354'), (0, 30, false, 'Quiet', '3492177154'), (20, 80, true, 'Multimedia', '3385255986'), (50, 100, true, 'High Performance', '1354971301')]
@@ -172,20 +183,29 @@ test-notification=false
 x-pos=100.0
 
 [shell/extensions/simplenetspeed]
-mode=4
+mode=2
 
 [shell/keybindings]
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1564988732
+check-timestamp=int64 1565195542
+
+[system/location]
+enabled=false
+
+[terminal/legacy/profiles:]
+default='5aaea1e5-8835-4458-8fa3-5c5ea2ee9050'
+list=['5aaea1e5-8835-4458-8fa3-5c5ea2ee9050']
 
 [terminal/legacy/profiles:/:5aaea1e5-8835-4458-8fa3-5c5ea2ee9050]
 allow-bold=true
+audible-bell=false
 background-color='#202024242d2d'
 bold-color='#C7C7C8C8FFFF'
 bold-color-same-as-fg=true
 cursor-blink-mode='on'
+cursor-colors-set=false
 cursor-shape='underline'
 default-size-columns=120
 default-size-rows=34
@@ -197,7 +217,3 @@ use-system-font=false
 use-theme-background=false
 use-theme-colors=false
 visible-name='neon-night'
-
-[terminal/legacy/profiles:]
-default='5aaea1e5-8835-4458-8fa3-5c5ea2ee9050'
-list=['5aaea1e5-8835-4458-8fa3-5c5ea2ee9050']
