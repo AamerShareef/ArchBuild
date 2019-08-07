@@ -216,17 +216,58 @@ arch_chroot "systemctl enable bumblebeed"
 echo "Setting up last stage...installing other dependencies"
 (
 cp --recursive ../ArchBuild /mnt$BUILD_DIR
-arch_chroot "pacman -S linux-headers fuse2 gtkmm libcanberra pcsclite --noconfirm --needed"
-arch_chroot "pacman -S steam lutris --noconfirm --needed"
+arch_chroot "pacman -S --noconfirm --needed linux-headers fuse2 gtkmm libcanberra pcsclite"
+arch_chroot "pacman -S --noconfirm --needed vulkan-icd-loader lib32-vulkan-icd-loader steam lutris"
+arch_chroot "pacman -S --noconfirm --needed wine giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libpulse lib32-libpulse libgpg-error lib32-libgpg-error alsa-plugins lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama ncurses lib32-ncurses opencl-icd-loader lib32-opencl-icd-loader libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs vulkan-icd-loader lib32-vulkan-icd-loader cups samba"
 arch_chroot "pacman -S xdotool wmctrl --noconfirm"
 arch_chroot "chown -hR $USERNAME:$USERNAME /home/$USERNAME/"
 ) >/dev/null 2>&1
 
 echo "Setting up BlackArch Repos.."
 arch_chroot "curl -O https://blackarch.org/strap.sh"
-arch_chroot "chmod +x /root/strap.sh"
-arch_chroot "/root/strap.sh"
-arch_chroot "rm /root/strap.sh"
+arch_chroot "chmod +x ./strap"
+arch_chroot "./strap.sh"
+arch_chroot "rm ./strap.sh"
+
+echo "Setting up Pwnage TOOLS!"
+(
+arch_chroot "pacman -S --noconfirm --needed nmap gnu-netcat net-snmp unicornscan masscan netdiscover netcat wireshark-qt tcpdump nbtscan amap knock"
+arch_chroot "pacman -S --noconfirm --needed dnsrecon"
+
+arch_chroot "pacman -S --noconfirm --needed responder testssl.sh sslyze"
+
+arch_chroot "pacman -S --noconfirm --needed metasploit exploitdb sploitctl"
+
+arch_chroot "pacman -S --noconfirm --needed nikto cadaver davtest gobuster burpsuite sqlmap wafw00f wpscan dotdotpwn wfuzz w3af dirb dirbuster joomscan wascan"
+arch_chroot "pacman -S --noconfirm --needed oscanner tnscmd blackarch/webshells whatweb cewl beef apache droopescan mssqlscan"
+
+#Forensic
+arch_chroot "pacman -S --noconfirm --needed blackarch/ntdsxtract"
+
+arch_chroot "pacman -S --noconfirm --needed edb mingw-w64-gcc gdb strace glibc  autoconf libtool nasm"
+
+arch_chroot "pacman -S --noconfirm --needed enum4linux  net-snmp onesixtyone snmpcheck nbtenum snmpenum"
+
+arch_chroot "pacman -S --noconfirm --needed hydra hashcat ncrack medusa hash-identifier blackarch/crackmapexec john pyrit hashid opencl-nvidia crunch smbcrunch community/fcrackzip  multilib/lib32-cracklib"
+
+arch_chroot "pacman -S --noconfirm --needed perl-image-exiftool exiv2 aircrack-ng"
+# rpcclient? hyperion? powershell evasion ? hyperion has new version - check it out!
+arch_chroot "pacman -S --noconfirm --needed blackarch/veil blackarch/hyperion-crypter blackarch/mimikatz blackarch/rsactftool"
+
+arch_chroot "pacman -S --noconfirm --needed blackarch/windows-privesc-check blackarch/linux-exploit-suggester.sh"
+
+arch_chroot "pacman -S --noconfirm --needed smbclient smbexec smbmap sambascan"
+
+arch_chroot "pacman -S --noconfirm --needed community/sshuttle chisel 3proxy rpivot"
+arch_chroot "pacman -S --noconfirm --needed rdesktop postgresql putty community/perl-mail-sendmail exim  proxychains ranger  wine obs-studio tor openvpn community/freerdp rinetd extra/dmidecode community/dos2unix"
+
+arch_chroot "pacman -S --noconfirm --needed wordlistctl"
+## Python and python applications
+arch_chroot "pacman -S --noconfirm --needed python-pip community/python-pycryptodomex python-click community/python-paramiko python2-paramiko python-scp python2-scp pyinstaller python2-click blackarch/pymssql community/python2-pyftpdlib community/python-pipenv community/python2-pycryptodomex community/python2-gflags"
+) > /dev/null 2>&1
+
+## Seclist setup
+#wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O SecList.zip  && unzip SecList.zip  && rm -f SecList.zip
 
 echo "Done! Enjoy your arch linux installation!"
 # Unmount and reboot
