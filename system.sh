@@ -81,7 +81,7 @@ cd undervolt
 sudo python ./setup.py build
 sudo python ./setup.py install
 cd ..
-rm -rf undervolt
+sudo rm -rf undervolt
 sudo undervolt --core -100 --cache -100 --uncore -100 --analogio -100
 
 # Installing Mark Text
