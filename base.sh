@@ -225,7 +225,7 @@ arch_chroot "chown -hR $USERNAME:$USERNAME /home/$USERNAME/"
 
 echo "Setting up BlackArch Repos.."
 arch_chroot "curl -O https://blackarch.org/strap.sh"
-arch_chroot "chmod +x ./strap"
+arch_chroot "chmod +x ./strap.sh"
 arch_chroot "./strap.sh"
 arch_chroot "rm ./strap.sh"
 
