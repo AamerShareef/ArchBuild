@@ -74,7 +74,19 @@ sudo cp ./dotfiles/libinput-gestures.conf /etc/libinput-gestures.conf
 libinput-gestures-setup autostart
 rm -rf libinput-gestures
 
+# Installing undervolt
+echo "Installing Undervolt"
+git clone https://github.com/georgewhewell/undervolt.git
+cd undervolt
+sudo python ./setup.py build
+sudo python ./setup.py install
+cd ..
+rm -rf undervolt
+sudo undervolt --core -100 --cache -100 --uncore -100 --analogio -100
+
 # Installing Mark Text
+sudo rm -rf /usr/share/marktext
+sudo rm -rf /usr/bin/marktext
 wget https://github.com/marktext/marktext/releases/download/v0.15.0/marktext-0.15.0-x64.tar.gz -O marktext.tar.gz
 gunzip marktext.tar.gz
 tar xvf marktext.tar
