@@ -70,6 +70,7 @@ git clone https://github.com/bulletmark/libinput-gestures.git
 cd libinput-gestures
 sudo make install
 cd ..
+sudo cp ./dotfiles/libinput-gestures.conf /etc/libinput-gestures.conf
 libinput-gestures-setup autostart
 rm -rf libinput-gestures
 
