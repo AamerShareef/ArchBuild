@@ -41,6 +41,10 @@ sudo unzip -o -q ./gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
 ./gnome/gnome-install.sh --install --extension-id 800 --system --version latest
 # Remove Rounded Arrows
 ./gnome/gnome-install.sh --install --extension-id 448 --system --version latest
+# Removes Gnome Dash
+./gnome/gnome-install.sh --install --extension-id 1297 --system --version latest
+# Hide Activities Button
+./gnome/gnome-install.sh --install --extension-id 1128 --system --version latest
 )>/dev/null 2>&1
 
 # Making Workspaces
