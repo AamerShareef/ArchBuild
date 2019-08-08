@@ -163,7 +163,7 @@ arch_chroot "pacman -S --noconfirm intel-ucode"
 arch_chroot "pacman -S --noconfirm xorg-server xorg-apps xorg-xinit xorg-xkill xorg-xinput xf86-input-libinput xdotool wmctrl xclip mesa"
 
 # Basic Tools
-arch_chroot "pacman -S --noconfirm bc rsync mlocate bash-completion pkgstats arch-wiki-lite vim git tree tmux"
+arch_chroot "pacman -S --noconfirm bc rsync mlocate bash-completion pkgstats arch-wiki-lite vim git tree tmux stress"
 arch_chroot "updatedb"
 arch_chroot "pacman -S --noconfirm zip unzip unrar p7zip lzop cpio"
 arch_chroot "pacman -S  --noconfirm alsa-utils alsa-plugins"
