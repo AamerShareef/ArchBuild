@@ -177,13 +177,12 @@ function set_user(){
 function setup_pwntools(){
 echo "[-] Setting up Pwn tools"
 echo "[-] Installing Packages"
-#(
+(
 echo "Debug: Copying files to "
 cp ./$PWN_TOOLS /mnt
 arch_chroot "chmod +x arch-pwn.sh"
 arch_chroot "./arch-pwn.sh"
-
-#) > /dev/null 2>&1
+) > /dev/null 2>&1
 echo "[+] Packages installed!"
 echo "[+] Pwn tools setup!"
 
