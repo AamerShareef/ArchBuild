@@ -39,6 +39,7 @@ function setup_gnome(){
 
 function setup_zsh(){
   echo "[-] Setting up Zsh"
+
   rm -rf ~/.oh-my-zsh
   curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > install.sh
   chmod +x install.sh
@@ -84,7 +85,7 @@ function setup_gestures() {
 function setup_undervolt(){
 
   echo "[-] Installing Undervolt"
-  git clone https://github.com/georgewhewell/undervolt.git
+  git clone https://github.com/georgewhewell/undervolt.git >/dev/null 2>&1
   cd undervolt
   sudo python ./setup.py build > /dev/null 2>&1
   sudo python ./setup.py install > /dev/null 2>&1
