@@ -103,6 +103,12 @@ function setup_scripts(){
   chmod +x ./scripts/vmware-st*
   sudo cp ./scripts/vmware-st* /usr/local/bin/
   echo "[-] VMware Scripts Installed"
+  echo "[-] Undervolt Scripts"
+  sudo rm -rf /usr/bin/undervolt-start.sh >/dev/null 2>&1
+  sudo rm -rf /usr/bin/undervolt-stop.sh  >/dev/null 2>&1
+  chmod +x ./scripts/undervolt-st*
+  sudo cp ./scripts/undervolt-st* /usr/local/bin/
+  echo "[-] Undervolt Scripts Installed"
 }
 
 function setup_notes(){
