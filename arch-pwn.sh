@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-#Pentest Toolkits
 ##BlackArch Repos
 curl -O https://blackarch.org/strap.sh
 chmod +x ./strap.sh
@@ -39,14 +37,15 @@ pacman -S --noconfirm --needed smbclient smbexec smbmap sambascan
 pacman -S --noconfirm --needed community/sshuttle chisel 3proxy rpivot
 pacman -S --noconfirm --needed rdesktop postgresql putty community/perl-mail-sendmail exim  proxychains ranger  wine obs-studio tor openvpn community/freerdp rinetd extra/dmidecode community/dos2unix
 
-## Seclist setup
 pacman -S --noconfirm --needed wordlistctl
-wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O SecList.zip  && unzip SecList.zip  && rm -f SecList.zip
-
 
 
 ## Python and python applications
 pacman -S --noconfirm --needed python-pip community/python-pycryptodomex python-click community/python-paramiko python2-paramiko python-scp python2-scp pyinstaller python2-click blackarch/pymssql community/python2-pyftpdlib community/python-pipenv community/python2-pycryptodomex community/python2-gflags
+
+## Seclist setup
+#wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O SecList.zip  && unzip SecList.zip  && rm -f SecList.zip
+
 
 # Other tools to install
 ## sendmail.pl - Brandon Zehm
