@@ -55,16 +55,19 @@ function setup_zsh(){
 function setup_workspace(){
   echo "[-] Creating your workspace $USER!"
   mkdir -p /home/$USER/{space,pwn,notes}
-  mkdir -p /home/$USER/space/pictures
-  mkdir -p /home/$USER/space/downloads
+  mkdir -p /home/$USER/space/{pictures,downloads,videos}
   mkdir -p /home/$USER/pwn/{binaries/{win,unix},boxes{oscp,htb},connect,exploits/{win,unix},opt,vm}
   rm -rf /home/$USER/D* /home/$USER/Mus* /home/$USER/Pict* /home/$USER/Vid* /home/$USER/Temp* /home/$USER/Publi*
 
   sed -i  's/^\([^#]\)/#\1/g' /home/$USER/.config/user-dirs.dirs
   sed -i  's/HOME\/Pictures/HOME\/space\/pictures/g' /home/$USER/.config/user-dirs.dirs
+  sed -i  's/HOME\/Videos/HOME\/space\/videos/g' /home/$USER/.config/user-dirs.dirs
   sed -i  's/HOME\/Downloads/HOME\/space\/downloads/g' /home/$USER/.config/user-dirs.dirs
   sed -i  's/^#XDG_DOWN/XDG_DOWN/g' /home/$USER/.config/user-dirs.dirs
+  sed -i  's/^#XDG_VIDE/XDG_VIDE/g' /home/$USER/.config/user-dirs.dirs
   sed -i  's/^#XDG_PIC/XDG_PIC/g' /home/$USER/.config/user-dirs.dirs
+  xdg-user-dirs-update 2>&1
+  echo "enabled=False" > /home/$USER/.config/users-dir.conf
   echo "[+] $USER ! Your workspace is now ready"
 }
 
