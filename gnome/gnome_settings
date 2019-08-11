@@ -233,7 +233,7 @@ check-timestamp=int64 1565519721
 enabled=false
 
 [terminal/legacy/profiles:]
-default='2739ef87-1b7a-4f2f-a93c-bff0e970e4e0'
+default='10a7059c-8f66-4e83-8665-c1dff24825f0'
 list=['5aaea1e5-8835-4458-8fa3-5c5ea2ee9050', '2739ef87-1b7a-4f2f-a93c-bff0e970e4e0', '9a1dbd34-afd9-45fa-8371-dbebba881df7', 'efa48f17-71dd-4904-ae29-a7ebf2d82670', '08ff87ce-0dbb-436a-abec-2118ab7eb076', 'f5b5c9a1-0ab6-4933-a48f-e35976320271', '1f8ee55c-c315-4804-ba4e-cf31e84db257', '0c25b645-3000-47d0-9d85-3121fca7de2a', '8450d1ef-b11d-496c-8c73-fcb15f75c955', '4a642866-19c4-4235-b5e4-0fd31f1b28b6', 'f8c5a543-32fc-4377-b26c-340c516ff162', 'ce080408-9359-45b0-82cd-a4dcac586bcf', 'b4f578a5-5f60-45e1-9295-4ff5e472e65d', '10a7059c-8f66-4e83-8665-c1dff24825f0', '3d7358b2-ec41-4976-bdda-12d235aae22f', '1d03d49a-daa1-44ce-9efc-f9069f80a632', '4f8b1fea-1bf9-4474-aeed-e9fe9c561914']
 
 [terminal/legacy/profiles:/:08ff87ce-0dbb-436a-abec-2118ab7eb076]
