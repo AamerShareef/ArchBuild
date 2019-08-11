@@ -144,6 +144,7 @@ setup_workspace
 setup_gestures
 setup_undervolt
 setup_scripts
+setup_notes
 setup_yay
 
 # Firefox Tweaks
