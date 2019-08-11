@@ -4,7 +4,7 @@ synchronize-clipboards=true
 track-changes=false
 
 [control-center]
-last-panel='sound'
+last-panel='user-accounts'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -21,9 +21,10 @@ name='suse-yast.directory'
 translate=true
 
 [desktop/background]
+color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///usr/share/backgrounds/gnome/Fabric.jpg'
-primary-color='#ffffff'
+picture-uri='file:///home/zenitsu/space/pictures/Wallpapers/1008472.png'
+primary-color='#000000'
 secondary-color='#000000'
 
 [desktop/input-sources]
@@ -70,6 +71,9 @@ disable-microphone=true
 remember-recent-files=false
 report-technical-problems=true
 
+[desktop/screensaver]
+picture-uri='file:///home/zenitsu/space/pictures/999627.jpg'
+
 [desktop/search-providers]
 disabled=['org.gnome.Epiphany.desktop', 'org.gnome.Software.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Characters.desktop', 'org.gnome.clocks.desktop', 'org.gnome.GPaste.Ui.desktop']
 sort-order=['org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Nautilus.desktop']
@@ -97,6 +101,10 @@ toggle-fullscreen=['<Super>f']
 [desktop/wm/preferences]
 button-layout='appmenu:close'
 titlebar-font='Cantarell Light 11'
+
+[eog/view]
+background-color='rgb(0,0,0)'
+use-background-color=true
 
 [evolution-data-server]
 migrated=true
@@ -137,7 +145,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 541)
+initial-size=(1034, 539)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
