@@ -111,7 +111,14 @@ function setup_scripts(){
   sudo rm -rf /usr/bin/undervolt-stop.sh  >/dev/null 2>&1
   chmod +x ./scripts/undervolt-st*
   sudo cp ./scripts/undervolt-st* /usr/local/bin/
-  echo "[-] Undervolt Scripts Installed"
+  echo "[+] Undervolt Scripts Installed"
+  echo "[-] Installing fix-perm script"
+  sudo rm -rf /usr/bin/fix-perm.sh >/dev/null 2>&1
+  chmod +x ./scripts/fix-perm.sh
+  sudo cp ./scripts/fix-perm.sh /usr/local/bin/
+  echo "[+] Scripts Installed"
+
+
 }
 
 function setup_notes(){
