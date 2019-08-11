@@ -3,8 +3,12 @@ save-history=false
 synchronize-clipboards=true
 track-changes=false
 
+[Totem]
+active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipto', 'screensaver', 'autoload-subtitles', 'vimeo', 'movie-properties', 'rotation', 'screenshot', 'media_player_keys']
+subtitle-encoding='UTF-8'
+
 [control-center]
-last-panel='user-accounts'
+last-panel='background'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -23,7 +27,7 @@ translate=true
 [desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///home/zenitsu/space/pictures/Wallpapers/1008472.png'
+picture-uri='file:///home/zenitsu/void/pictures/Wallpapers/1008472.png'
 primary-color='#000000'
 secondary-color='#000000'
 
@@ -72,7 +76,7 @@ remember-recent-files=false
 report-technical-problems=true
 
 [desktop/screensaver]
-picture-uri='file:///home/zenitsu/space/pictures/999627.jpg'
+picture-uri='file:///home/zenitsu/void/pictures/999627.jpg'
 
 [desktop/search-providers]
 disabled=['org.gnome.Epiphany.desktop', 'org.gnome.Software.desktop', 'org.gnome.Contacts.desktop', 'org.gnome.Documents.desktop', 'org.gnome.Boxes.desktop', 'org.gnome.Calculator.desktop', 'org.gnome.Characters.desktop', 'org.gnome.clocks.desktop', 'org.gnome.GPaste.Ui.desktop']
@@ -132,7 +136,7 @@ dynamic-workspaces=false
 overlay-key='Super_L'
 
 [nautilus/icon-view]
-default-zoom-level='standard'
+default-zoom-level='small'
 
 [nautilus/list-view]
 default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'recency', 'starred', 'detailed_type']
@@ -145,7 +149,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 533)
+initial-size=(1034, 525)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
