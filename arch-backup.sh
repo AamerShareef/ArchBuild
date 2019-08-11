@@ -16,7 +16,7 @@ function backup_gnome(){
 	#zip -ur ./gnome/eyecandy/gtk-themes.zip /usr/share/themes
 	cd /usr/share/themes/
 	zip -ur ~/ArchBuild/gnome/eyecandy/gtk-themes.zip  * -x "Adwaita/*" -x "Adwaita-dark/*" -x "Raleigh/*" -x "HighContrast/*" -x "Emacs/*" -x "Default/*"
-        cd -
+  cd -
 	#cd /usr/share/icons/
 	#zip -ur -s 100m ~/ArchBuild/gnome/eyecandy/icon-cursor-themes.zip  * -x "Adwaita/*" -x "default/*" -x "gnome/*" -x "HighContrast/*" -x "hicolor/*" -x "locolor/*" -x "Emacs/*" -x "Default/*"
 	#cd -
@@ -24,11 +24,6 @@ function backup_gnome(){
 
 }
 
-function fix_perm(){
-	chown -hR $USER:$USER ~/*
-	chmod -R 755 ~/*
-}
+
 backup_dotfiles
 backup_gnome
-fix_perm
-
