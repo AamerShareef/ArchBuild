@@ -97,3 +97,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias cl="clear"
+alias notes-offsec="marktext /home/$USER/space/notes/offsec"
+alias notes-personal="marktext /home/$USER/space/notes/personal"
+alias notes-other="marktext /home/$USER/space/notes/other"

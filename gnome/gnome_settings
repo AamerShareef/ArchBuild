@@ -155,7 +155,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 524)
+initial-size=(1034, 520)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
