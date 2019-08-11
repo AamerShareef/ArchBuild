@@ -49,7 +49,7 @@ show-battery-percentage=false
 toolkit-accessibility=false
 
 [desktop/notifications]
-application-children=['gnome-shell-extension-prefs', 'org-gnome-nautilus', 'gnome-power-panel']
+application-children=['gnome-shell-extension-prefs', 'org-gnome-nautilus', 'gnome-power-panel', 'libreoffice-draw']
 show-in-lock-screen=false
 
 [desktop/notifications/application/gnome-power-panel]
@@ -57,6 +57,9 @@ application-id='gnome-power-panel.desktop'
 
 [desktop/notifications/application/gnome-shell-extension-prefs]
 application-id='gnome-shell-extension-prefs.desktop'
+
+[desktop/notifications/application/libreoffice-draw]
+application-id='libreoffice-draw.desktop'
 
 [desktop/notifications/application/org-gnome-nautilus]
 application-id='org.gnome.Nautilus.desktop'
@@ -110,6 +113,9 @@ titlebar-font='Cantarell Light 11'
 background-color='rgb(0,0,0)'
 use-background-color=true
 
+[evince/default]
+window-ratio=(0.98039215686274506, 0.7512626262626263)
+
 [evolution-data-server]
 migrated=true
 network-monitor-gio-name=''
@@ -149,7 +155,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 525)
+initial-size=(1034, 524)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
