@@ -24,5 +24,11 @@ function backup_gnome(){
 
 }
 
+function fix_perm(){
+	chown -hR $USER:$USER ~/*
+	chmod -R 755 ~/*
+}
 backup_dotfiles
 backup_gnome
+fix_perm
+
