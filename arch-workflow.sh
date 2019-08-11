@@ -143,6 +143,7 @@ function setup_yay(){
   rm -rf yay
   yay vmware-workstation --answerdiff N
   yay nvidia-xrun
+  rm -rf ~/.config/yay
 }
 
 setup_gnome
