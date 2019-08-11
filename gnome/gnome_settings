@@ -4,7 +4,7 @@ synchronize-clipboards=true
 track-changes=false
 
 [control-center]
-last-panel='power'
+last-panel='sound'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -42,8 +42,11 @@ show-battery-percentage=false
 toolkit-accessibility=false
 
 [desktop/notifications]
-application-children=['gnome-shell-extension-prefs', 'org-gnome-nautilus']
+application-children=['gnome-shell-extension-prefs', 'org-gnome-nautilus', 'gnome-power-panel']
 show-in-lock-screen=false
+
+[desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
 
 [desktop/notifications/application/gnome-shell-extension-prefs]
 application-id='gnome-shell-extension-prefs.desktop'
@@ -96,6 +99,22 @@ button-layout='appmenu:close'
 migrated=true
 network-monitor-gio-name=''
 
+[file-roller/dialogs/extract]
+recreate-folders=true
+skip-newer=false
+
+[file-roller/listing]
+list-mode='as-folder'
+name-column-width=250
+show-path=false
+sort-method='size'
+sort-type='descending'
+
+[file-roller/ui]
+sidebar-width=200
+window-height=480
+window-width=600
+
 [mutter]
 center-new-windows=true
 dynamic-workspaces=false
@@ -104,12 +123,18 @@ overlay-key='Super_L'
 [nautilus/icon-view]
 default-zoom-level='standard'
 
+[nautilus/list-view]
+default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'recency', 'starred', 'detailed_type']
+default-visible-columns=['name', 'size', 'date_modified', 'starred']
+default-zoom-level='standard'
+
 [nautilus/preferences]
 default-folder-viewer='icon-view'
 search-filter-time-type='last_modified'
+search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(890, 546)
+initial-size=(1034, 542)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
@@ -143,7 +168,7 @@ hinting='slight'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['cpupower@mko-sl.de', 'dash-to-panel@jderose9.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'remove-rounded-corners@markbokil.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'extendedgestures@mpiannucci.github.com', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com']
+enabled-extensions=['cpupower@mko-sl.de', 'dash-to-panel@jderose9.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'remove-rounded-corners@markbokil.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'extendedgestures@mpiannucci.github.com', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'Remove_Dash@localhost.localdomain', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz']
 favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop']
 
 [shell/extensions/caffeine]
@@ -183,13 +208,13 @@ test-notification=false
 x-pos=100.0
 
 [shell/extensions/simplenetspeed]
-mode=2
+mode=3
 
 [shell/keybindings]
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1565195542
+check-timestamp=int64 1565519721
 
 [system/location]
 enabled=false
