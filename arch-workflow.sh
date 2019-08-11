@@ -60,9 +60,9 @@ function setup_workspace(){
   rm -rf /home/$USER/D* /home/$USER/Mus* /home/$USER/Pict* /home/$USER/Vid* /home/$USER/Temp* /home/$USER/Publi*
 
   sed -i  's/^\([^#]\)/#\1/g' /home/$USER/.config/user-dirs.dirs
-  sed -i  's/HOME\/Pictures/HOME\/space\/pictures/g' /home/$USER/.config/user-dirs.dirs
-  sed -i  's/HOME\/Videos/HOME\/space\/videos/g' /home/$USER/.config/user-dirs.dirs
-  sed -i  's/HOME\/Downloads/HOME\/space\/downloads/g' /home/$USER/.config/user-dirs.dirs
+  sed -i  's/HOME\/Pictures/HOME\/void\/pictures/g' /home/$USER/.config/user-dirs.dirs
+  sed -i  's/HOME\/Videos/HOME\/void\/videos/g' /home/$USER/.config/user-dirs.dirs
+  sed -i  's/HOME\/Downloads/HOME\/void\/downloads/g' /home/$USER/.config/user-dirs.dirs
   sed -i  's/^#XDG_DOWN/XDG_DOWN/g' /home/$USER/.config/user-dirs.dirs
   sed -i  's/^#XDG_VIDE/XDG_VIDE/g' /home/$USER/.config/user-dirs.dirs
   sed -i  's/^#XDG_PIC/XDG_PIC/g' /home/$USER/.config/user-dirs.dirs
