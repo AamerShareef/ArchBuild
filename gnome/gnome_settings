@@ -145,7 +145,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 539)
+initial-size=(1034, 538)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
@@ -215,8 +215,10 @@ tray-padding=4
 tray-size=0
 
 [shell/extensions/panel-osd]
+force-expand=true
 test-notification=false
 x-pos=100.0
+y-pos=0.0
 
 [shell/extensions/simplenetspeed]
 mode=3
