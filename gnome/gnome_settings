@@ -34,6 +34,8 @@ xkb-options=['caps:backspace']
 [desktop/interface]
 cursor-size=32
 cursor-theme='Bibata_Ice'
+document-font-name='Cantarell Light 11'
+font-name='Cantarell Light 11'
 gtk-im-module='gtk-im-context-simple'
 gtk-theme='Numix'
 icon-theme='Oranchelo'
@@ -94,6 +96,7 @@ toggle-fullscreen=['<Super>f']
 
 [desktop/wm/preferences]
 button-layout='appmenu:close'
+titlebar-font='Cantarell Light 11'
 
 [evolution-data-server]
 migrated=true
@@ -134,7 +137,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 542)
+initial-size=(1034, 541)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
@@ -221,7 +224,187 @@ enabled=false
 
 [terminal/legacy/profiles:]
 default='5aaea1e5-8835-4458-8fa3-5c5ea2ee9050'
-list=['5aaea1e5-8835-4458-8fa3-5c5ea2ee9050']
+list=['5aaea1e5-8835-4458-8fa3-5c5ea2ee9050', '2739ef87-1b7a-4f2f-a93c-bff0e970e4e0', '9a1dbd34-afd9-45fa-8371-dbebba881df7', 'efa48f17-71dd-4904-ae29-a7ebf2d82670', '08ff87ce-0dbb-436a-abec-2118ab7eb076', 'f5b5c9a1-0ab6-4933-a48f-e35976320271', '1f8ee55c-c315-4804-ba4e-cf31e84db257', '0c25b645-3000-47d0-9d85-3121fca7de2a', '8450d1ef-b11d-496c-8c73-fcb15f75c955', '4a642866-19c4-4235-b5e4-0fd31f1b28b6', 'f8c5a543-32fc-4377-b26c-340c516ff162', 'ce080408-9359-45b0-82cd-a4dcac586bcf', 'b4f578a5-5f60-45e1-9295-4ff5e472e65d', '10a7059c-8f66-4e83-8665-c1dff24825f0', '3d7358b2-ec41-4976-bdda-12d235aae22f', '1d03d49a-daa1-44ce-9efc-f9069f80a632', '4f8b1fea-1bf9-4474-aeed-e9fe9c561914']
+
+[terminal/legacy/profiles:/:08ff87ce-0dbb-436a-abec-2118ab7eb076]
+allow-bold=true
+audible-bell=false
+background-color='#202011111b1b'
+bold-color='#96968c8c8383'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#96968c8c8383'
+palette=['#202011111b1b', '#bebe10100e0e', '#858581816262', '#eaeaa5a54949', '#42426a6a7979', '#979752522c2c', '#98989a9a9c9c', '#96968c8c8383', '#5e5e52525252', '#bebe10100e0e', '#858581816262', '#eaeaa5a54949', '#42426a6a7979', '#979752522c2c', '#98989a9a9c9c', '#d5d5ccccbaba']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Belafonte Night'
+
+[terminal/legacy/profiles:/:0c25b645-3000-47d0-9d85-3121fca7de2a]
+allow-bold=true
+audible-bell=false
+background-color='#141428283838'
+bold-color='#8f8ff5f58686'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#8f8ff5f58686'
+palette=['#141426263131', '#ffff23232020', '#3b3ba5a5ffff', '#e9e9e7e75c5c', '#8f8ff5f58686', '#78781a1aa0a0', '#8f8ff5f58686', '#baba4646b2b2', '#fffff6f68888', '#d4d431312e2e', '#8f8ff5f58686', '#e9e9f0f06d6d', '#3c3c7d7dd2d2', '#82823030a7a7', '#6c6cbcbc6767', '#8f8ff5f58686']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Cobalt Neon'
+
+[terminal/legacy/profiles:/:10a7059c-8f66-4e83-8665-c1dff24825f0]
+allow-bold=true
+audible-bell=false
+background-color='#272728282222'
+bold-color='#f8f8f8f8f2f2'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#f8f8f8f8f2f2'
+palette=['#757571715e5e', '#f9f926267272', '#a6a6e2e22e2e', '#f4f4bfbf7575', '#6666d9d9efef', '#aeae8181ffff', '#2A2AA1A19898', '#f9f9f8f8f5f5', '#272728282222', '#f9f926267272', '#a6a6e2e22e2e', '#f4f4bfbf7575', '#6666d9d9efef', '#aeae8181ffff', '#2A2AA1A19898', '#f8f8f8f8f2f2']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Monokai Dark'
+
+[terminal/legacy/profiles:/:1d03d49a-daa1-44ce-9efc-f9069f80a632]
+allow-bold=true
+audible-bell=false
+background-color='#191919191919'
+bold-color='#78786b6b5353'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#78786b6b5353'
+palette=['#323213130000', '#b2b227270e0e', '#4444a9a90000', '#aaaa82820c0c', '#585885859a9a', '#979736363d3d', '#b2b25a5a1e1e', '#78786b6b5353', '#434336362626', '#eded5d5d2020', '#5555f2f23838', '#f2f2b7b73232', '#8585cfcfeded', '#e1e14c4c5a5a', '#f0f07d7d1414', '#ffffc8c80000']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Treehouse'
+
+[terminal/legacy/profiles:/:1f8ee55c-c315-4804-ba4e-cf31e84db257]
+allow-bold=true
+audible-bell=false
+background-color='#131313131313'
+bold-color='#d6d6dbdbe5e5'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#d6d6dbdbe5e5'
+palette=['#1f1f1f1f1f1f', '#f8f811111818', '#2d2dc5c55e5e', '#ececbaba0f0f', '#2a2a8484d2d2', '#4e4e5a5ab7b7', '#10108181d6d6', '#d6d6dbdbe5e5', '#d6d6dbdbe5e5', '#dede35352e2e', '#1d1dd3d36161', '#f3f3bdbd0909', '#10108181d6d6', '#53535050b9b9', '#0f0f7d7ddbdb', '#ffffffffffff']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Brogrammer'
+
+[terminal/legacy/profiles:/:2739ef87-1b7a-4f2f-a93c-bff0e970e4e0]
+allow-bold=true
+audible-bell=false
+background-color='#1f1f13130505'
+bold-color='#b4b4e1e1fdfd'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#b4b4e1e1fdfd'
+palette=['#3f3f3f3f3f3f', '#ffff08088383', '#8383ffff0808', '#ffff83830808', '#08088383ffff', '#83830808ffff', '#0808ffff8383', '#bebebebebebe', '#474747474747', '#ffff1e1e8e8e', '#8e8effff1e1e', '#ffff8e8e1e1e', '#1e1e8e8effff', '#8e8e1e1effff', '#1e1effff8e8e', '#c4c4c4c4c4c4']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Aco'
+
+[terminal/legacy/profiles:/:3d7358b2-ec41-4976-bdda-12d235aae22f]
+allow-bold=true
+audible-bell=false
+background-color='#1a1a1a1a1a1a'
+bold-color='#c4c4c5c5b5b5'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#c4c4c5c5b5b5'
+palette=['#1a1a1a1a1a1a', '#f4f400005f5f', '#9898e0e02424', '#fafa84841919', '#9d9d6565ffff', '#f4f400005f5f', '#5858d1d1ebeb', '#c4c4c5c5b5b5', '#62625e5e4c4c', '#f4f400005f5f', '#9898e0e02424', '#e0e0d5d56161', '#9d9d6565ffff', '#f4f400005f5f', '#5858d1d1ebeb', '#f6f6f6f6efef']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Monokai Soda'
+
+[terminal/legacy/profiles:/:4a642866-19c4-4235-b5e4-0fd31f1b28b6]
+allow-bold=true
+audible-bell=false
+background-color='#333333333333'
+bold-color='#ffffffffffff'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#ffffffffffff'
+palette=['#4d4d4d4d4d4d', '#ffff2b2b2b2b', '#9898fbfb9898', '#f0f0e6e68c8c', '#cdcd85853f3f', '#ffffdedeadad', '#ffffa0a0a0a0', '#f5f5dedeb3b3', '#555555555555', '#ffff55555555', '#5555ffff5555', '#ffffffff5555', '#8787ceceffff', '#ffff5555ffff', '#ffffd7d70000', '#ffffffffffff']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Desert'
+
+[terminal/legacy/profiles:/:4f8b1fea-1bf9-4474-aeed-e9fe9c561914]
+allow-bold=true
+audible-bell=false
+background-color='#f1f1f1f1f1f1'
+bold-color='#424242424242'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#424242424242'
+palette=['#212121212121', '#c3c307077171', '#1010a7a77878', '#a8a89c9c1414', '#00008e8ec4c4', '#52523c3c7979', '#2020a5a5baba', '#d9d9d9d9d9d9', '#424242424242', '#fbfb00007a7a', '#5f5fd7d7afaf', '#f3f3e4e43030', '#2020bbbbfcfc', '#68685555dede', '#4f4fb8b8cccc', '#f1f1f1f1f1f1']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Pencil Light'
 
 [terminal/legacy/profiles:/:5aaea1e5-8835-4458-8fa3-5c5ea2ee9050]
 allow-bold=true
@@ -242,3 +425,143 @@ use-system-font=false
 use-theme-background=false
 use-theme-colors=false
 visible-name='neon-night'
+
+[terminal/legacy/profiles:/:8450d1ef-b11d-496c-8c73-fcb15f75c955]
+allow-bold=true
+audible-bell=false
+background-color='#000000000000'
+bold-color='#ffffffffffff'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#ffffffffffff'
+palette=['#000000000000', '#ffff55555555', '#5555ffff5555', '#ffffffff5555', '#55555555ffff', '#ffff5555ffff', '#5555ffffffff', '#bbbbbbbbbbbb', '#555555555555', '#ffff55555555', '#5555ffff5555', '#ffffffff5555', '#55555555ffff', '#ffff5555ffff', '#5555ffffffff', '#ffffffffffff']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Dark Pastel'
+
+[terminal/legacy/profiles:/:9a1dbd34-afd9-45fa-8371-dbebba881df7]
+allow-bold=true
+audible-bell=false
+background-color='#0e0e10101919'
+bold-color='#fffffafaf4f4'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#fffffafaf4f4'
+palette=['#232323232323', '#ffff00000f0f', '#8c8ce1e10b0b', '#ffffb9b90000', '#00008d8df8f8', '#6d6d4343a6a6', '#0000d8d8ebeb', '#ffffffffffff', '#444444444444', '#ffff27274040', '#ababe1e15b5b', '#ffffd2d24242', '#00009292ffff', '#9a9a5f5febeb', '#6767fffff0f0', '#ffffffffffff']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Argonaut'
+
+[terminal/legacy/profiles:/:b4f578a5-5f60-45e1-9295-4ff5e472e65d]
+allow-bold=true
+audible-bell=false
+background-color='#313136363B3B'
+bold-color='#BDBDX3X3C7C7'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#BDBDX3X3C7C7'
+palette=['#232324242323', '#BABA29292222', '#7E7E80807E7E', '#4C4C4F4F4D4D', '#1616A0A08585', '#434374746A6A', '#0000CCCCCCCC', '#E0E0E0E0E0E0', '#282829292828', '#CCCC37372C2C', '#8D8D8F8F8D8D', '#4E4E52524F4F', '#1313BFBF9D9D', '#48487D7D7272', '#0000D1D1D1D1', '#E8E8E8E8E8E8']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Maia'
+
+[terminal/legacy/profiles:/:ce080408-9359-45b0-82cd-a4dcac586bcf]
+allow-bold=true
+audible-bell=false
+background-color='#262626262626'
+bold-color='#ffffcbcb8383'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#ffffcbcb8383'
+palette=['#000000000000', '#c1c139390000', '#a4a4a9a90000', '#cacaafaf0000', '#bdbd6d6d0000', '#fcfc5e5e0000', '#f7f795950000', '#ffffc8c88a8a', '#6a6a4f4f2a2a', '#ffff8c8c6868', '#f6f6ffff4040', '#ffffe3e36e6e', '#ffffbebe5555', '#fcfc87874f4f', '#c6c697975252', '#fafafafaffff']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='IC Orange PPL'
+
+[terminal/legacy/profiles:/:efa48f17-71dd-4904-ae29-a7ebf2d82670]
+allow-bold=true
+audible-bell=false
+background-color='#161617171919'
+bold-color='#c5c5c8c8c6c6'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#c5c5c8c8c6c6'
+palette=['#000000000000', '#fdfd5f5ff1f1', '#8787c3c38a8a', '#ffffd7d7b1b1', '#8585bebefdfd', '#b9b9b6b6fcfc', '#8585bebefdfd', '#e0e0e0e0e0e0', '#000000000000', '#fdfd5f5ff1f1', '#9494fafa3636', '#f5f5ffffa8a8', '#9696cbcbfefe', '#b9b9b6b6fcfc', '#8585bebefdfd', '#e0e0e0e0e0e0']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Atom'
+
+[terminal/legacy/profiles:/:f5b5c9a1-0ab6-4933-a48f-e35976320271]
+allow-bold=true
+audible-bell=false
+background-color='#2a2a1f1f1d1d'
+bold-color='#e0e0dbdbb7b7'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#e0e0dbdbb7b7'
+palette=['#57573d3d2626', '#bebe2d2d2626', '#6b6ba1a18a8a', '#e9e99d9d2a2a', '#5a5a8686adad', '#acac8080a6a6', '#7474a6a6adad', '#e0e0dbdbb7b7', '#9b9b6c6c4a4a', '#e8e846462727', '#9595d8d8baba', '#d0d0d1d15050', '#b8b8d3d3eded', '#d1d19e9ecbcb', '#9393cfcfd7d7', '#fffff9f9d5d5']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Birds Of Paradise'
+
+[terminal/legacy/profiles:/:f8c5a543-32fc-4377-b26c-340c516ff162]
+allow-bold=true
+audible-bell=false
+background-color='#1d1d1f1f2121'
+bold-color='#b8b8dbdbefef'
+bold-color-same-as-fg=true
+cursor-blink-mode='on'
+cursor-colors-set=false
+cursor-shape='underline'
+default-size-columns=120
+default-size-rows=34
+font='IBM Plex Mono 10'
+foreground-color='#b8b8dbdbefef'
+palette=['#1d1d1d1d1919', '#f1f183833939', '#9f9fd3d36464', '#f4f4efef6d6d', '#50509696bebe', '#69695a5abcbc', '#d6d638386565', '#ffffffffffff', '#1d1d1d1d1919', '#d2d22a2a2424', '#a7a7d4d42c2c', '#ffff89894949', '#6161b9b9d0d0', '#69695a5abcbc', '#d6d638386565', '#ffffffffffff']
+scrollback-lines=990000
+use-system-font=false
+use-theme-background=false
+use-theme-colors=false
+visible-name='Flatland'
