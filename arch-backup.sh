@@ -15,7 +15,7 @@ function backup_gnome(){
 	dconf dump /org/gnome/ > ./gnome/gnome_settings
 	#zip -ur ./gnome/eyecandy/gtk-themes.zip /usr/share/themes
 	cd /usr/share/themes/
-	zip -ur ~/ArchBuild/gnome/eyecandy/gtk-themes.zip  * -x "Adwaita/*" -x "Adwaita-dark/*" -x "Raleigh/*" -x "HighContrast/*" -x "Emacs/*" -x "Default/*"
+	zip -ur ~/ArchZero/gnome/eyecandy/gtk-themes.zip  * -x "Adwaita/*" -x "Adwaita-dark/*" -x "Raleigh/*" -x "HighContrast/*" -x "Emacs/*" -x "Default/*"
   cd -
 	#cd /usr/share/icons/
 	#zip -ur -s 100m ~/ArchBuild/gnome/eyecandy/icon-cursor-themes.zip  * -x "Adwaita/*" -x "default/*" -x "gnome/*" -x "HighContrast/*" -x "hicolor/*" -x "locolor/*" -x "Emacs/*" -x "Default/*"

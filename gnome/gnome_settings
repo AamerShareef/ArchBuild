@@ -1,4 +1,5 @@
 [GPaste]
+close-on-select=true
 save-history=false
 synchronize-clipboards=true
 track-changes=false
@@ -8,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='background'
+last-panel='power'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -155,7 +156,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 520)
+initial-size=(1034, 514)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
@@ -237,7 +238,7 @@ mode=3
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1565519721
+check-timestamp=int64 1565715656
 
 [system/location]
 enabled=false
