@@ -125,7 +125,12 @@ function setup_scripts(){
   chmod +x ./scripts/backup-hdd.sh
   sudo cp ./scripts/backup-hdd.sh /usr/local/bin/
   echo "[+] Scripts Installed"
-
+  
+  echo "[-] Installing backup-restore.sh script"
+  sudo rm -rf /usr/bin/backup-hdd.sh >/dev/null 2>&1
+  chmod +x ./scripts/backup-restore.sh
+  sudo cp ./scripts/backup-restore.sh /usr/local/bin/
+  echo "[+] Scripts Installed"
 
 
 }
