@@ -160,6 +160,12 @@ function setup_yay(){
   rm -rf ~/.config/yay
 }
 
+function cleanup(){
+	echo "[*] Cleaning up !"
+	rm -rf ~/Deskt* ~/Vide* ~/Tem* ~/Music ~/Docume*
+	rm -rf ~/.cache*
+	echo "cleanup complete!"
+}
 setup_gnome
 setup_zsh
 setup_workspace
@@ -168,13 +174,7 @@ setup_undervolt
 setup_scripts
 setup_notes
 setup_yay
-
-# Firefox Tweaks
-# about:config
-# layers.acceleration.force-enabled = true
-# Create a new string -> network.security.ports.banned.override add values 1-65535
-# Plugins: Foxy Proxy Ublock origin
-
+cleanup
 ########## Gnome Things
 # Gnome restore saved_settings
 # gnome terminal themes https://mayccoll.github.io/Gogh/#0
