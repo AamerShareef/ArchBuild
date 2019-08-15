@@ -9,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='user-accounts'
+last-panel='sound'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
