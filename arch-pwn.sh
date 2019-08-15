@@ -54,12 +54,11 @@ pacman -S --noconfirm --needed python-pip community/python-pycryptodomex python-
 # Setting up wordlists 
 echo "[-] Setting up wordlists"
 sudo mkdir /usr/share/wordlists
-cd /usr/share/wordlists/
-sudo wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O SecList.zip 
-sudo bsdtar --strip-components=1 -xvf Seclist.zip 
-sudo rm -f SecList.zip
-cd -
+sudo wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O /usr/share/wordlists/SecList.zip 
+sudo bsdtar --strip-components=1 -xvf /usr/share/wordlists/SecList.zip 
+sudo rm -rf /usr/share/wordlists/SecList.zip 
 echo "[+] Wordlists setup completed!"
+
 # Other tools to install
 ## sendmail.pl - Brandon Zehm
 ## gpp-decrypt.rb
