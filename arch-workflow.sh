@@ -55,6 +55,7 @@ function copy_dotfiles(){
   echo "[-] Copying dotfiles."
   cp ./dotfiles/.zshrc ~/ 
   cp ./dotfiles/.vimrc ~/
+  cp ./dotfiles/.tmux.conf ~/
   echo "[+] Dotfiles copied."
 }
 function setup_workspace(){
