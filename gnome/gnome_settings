@@ -9,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='display'
+last-panel='mouse'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -35,7 +35,7 @@ secondary-color='#000000'
 [desktop/input-sources]
 current=uint32 0
 sources=[('xkb', 'gb')]
-xkb-options=['caps:backspace']
+xkb-options=['caps:ctrl_modifier']
 
 [desktop/interface]
 cursor-size=32
