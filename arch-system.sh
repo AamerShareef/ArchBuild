@@ -15,7 +15,7 @@ LOCALE="en_GB"
 LOCALE_UTF8="${LOCALE}.UTF-8"
 LUKS_DEVICE=nvme0n1
 URL="https://www.archlinux.org/mirrorlist/?country=${COUNTRY}&use_mirror_status=on"
-BUILD_DIR=/home/$USERNAME/ArchBuild
+BUILD_DIR=/home/$USERNAME/ArchZero
 PWN_TOOLS=arch-pwn.sh
 
 function arch_chroot() {
