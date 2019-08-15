@@ -2,7 +2,7 @@
 close-on-select=true
 save-history=false
 synchronize-clipboards=true
-track-changes=false
+track-changes=true
 
 [Totem]
 active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipto', 'screensaver', 'autoload-subtitles', 'vimeo', 'movie-properties', 'rotation', 'screenshot', 'media_player_keys']
@@ -50,7 +50,7 @@ show-battery-percentage=false
 toolkit-accessibility=false
 
 [desktop/notifications]
-application-children=['gnome-shell-extension-prefs', 'org-gnome-nautilus', 'gnome-power-panel', 'libreoffice-draw']
+application-children=['gnome-shell-extension-prefs', 'org-gnome-nautilus', 'gnome-power-panel', 'libreoffice-draw', 'org-gnome-terminal']
 show-in-lock-screen=false
 
 [desktop/notifications/application/gnome-power-panel]
@@ -64,6 +64,9 @@ application-id='libreoffice-draw.desktop'
 
 [desktop/notifications/application/org-gnome-nautilus]
 application-id='org.gnome.Nautilus.desktop'
+
+[desktop/notifications/application/org-gnome-terminal]
+application-id='org.gnome.Terminal.desktop'
 
 [desktop/peripherals/mouse]
 accel-profile='flat'
@@ -156,7 +159,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 514)
+initial-size=(1034, 513)
 maximized=false
 
 [settings-daemon/peripherals/mouse]
@@ -238,7 +241,7 @@ mode=3
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1565715656
+check-timestamp=int64 1565883625
 
 [system/location]
 enabled=false
