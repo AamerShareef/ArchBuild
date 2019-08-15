@@ -46,12 +46,17 @@ function setup_zsh(){
   ./install.sh
   git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:=~/.oh-my-zsh/custom}/plugins/zsh-completions > /dev/null 2>&1
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions > /dev/null 2>&1
-  cp ./dotfiles/.zshrc ~/
   rm install.sh
   echo "[+] Zsh setup complete!"
 
 }
 
+function copy_dotfiles(){
+  echo "[-] Copying dotfiles."
+  cp ./dotfiles/.zshrc ~/ 
+  cp ./dotfiles/.vimrc ~/
+  echo "[+] Dotfiles copied."
+}
 function setup_workspace(){
   echo "[-] Creating your workspace $USER!"
   mkdir -p /home/$USER/{void,pwn,space/{notes/{personal,offsec,other},library,projects}}
@@ -168,6 +173,7 @@ function cleanup(){
 }
 setup_gnome
 setup_zsh
+copy_dotfiles
 setup_workspace
 setup_gestures
 setup_undervolt

@@ -5,6 +5,7 @@ ARCH_BUILD=""
 function backup_dotfiles(){
 	echo "[-] Starting dotfiles backup."
 	cp ~/.zshrc ./dotfiles/.zshrc
+	cp ~/.vimrc ./dotfiles/.vimrc
 	cp /etc/libinput-gestures.conf ./dotfiles/libinput-gestures.conf
 	echo "[+] Dotfiles backup complete."
 
