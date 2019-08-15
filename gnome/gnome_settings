@@ -9,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='sound'
+last-panel='keyboard'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -28,7 +28,7 @@ translate=true
 [desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///home/zenitsu/void/pictures/Wallpapers/1008472.png'
+picture-uri='file:///home/zenitsu/void/pictures/Wallpapers/stephen-cook-tjdu7p_PaEM-unsplash.jpg'
 primary-color='#000000'
 secondary-color='#000000'
 
@@ -146,7 +146,7 @@ dynamic-workspaces=false
 overlay-key='Super_L'
 
 [nautilus/icon-view]
-default-zoom-level='small'
+default-zoom-level='larger'
 
 [nautilus/list-view]
 default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'recency', 'starred', 'detailed_type']
