@@ -162,6 +162,9 @@ search-view='list-view'
 initial-size=(1034, 513)
 maximized=false
 
+[settings-daemon/peripherals/keyboard]
+numlock-state='off'
+
 [settings-daemon/peripherals/mouse]
 locate-pointer=false
 
