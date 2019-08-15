@@ -9,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='power'
+last-panel='user-accounts'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -235,7 +235,7 @@ x-pos=100.0
 y-pos=0.0
 
 [shell/extensions/simplenetspeed]
-mode=3
+mode=4
 
 [shell/keybindings]
 toggle-overview=@as []
