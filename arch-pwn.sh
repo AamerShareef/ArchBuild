@@ -43,7 +43,7 @@ pacman -S --noconfirm --needed wordlistctl
 ## Python and python applications
 pacman -S --noconfirm --needed python-pip community/python-pycryptodomex python-click community/python-paramiko python2-paramiko python-scp python2-scp pyinstaller python2-click blackarch/pymssql community/python2-pyftpdlib community/python-pipenv community/python2-pycryptodomex community/python2-gflags
 
-## DATABASE CONFIGURATION MSF
+## Tools Configurations
 #sudo pacman -S postgres
 #sudo su -l postgres
 #initdb -D /var/lib/postgres/data
@@ -51,13 +51,15 @@ pacman -S --noconfirm --needed python-pip community/python-pycryptodomex python-
 #vim .msf4/database.yml
 #production: adapter: postgresql database: msf username: msf password:  host: localhost port: 5432 pool: 5 timeout: 5
 
-
-
-
-## Seclist setup
-#wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O SecList.zip  && unzip SecList.zip  && rm -f SecList.zip
-
-
+# Setting up wordlists 
+echo "[-] Setting up wordlists"
+sudo mkdir /usr/share/wordlists
+cd /usr/share/wordlists/
+sudo wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O SecList.zip 
+sudo bsdtar --strip-components=1 -xvf Seclist.zip 
+sudo rm -f SecList.zip
+cd -
+echo "[+] Wordlists setup completed!"
 # Other tools to install
 ## sendmail.pl - Brandon Zehm
 ## gpp-decrypt.rb
