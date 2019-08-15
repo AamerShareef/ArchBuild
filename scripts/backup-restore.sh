@@ -1,13 +1,13 @@
 #!/bin/bash
 
-function backup_to_hdd(){
+function restore_from_hdd(){i
 
-	echo "[-] Starting backup. Backing up all files in home/$USER/* to HDD."
+	echo "[-] Restoring backup from HDD"
 	rsync --update -raW --progress /run/media/zenitsu/Backup_Drive/master/* ~/
-	echo "[+] Backup Complete."
+	echo "[+] Restore Complete."
 	fix-perm.sh
 }
 
-backup_to_hdd
+restore_from_hdd
 
 
