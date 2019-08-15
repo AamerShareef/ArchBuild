@@ -10,10 +10,10 @@ rm strap.sh
 pacman -S --noconfirm --needed nmap gnu-netcat net-snmp unicornscan masscan netdiscover netcat wireshark-qt tcpdump nbtscan amap knock
 pacman -S --noconfirm --needed dnsrecon
 
-pacman -S --noconfirm --needed responder testssl.sh sslyze
 
 pacman -S --noconfirm --needed metasploit exploitdb sploitctl
 
+pacman -S --noconfirm --needed responder testssl.sh sslyze
 pacman -S --noconfirm --needed nikto cadaver davtest gobuster burpsuite sqlmap wafw00f wpscan dotdotpwn wfuzz w3af dirb dirbuster joomscan wascan
 pacman -S --noconfirm --needed oscanner tnscmd blackarch/webshells whatweb cewl beef apache droopescan mssqlscan
 
@@ -39,25 +39,16 @@ pacman -S --noconfirm --needed rdesktop postgresql putty community/perl-mail-sen
 
 pacman -S --noconfirm --needed wordlistctl
 
+# Setting up wordlists
+echo "[-] Setting up wordlists"
+sudo mkdir /usr/share/wordlists
+sudo wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O /usr/share/wordlists/SecList.zip
+sudo bsdtar -C /usr/share/wordlists/ --strip-components=1 -xvf  /usr/share/wordlists/SecList.zip
+sudo rm -rf /usr/share/wordlists/SecList.zip
+echo "[+] Wordlists setup completed!"
 
 ## Python and python applications
 pacman -S --noconfirm --needed python-pip community/python-pycryptodomex python-click community/python-paramiko python2-paramiko python-scp python2-scp pyinstaller python2-click blackarch/pymssql community/python2-pyftpdlib community/python-pipenv community/python2-pycryptodomex community/python2-gflags
-
-## Tools Configurations
-#sudo pacman -S postgres
-#sudo su -l postgres
-#initdb -D /var/lib/postgres/data
-#sudo systemctl start postgres
-#vim .msf4/database.yml
-#production: adapter: postgresql database: msf username: msf password:  host: localhost port: 5432 pool: 5 timeout: 5
-
-# Setting up wordlists 
-echo "[-] Setting up wordlists"
-sudo mkdir /usr/share/wordlists
-sudo wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O /usr/share/wordlists/SecList.zip 
-sudo bsdtar -C /usr/share/wordlists/ --strip-components=1 -xvf  /usr/share/wordlists/SecList.zip 
-sudo rm -rf /usr/share/wordlists/SecList.zip 
-echo "[+] Wordlists setup completed!"
 
 # Other tools to install
 ## sendmail.pl - Brandon Zehm
