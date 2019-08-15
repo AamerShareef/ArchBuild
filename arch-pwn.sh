@@ -55,7 +55,7 @@ pacman -S --noconfirm --needed python-pip community/python-pycryptodomex python-
 echo "[-] Setting up wordlists"
 sudo mkdir /usr/share/wordlists
 sudo wget -c https://github.com/danielmiessler/SecLists/archive/master.zip -O /usr/share/wordlists/SecList.zip 
-sudo bsdtar --strip-components=1 -xvf -C /usr/share/wordlists/  /usr/share/wordlists/SecList.zip 
+sudo bsdtar -C /usr/share/wordlists/ --strip-components=1 -xvf  /usr/share/wordlists/SecList.zip 
 sudo rm -rf /usr/share/wordlists/SecList.zip 
 echo "[+] Wordlists setup completed!"
 
