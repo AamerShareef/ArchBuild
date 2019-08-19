@@ -159,10 +159,15 @@ function setup_notes(){
   cd ..
   rm -rf marktext*
   
-  sudo wget https://d3ip0rje8grhnl.cloudfront.net/v4.3.2/inkdrop_4.3.2_amd64.deb -O /inkdrop.deb
-  sudo ar xvf /inkdrop.deb
-  sudo tar -xvf /data.tar.xz
-  sudo rm -rf /debian-binar* data.tar.xz control.tar.gz inkdrop.deb
+  wget https://d3ip0rje8grhnl.cloudfront.net/v4.3.2/inkdrop_4.3.2_amd64.deb -O inkdrop.deb
+  ar xvf inkdrop.deb
+  rm -rf inkdrop.deb
+  sudo mv data.tar.xz /data.tar.xz
+  cd /
+  sudo tar -xvf data.tar.xz
+  sudo rm -rf data.tar.xz
+  cd - 
+  sudo rm -rf debian-binar* /data.tar.xz control.tar.gz inkdrop.deb
 }
 
 function setup_yay(){
