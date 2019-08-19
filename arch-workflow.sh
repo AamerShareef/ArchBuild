@@ -33,6 +33,11 @@ function setup_gnome(){
   ./gnome/gnome-install.sh --install --extension-id 1297 --system --version latest
   # Hide Activities Button
   ./gnome/gnome-install.sh --install --extension-id 1128 --system --version latest
+  # Transparent Gnome Panel
+  ./gnome/gnome-install.sh --install --extension-id 1099 --system --version latest
+  # Bottom Panel
+  ./gnome/gnome-install.sh --install --extension-id 949  --system --version latest
+  
   )>/dev/null 2>&1
   echo "[+] Gnome environment restored!"
 }
