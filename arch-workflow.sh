@@ -190,7 +190,7 @@ function setup_apps(){
 }
 function cleanup(){
 	echo "[*] Cleaning up !"
-	rm -rf ~/Deskt* ~/Vide* ~/Tem* ~/Music ~/Docume*
+	rm -rf ~/Deskt* ~/Vide* ~/Tem* ~/Music ~/Docume* ~/Public
 	rm -rf ~/.cache*
 	echo "cleanup complete!"
 }
