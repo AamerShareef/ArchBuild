@@ -158,6 +158,11 @@ function setup_notes(){
   sudo ln -s /usr/share/marktext/marktext /usr/bin/marktext
   cd ..
   rm -rf marktext*
+  
+  sudo wget https://d3ip0rje8grhnl.cloudfront.net/v4.3.2/inkdrop_4.3.2_amd64.deb -O /inkdrop.deb
+  sudo ar xvf /inkdrop.deb
+  sudo tar -xvf /data.tar.xz
+  sudo rm -rf /debian-binar* data.tar.xz control.tar.gz inkdrop.deb
 }
 
 function setup_yay(){
@@ -171,6 +176,15 @@ function setup_yay(){
   rm -rf ~/.config/yay
 }
 
+function setup_apps(){
+  
+  yay nvidia-xrun --answerdiff N
+  #yay cherrytree
+  yay vmware-workstation --answerdiff N
+  rm -rf ~/.config/yay
+  
+ 
+}
 function cleanup(){
 	echo "[*] Cleaning up !"
 	rm -rf ~/Deskt* ~/Vide* ~/Tem* ~/Music ~/Docume*
@@ -186,6 +200,7 @@ setup_undervolt
 setup_scripts
 setup_notes
 setup_yay
+setup_apps
 cleanup
 ########## Gnome Things
 # Gnome restore saved_settings
