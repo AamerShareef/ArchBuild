@@ -176,9 +176,7 @@ function setup_yay(){
   makepkg -si --noconfirm
   cd ..
   rm -rf yay
-  yay vmware-workstation --answerdiff N
-  yay nvidia-xrun
-  rm -rf ~/.config/yay
+
 }
 
 function setup_apps(){
