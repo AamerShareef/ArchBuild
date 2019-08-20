@@ -9,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='mouse'
+last-panel='sound'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -238,10 +238,10 @@ x-pos=100.0
 y-pos=0.0
 
 [shell/extensions/simplenetspeed]
-mode=4
+mode=0
 
 [shell/extensions/user-theme]
-name=''
+name='Pop-Remix-light'
 
 [shell/keybindings]
 toggle-overview=@as []
