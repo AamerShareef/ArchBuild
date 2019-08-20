@@ -196,8 +196,8 @@ hinting='slight'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['cpupower@mko-sl.de', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'remove-rounded-corners@markbokil.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'extendedgestures@mpiannucci.github.com', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'Remove_Dash@localhost.localdomain', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz', 'bottompanel@tmoer93', 'transparent-gnome-panel@ttomovcik.com']
-favorite-apps=['firefox.desktop']
+enabled-extensions=['cpupower@mko-sl.de', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'remove-rounded-corners@markbokil.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'extendedgestures@mpiannucci.github.com', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'Remove_Dash@localhost.localdomain', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz', 'dash-to-panel@jderose9.github.com']
+favorite-apps=@as []
 
 [shell/extensions/caffeine]
 user-enabled=true
