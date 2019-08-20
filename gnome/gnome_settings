@@ -9,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='sound'
+last-panel='user-accounts'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -159,7 +159,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 512)
+initial-size=(1034, 507)
 maximized=false
 
 [settings-daemon/peripherals/keyboard]
