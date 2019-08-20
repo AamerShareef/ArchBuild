@@ -177,7 +177,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 507)
+initial-size=(1034, 505)
 maximized=false
 
 [settings-daemon/peripherals/keyboard]

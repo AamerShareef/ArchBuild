@@ -6,7 +6,7 @@ function setup_gnome(){
   sudo unzip -o -q ../gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
   sudo unzip -o -q ../gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
 
-# (
+ (
   # Dash to Panel
    ../gnome/gnome-install.sh --install --extension-id 1160 --system --version latest
   # Panel OSD
@@ -36,7 +36,7 @@ function setup_gnome(){
   # Bottom Panel
   ../gnome/gnome-install.sh --install --extension-id 949  --system --version latest
   
-#  )>/dev/null 2>&1
+  )>/dev/null 2>&1
   dconf load /org/gnome/ < ../gnome/gnome_settings
   echo "[+] Gnome environment restored!"
 }
