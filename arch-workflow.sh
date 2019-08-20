@@ -2,7 +2,7 @@
 
 function setup_gnome(){
   echo "[-] Setting up your Gnome workflow"
-  dconf load /org/gnome/ < ./gnome/gnome_settings
+ 
 
   sudo unzip -o -q ./gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes/
   sudo unzip -o -q ./gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
@@ -39,6 +39,7 @@ function setup_gnome(){
   ./gnome/gnome-install.sh --install --extension-id 949  --system --version latest
   
   )>/dev/null 2>&1
+  dconf load /org/gnome/ < ./gnome/gnome_settings
   echo "[+] Gnome environment restored!"
 }
 
