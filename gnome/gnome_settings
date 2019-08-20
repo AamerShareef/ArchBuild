@@ -111,6 +111,7 @@ toggle-fullscreen=['<Super>f']
 
 [desktop/wm/preferences]
 button-layout='appmenu:close'
+num-workspaces=5
 titlebar-font='Cantarell Light 11'
 
 [eog/view]
