@@ -2,50 +2,47 @@
 
 function setup_gnome(){
   echo "[-] Setting up your Gnome workflow"
- 
+  sudo unzip -o -q ../gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes/
+  sudo unzip -o -q ../gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
+  sudo unzip -o -q ../gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
 
-  sudo unzip -o -q ./gnome/eyecandy/gtk-themes.zip -d  /usr/share/themes/
-  sudo unzip -o -q ./gnome/eyecandy/icon-themes.zip -d  /usr/share/icons/
-  sudo unzip -o -q ./gnome/eyecandy/cursor-themes.zip -d  /usr/share/icons/
-
-  (
+# (
   # Dash to Panel
-   ./gnome/gnome-install.sh --install --extension-id 1160 --system --version latest
+   ../gnome/gnome-install.sh --install --extension-id 1160 --system --version latest
   # Panel OSD
-  ./gnome/gnome-install.sh --install --extension-id 708 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 708 --system --version latest
   # Caffeine
-  ./gnome/gnome-install.sh --install --extension-id 517 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 517 --system --version latest
   # CPU Power Manager
-  ./gnome/gnome-install.sh --install --extension-id 945 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 945 --system --version latest
   # Simple Net Speed
-  ./gnome/gnome-install.sh --install --extension-id 1085 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 1085 --system --version latest
   # Extended Gestures
-  ./gnome/gnome-install.sh --install --extension-id 1253 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 1253 --system --version latest
   # Status Area Horizontal Spacing
-  ./gnome/gnome-install.sh --install --extension-id 355 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 355 --system --version latest
   # No workspace switcher popop
-  ./gnome/gnome-install.sh --install --extension-id 758 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 758 --system --version latest
   # Remove Drop Down Arrows
-  ./gnome/gnome-install.sh --install --extension-id 800 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 800 --system --version latest
   # Remove Rounded Arrows
-  ./gnome/gnome-install.sh --install --extension-id 448 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 448 --system --version latest
   # Removes Gnome Dash
-  ./gnome/gnome-install.sh --install --extension-id 1297 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 1297 --system --version latest
   # Hide Activities Button
-  ./gnome/gnome-install.sh --install --extension-id 1128 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 1128 --system --version latest
   # Transparent Gnome Panel
-  ./gnome/gnome-install.sh --install --extension-id 1099 --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 1099 --system --version latest
   # Bottom Panel
-  ./gnome/gnome-install.sh --install --extension-id 949  --system --version latest
+  ../gnome/gnome-install.sh --install --extension-id 949  --system --version latest
   
-  )>/dev/null 2>&1
-  dconf load /org/gnome/ < ./gnome/gnome_settings
+#  )>/dev/null 2>&1
+  dconf load /org/gnome/ < ../gnome/gnome_settings
   echo "[+] Gnome environment restored!"
 }
 
 function setup_zsh(){
   echo "[-] Setting up Zsh"
-
   rm -rf ~/.oh-my-zsh
   curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh > install.sh
   chmod +x install.sh
@@ -54,21 +51,21 @@ function setup_zsh(){
   git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions > /dev/null 2>&1
   rm install.sh
   echo "[+] Zsh setup complete!"
-
 }
 
 function copy_dotfiles(){
   echo "[-] Copying dotfiles."
-  cp ./dotfiles/.zshrc ~/ 
-  cp ./dotfiles/.vimrc ~/
-  cp ./dotfiles/.tmux.conf ~/
+  cp ../dotfiles/.zshrc ~/ 
+  cp ../dotfiles/.vimrc ~/
+  cp ../dotfiles/.tmux.conf ~/
   echo "[+] Dotfiles copied."
 }
+
 function setup_workspace(){
   echo "[-] Creating your workspace $USER!"
-  mkdir -p /home/$USER/{void,pwn,space/{notes/{personal,offsec,other},library,projects}}
-  mkdir -p /home/$USER/void/{pictures,downloads,videos}
-  mkdir -p /home/$USER/pwn/{binaries/{win,unix},boxes/{oscp,htb},connect,exploits/{win,unix},opt,vm}
+ #mkdir -p /home/$USER/{void,pwn,space/{notes/{personal,offsec,other},library,projects}}
+  #mkdir -p /home/$USER/void/{pictures,downloads,videos}
+  #mkdir -p /home/$USER/pwn/{binaries/{win,unix},boxes/{oscp,htb},connect,exploits/{win,unix},opt,vm}
   rm -rf /home/$USER/D* /home/$USER/Mus* /home/$USER/Pict* /home/$USER/Vid* /home/$USER/Temp* /home/$USER/Publi*
 
   sed -i  's/^\([^#]\)/#\1/g' /home/$USER/.config/user-dirs.dirs
@@ -90,11 +87,10 @@ function setup_gestures() {
   cd libinput-gestures
   sudo make install > /dev/null 2>&1
   cd ..
-  sudo cp ./dotfiles/libinput-gestures.conf /etc/libinput-gestures.conf
+  sudo cp ../dotfiles/libinput-gestures.conf /etc/libinput-gestures.conf
   libinput-gestures-setup autostart
   rm -rf libinput-gestures
   echo "[+] Gestures setup complete!"
-
 }
 
 function setup_undervolt(){
@@ -108,43 +104,40 @@ function setup_undervolt(){
   sudo rm -rf undervolt
   sudo undervolt --core -100 --cache -100 --uncore -100 --analogio -100
   echo "[+] Undervolt installed!"
-
 }
 
 function setup_scripts(){
   echo "[-] Installing VMware Scripts"
   sudo rm -rf /usr/bin/vmware-start.sh >/dev/null 2>&1
   sudo rm -rf /usr/bin/vmware-stop.sh  >/dev/null 2>&1
-  chmod +x ./scripts/vmware-st*
-  sudo cp ./scripts/vmware-st* /usr/local/bin/
+  chmod +x ../scripts/vmware-st*
+  sudo cp ../scripts/vmware-st* /usr/local/bin/
   echo "[-] VMware Scripts Installed"
 
   echo "[-] Undervolt Scripts"
   sudo rm -rf /usr/bin/undervolt-start.sh >/dev/null 2>&1
   sudo rm -rf /usr/bin/undervolt-stop.sh  >/dev/null 2>&1
-  chmod +x ./scripts/undervolt-st*
-  sudo cp ./scripts/undervolt-st* /usr/local/bin/
+  chmod +x ../scripts/undervolt-st*
+  sudo cp ../scripts/undervolt-st* /usr/local/bin/
   echo "[+] Undervolt Scripts Installed"
 
   echo "[-] Installing fix-perm script"
   sudo rm -rf /usr/bin/fix-perm.sh >/dev/null 2>&1
-  chmod +x ./scripts/fix-perm.sh
-  sudo cp ./scripts/fix-perm.sh /usr/local/bin/
+  chmod +x ../scripts/fix-perm.sh
+  sudo cp ../scripts/fix-perm.sh /usr/local/bin/
   echo "[+] Scripts Installed"
 
   echo "[-] Installing backup-hdd.sh script"
   sudo rm -rf /usr/bin/backup-hdd.sh >/dev/null 2>&1
-  chmod +x ./scripts/backup-hdd.sh
-  sudo cp ./scripts/backup-hdd.sh /usr/local/bin/
+  chmod +x ../scripts/backup-hdd.sh
+  sudo cp ../scripts/backup-hdd.sh /usr/local/bin/
   echo "[+] Scripts Installed"
   
   echo "[-] Installing backup-restore.sh script"
   sudo rm -rf /usr/bin/backup-hdd.sh >/dev/null 2>&1
-  chmod +x ./scripts/backup-restore.sh
-  sudo cp ./scripts/backup-restore.sh /usr/local/bin/
+  chmod +x ../scripts/backup-restore.sh
+  sudo cp ../scripts/backup-restore.sh /usr/local/bin/
   echo "[+] Scripts Installed"
-
-
 }
 
 function setup_notes(){
@@ -159,7 +152,7 @@ function setup_notes(){
   sudo ln -s /usr/share/marktext/marktext /usr/bin/marktext
   cd ..
   rm -rf marktext*
-  
+ 
   wget https://d3ip0rje8grhnl.cloudfront.net/v4.3.2/inkdrop_4.3.2_amd64.deb -O inkdrop.deb
   ar xvf inkdrop.deb
   rm -rf inkdrop.deb
@@ -177,24 +170,22 @@ function setup_yay(){
   makepkg -si --noconfirm
   cd ..
   rm -rf yay
-
 }
 
 function setup_apps(){
-  
   yay nvidia-xrun --answerdiff N
   #yay cherrytree
   yay vmware-workstation --answerdiff N
   rm -rf ~/.config/yay
-  
- 
 }
+
 function cleanup(){
 	echo "[*] Cleaning up !"
 	rm -rf ~/Deskt* ~/Vide* ~/Tem* ~/Music ~/Docume* ~/Public
 	rm -rf ~/.cache*
 	echo "cleanup complete!"
 }
+
 setup_gnome
 setup_zsh
 copy_dotfiles
@@ -206,6 +197,7 @@ setup_notes
 setup_yay
 setup_apps
 cleanup
+
 ########## Gnome Things
 # Gnome restore saved_settings
 # gnome terminal themes https://mayccoll.github.io/Gogh/#0

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-## Variable Declarations
+# Mandatory Variables 
 HOST_NAME=zangetsu
 USERNAME="value"
 ENC_PASS="archlinux"
@@ -51,7 +51,6 @@ function set_mirrors(){
 }
 
 function set_drives(){
-## Partitioning
   echo "[-] Setting up Drives"
   (
     blkdiscard $DEVICE
@@ -81,7 +80,6 @@ function set_drives(){
 }
 
 function setup_base(){
-
   echo "[-] Installing Base System"
   (
     pacman -Sy archlinux-keyring --noconfirm
@@ -152,7 +150,7 @@ function setup_applications(){
     arch_chroot "pacman -S --noconfirm noto-fonts-emoji noto-fonts ttf-roboto otf-overpass ttf-ibm-plex ttf-hack ttf-liberation ttf-ubuntu-font-family fontconfig"
 
     arch_chroot "pacman -S --noconfirm cups cups-pdf"
-    arch_chroot "systemctl enable org.cups.cupsd.service"
+    # arch_chroot "systemctl enable org.cups.cupsd.service"
 
     arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee bbswitch nvidia lib32-virtualgl lib32-nvidia-utils"
     arch_chroot "pacman -S --noconfirm  bluez bluez-utils"
@@ -180,12 +178,11 @@ echo "[-] Installing Packages"
 (
 echo "Debug: Copying files to "
 cp ./$PWN_TOOLS /mnt
-arch_chroot "chmod +x arch-pwn.sh"
-arch_chroot "./arch-pwn.sh"
+arch_chroot "chmod +x $PWN_TOOLS"
+arch_chroot "./$PWN_TOOLS"
 ) > /dev/null 2>&1
 echo "[+] Packages installed!"
 echo "[+] Pwn tools setup!"
-
 }
 
 function cleanup(){
