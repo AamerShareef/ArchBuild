@@ -9,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='user-accounts'
+last-panel='keyboard'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -195,7 +195,7 @@ night-light-temperature=uint32 5757
 
 [settings-daemon/plugins/media-keys]
 area-screenshot-clip='<Super>slash'
-custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
 logout='<Shift><Super>l'
 screencast='<Shift><Super>question'
 
@@ -203,6 +203,11 @@ screencast='<Shift><Super>question'
 binding='<Super>Return'
 command='gnome-terminal'
 name='Terminal'
+
+[settings-daemon/plugins/media-keys/custom-keybindings/custom1]
+binding='<Super>comma'
+command='gnome-tweaks'
+name='gnome-tweaks'
 
 [settings-daemon/plugins/power]
 sleep-inactive-ac-type='suspend'
