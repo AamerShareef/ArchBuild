@@ -196,7 +196,7 @@ hinting='slight'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['cpupower@mko-sl.de', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'Remove_Dash@localhost.localdomain', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz', 'dash-to-panel@jderose9.github.com', 'remove-rounded-corners@markbokil.com']
+enabled-extensions=['cpupower@mko-sl.de', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'Remove_Dash@localhost.localdomain', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz', 'dash-to-panel@jderose9.github.com', 'remove-rounded-corners@markbokil.com', 'simplenetspeed@biji.extension']
 favorite-apps=@as []
 
 [shell/extensions/caffeine]
@@ -207,18 +207,18 @@ profiles=[(0, 10, false, 'Energy Saver', '2235255354'), (0, 30, false, 'Quiet', 
 taskbar-freq-unit-ghz=true
 
 [shell/extensions/dash-to-panel]
-appicon-margin=4
-appicon-padding=3
+appicon-margin=1
+appicon-padding=5
 dot-position='TOP'
-dot-style-focused='DASHES'
-dot-style-unfocused='SEGMENTED'
+dot-style-focused='DOTS'
+dot-style-unfocused='DOTS'
 hotkeys-overlay-combo='TEMPORARILY'
 intellihide=true
 intellihide-hide-from-windows=true
 leftbox-padding=-1
 location-clock='BUTTONSLEFT'
 panel-position='BOTTOM'
-panel-size=27
+panel-size=28
 show-favorites=true
 show-show-apps-button=false
 show-showdesktop-button=false
