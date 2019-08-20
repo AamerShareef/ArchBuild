@@ -208,13 +208,14 @@ taskbar-freq-unit-ghz=true
 
 [shell/extensions/dash-to-panel]
 appicon-margin=1
-appicon-padding=5
+appicon-padding=3
 dot-position='TOP'
 dot-style-focused='DOTS'
 dot-style-unfocused='DOTS'
 hotkeys-overlay-combo='TEMPORARILY'
 intellihide=true
 intellihide-hide-from-windows=true
+isolate-workspaces=true
 leftbox-padding=-1
 location-clock='BUTTONSLEFT'
 panel-position='BOTTOM'
