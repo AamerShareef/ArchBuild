@@ -146,7 +146,7 @@ dynamic-workspaces=false
 overlay-key='Super_L'
 
 [nautilus/icon-view]
-default-zoom-level='larger'
+default-zoom-level='small'
 
 [nautilus/list-view]
 default-column-order=['name', 'size', 'type', 'owner', 'group', 'permissions', 'where', 'date_modified', 'date_modified_with_time', 'date_accessed', 'recency', 'starred', 'detailed_type']
@@ -159,7 +159,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 513)
+initial-size=(1034, 512)
 maximized=false
 
 [settings-daemon/peripherals/keyboard]
@@ -196,8 +196,8 @@ hinting='slight'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['cpupower@mko-sl.de', 'dash-to-panel@jderose9.github.com', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'remove-rounded-corners@markbokil.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'extendedgestures@mpiannucci.github.com', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'Remove_Dash@localhost.localdomain', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz']
-favorite-apps=['org.gnome.Nautilus.desktop', 'firefox.desktop', 'org.gnome.Terminal.desktop']
+enabled-extensions=['cpupower@mko-sl.de', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'simplenetspeed@biji.extension', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'remove-rounded-corners@markbokil.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'extendedgestures@mpiannucci.github.com', 'status-area-horizontal-spacing@mathematical.coffee.gmail.com', 'Remove_Dash@localhost.localdomain', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz', 'dash-to-panel@jderose9.github.com']
+favorite-apps=['firefox.desktop']
 
 [shell/extensions/caffeine]
 user-enabled=true
@@ -217,7 +217,7 @@ intellihide=true
 intellihide-hide-from-windows=true
 leftbox-padding=-1
 location-clock='BUTTONSLEFT'
-panel-position='TOP'
+panel-position='BOTTOM'
 panel-size=27
 show-favorites=true
 show-show-apps-button=false
@@ -240,11 +240,14 @@ y-pos=0.0
 [shell/extensions/simplenetspeed]
 mode=4
 
+[shell/extensions/user-theme]
+name=''
+
 [shell/keybindings]
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1565883625
+check-timestamp=int64 1566278887
 
 [system/location]
 enabled=false
