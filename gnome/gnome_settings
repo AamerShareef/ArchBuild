@@ -222,7 +222,7 @@ hinting='slight'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['cpupower@mko-sl.de', 'panel-osd@berend.de.schouwer.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'remove-rounded-corners@markbokil.com', 'simplenetspeed@biji.extension', 'dash-to-panel@jderose9.github.com', 'remove-dropdown-arrows@mpdeimos.com']
+enabled-extensions=['cpupower@mko-sl.de', 'panel-osd@berend.de.schouwer.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'remove-rounded-corners@markbokil.com', 'simplenetspeed@biji.extension', 'dash-to-panel@jderose9.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com']
 favorite-apps=@as []
 
 [shell/extensions/caffeine]
