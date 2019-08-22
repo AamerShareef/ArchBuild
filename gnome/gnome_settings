@@ -9,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='keyboard'
+last-panel='display'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -50,8 +50,11 @@ show-battery-percentage=false
 toolkit-accessibility=false
 
 [desktop/notifications]
-application-children=['gnome-shell-extension-prefs', 'org-gnome-nautilus', 'gnome-power-panel', 'libreoffice-draw', 'org-gnome-terminal']
+application-children=['gnome-shell-extension-prefs', 'org-gnome-nautilus', 'gnome-power-panel', 'libreoffice-draw', 'org-gnome-terminal', 'firefox']
 show-in-lock-screen=false
+
+[desktop/notifications/application/firefox]
+application-id='firefox.desktop'
 
 [desktop/notifications/application/gnome-power-panel]
 application-id='gnome-power-panel.desktop'
@@ -119,7 +122,7 @@ background-color='rgb(0,0,0)'
 use-background-color=true
 
 [evince/default]
-window-ratio=(0.98039215686274506, 0.7512626262626263)
+window-ratio=(0.9798319327731092, 0.75178147268408546)
 
 [evolution-data-server]
 migrated=true
@@ -177,7 +180,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 505)
+initial-size=(1034, 495)
 maximized=false
 
 [settings-daemon/peripherals/keyboard]
@@ -191,7 +194,7 @@ night-light-enabled=true
 night-light-schedule-automatic=false
 night-light-schedule-from=0.0
 night-light-schedule-to=0.0
-night-light-temperature=uint32 5757
+night-light-temperature=uint32 5532
 
 [settings-daemon/plugins/media-keys]
 area-screenshot-clip='<Super>slash'
@@ -219,7 +222,7 @@ hinting='slight'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['cpupower@mko-sl.de', 'panel-osd@berend.de.schouwer.gmail.com', 'remove-dropdown-arrows@mpdeimos.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'Remove_Dash@localhost.localdomain', 'hide-activities-button@gnome-shell-extensions.bookmarkd.xyz', 'dash-to-panel@jderose9.github.com', 'remove-rounded-corners@markbokil.com', 'simplenetspeed@biji.extension']
+enabled-extensions=['cpupower@mko-sl.de', 'panel-osd@berend.de.schouwer.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'no-workspace-switcher-popup@devbury.com', 'caffeine@patapon.info', 'remove-rounded-corners@markbokil.com', 'simplenetspeed@biji.extension', 'dash-to-panel@jderose9.github.com', 'remove-dropdown-arrows@mpdeimos.com']
 favorite-apps=@as []
 
 [shell/extensions/caffeine]
@@ -238,9 +241,11 @@ dot-style-unfocused='DOTS'
 hotkeys-overlay-combo='TEMPORARILY'
 intellihide=true
 intellihide-hide-from-windows=true
+isolate-monitors=true
 isolate-workspaces=true
 leftbox-padding=-1
 location-clock='BUTTONSLEFT'
+multi-monitors=true
 panel-position='BOTTOM'
 panel-size=28
 show-favorites=true
@@ -271,7 +276,7 @@ name='Pop-Remix-light'
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1566278887
+check-timestamp=int64 1566467883
 
 [system/location]
 enabled=false
