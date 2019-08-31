@@ -154,7 +154,7 @@ function setup_notes(){
   cd ..
   rm -rf marktext*
  
-  wget https://d3ip0rje8grhnl.cloudfront.net/v4.3.2/inkdrop_4.3.2_amd64.deb -O inkdrop.deb
+  wget https://api.inkdrop.app/download/linux/deb  -O inkdrop.deb
   ar xvf inkdrop.deb
   rm -rf inkdrop.deb
   sudo mv data.tar.xz /data.tar.xz
