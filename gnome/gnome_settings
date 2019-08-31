@@ -180,8 +180,8 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 494)
-maximized=false
+initial-size=(1034, 491)
+maximized=true
 
 [settings-daemon/peripherals/keyboard]
 numlock-state='off'
@@ -276,7 +276,7 @@ name='Pop-Remix-light'
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1566467883
+check-timestamp=int64 1567271958
 
 [system/location]
 enabled=false
