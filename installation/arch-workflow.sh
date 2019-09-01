@@ -63,9 +63,9 @@ function copy_dotfiles(){
 
 function setup_workspace(){
   echo "[-] Creating your workspace $USER!"
-  mkdir -p /home/$USER/{void,pwn,space/{notes/{personal,offsec,other},library,projects}}
+  mkdir -p /home/$USER/{void,pwn,space/{notes/{inkdrop},library,projects}}
   mkdir -p /home/$USER/void/{pictures,downloads,videos}
-  mkdir -p /home/$USER/pwn/{binaries/{win,unix},boxes/{oscp,htb},labs,exploits/{win,unix},opt,vm}
+  mkdir -p /home/$USER/pwn/{binaries/{win,unix},boxes/{oscp,htb},vpn,exploits/{win,unix},opt,vm}
   rm -rf /home/$USER/D* /home/$USER/Mus* /home/$USER/Pict* /home/$USER/Vid* /home/$USER/Temp* /home/$USER/Publi*
 
   sed -i  's/^\([^#]\)/#\1/g' /home/$USER/.config/user-dirs.dirs
