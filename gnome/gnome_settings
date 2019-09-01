@@ -9,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='display'
+last-panel='keyboard'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -114,6 +114,7 @@ toggle-fullscreen=['<Super>f']
 
 [desktop/wm/preferences]
 button-layout='appmenu:close'
+focus-mode='sloppy'
 num-workspaces=5
 titlebar-font='Noto Sans Light 11'
 
@@ -182,6 +183,12 @@ search-view='list-view'
 [nautilus/window-state]
 initial-size=(1034, 491)
 maximized=true
+
+[power-manager]
+info-history-type='charge'
+info-last-device='/org/freedesktop/UPower/devices/battery_BAT0'
+info-page-number=2
+info-stats-type='discharge-accuracy'
 
 [settings-daemon/peripherals/keyboard]
 numlock-state='off'
