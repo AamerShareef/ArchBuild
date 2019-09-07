@@ -9,7 +9,7 @@ active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipt
 subtitle-encoding='UTF-8'
 
 [control-center]
-last-panel='keyboard'
+last-panel='bluetooth'
 
 [desktop/app-folders]
 folder-children=['Utilities', 'YaST']
@@ -274,7 +274,7 @@ x-pos=100.0
 y-pos=0.0
 
 [shell/extensions/simplenetspeed]
-mode=1
+mode=3
 
 [shell/extensions/user-theme]
 name='Pop-Remix-light'
@@ -283,7 +283,7 @@ name='Pop-Remix-light'
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1567320396
+check-timestamp=int64 1567839871
 
 [system/location]
 enabled=false
