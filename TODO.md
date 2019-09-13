@@ -31,5 +31,5 @@ about:config
 layers.acceleration.force-enabled = true
 network.security.ports.banned.override
 add values 1-65535
-
+gfx.webrender.enabled set to true
 *Plugins:* Foxy Proxy Ublock origin
