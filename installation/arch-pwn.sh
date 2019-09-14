@@ -21,8 +21,7 @@ sudo pacman -S --noconfirm --needed metasploit exploitdb sploitctl responder
 # Web Application Tools
 sudo pacman -S --noconfirm --needed testssl.sh sslyze
 sudo pacman -S --noconfirm --needed nikto cadaver davtest gobuster burpsuite sqlmap wafw00f wpscan dotdotpwn wfuzz w3af dirb dirbuster joomscan wascan
-sudo pacman -S --noconfirm --needed oscanner tnscmd blackarch/webshells whatweb cewl beef apache droopescan mssqlscan
-
+sudo pacman -S --noconfirm --needed oscanner tnscmd blackarch/webshells whatweb cewl beef apache droopescan mssqlscan dirsearch
 # Forensic Tools
 sudo pacman -S --noconfirm --needed blackarch/ntdsxtract
 

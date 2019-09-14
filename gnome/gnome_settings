@@ -228,7 +228,7 @@ hinting='medium'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['panel-osd@berend.de.schouwer.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'no-workspace-switcher-popup@devbury.com', 'remove-rounded-corners@markbokil.com', 'simplenetspeed@biji.extension', 'dash-to-panel@jderose9.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'caffeine@patapon.info']
+enabled-extensions=['panel-osd@berend.de.schouwer.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'no-workspace-switcher-popup@devbury.com', 'remove-rounded-corners@markbokil.com', 'simplenetspeed@biji.extension', 'dash-to-panel@jderose9.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'caffeine@patapon.info', 'cpupower@mko-sl.de']
 favorite-apps=@as []
 
 [shell/extensions/caffeine]
@@ -283,7 +283,7 @@ name='Pop-Remix'
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1568353797
+check-timestamp=int64 1568452089
 
 [system/location]
 enabled=false
@@ -441,12 +441,12 @@ bold-color-same-as-fg=true
 cursor-blink-mode='on'
 cursor-colors-set=false
 cursor-shape='underline'
-default-size-columns=170
-default-size-rows=40
+default-size-columns=120
+default-size-rows=34
 font='IBM Plex Mono 10'
 foreground-color='#ffffffffffff'
 palette=['#4d4d4d4d4d4d', '#ffff2b2b2b2b', '#9898fbfb9898', '#f0f0e6e68c8c', '#cdcd85853f3f', '#ffffdedeadad', '#ffffa0a0a0a0', '#f5f5dedeb3b3', '#555555555555', '#ffff55555555', '#5555ffff5555', '#ffffffff5555', '#8787ceceffff', '#ffff5555ffff', '#ffffd7d70000', '#ffffffffffff']
-scrollback-lines=990000
+scrollback-lines=1000000
 use-system-font=false
 use-theme-background=false
 use-theme-colors=false
