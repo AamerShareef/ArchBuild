@@ -29,7 +29,7 @@ sudo pacman -S --noconfirm --needed blackarch/ntdsxtract
 sudo pacman -S --noconfirm --needed edb mingw-w64-gcc gdb strace glibc  autoconf libtool nasm
 
 # Password Attack Tools
-sudo pacman -S --noconfirm --needed hydra hashcat ncrack medusa hash-identifier blackarch/crackmapexec john pyrit hashid opencl-nvidia crunch smbcrunch community/fcrackzip  multilib/lib32-cracklib
+sudo pacman -S --noconfirm --needed hydra hashcat ncrack medusa hash-identifier blackarch/crackmapexec john pyrit hashid opencl-nvidia crunch smbcrunch community/fcrackzip  multilib/lib32-cracklib smtp-user-enum
 
 # Wireless Tools
 sudo pacman -S --noconfirm --needed perl-image-exiftool exiv2 aircrack-ng
