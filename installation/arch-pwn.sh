@@ -10,7 +10,7 @@ rm strap.sh
 sudo pacman -S --noconfirm --needed nmap gnu-netcat net-snmp unicornscan masscan netdiscover netcat wireshark-qt tcpdump nbtscan amap knock
 sudo pacman -S --noconfirm --needed dnsrecon
 sudo pacman -S --noconfirm --needed enum4linux  net-snmp onesixtyone snmpcheck nbtenum snmpenum
-sudo pacman -S --noconfirm --needed smbclient smbexec smbmap sambascan
+sudo pacman -S --noconfirm --needed smbclient smbexec smbmap sambascan atftp
 
 # Pivoting Tools
 sudo pacman -S --noconfirm --needed community/sshuttle chisel 3proxy rpivot

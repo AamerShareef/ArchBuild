@@ -4,6 +4,11 @@ save-history=false
 synchronize-clipboards=true
 track-changes=true
 
+[Music]
+window-maximized=true
+window-position=[0, 0]
+window-size=[1920, 1031]
+
 [Totem]
 active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipto', 'screensaver', 'autoload-subtitles', 'vimeo', 'movie-properties', 'rotation', 'screenshot', 'media_player_keys']
 subtitle-encoding='UTF-8'
@@ -41,6 +46,7 @@ xkb-options=['caps:ctrl_modifier']
 cursor-size=32
 cursor-theme='Bibata_Ice'
 document-font-name='Noto Sans Light 11'
+enable-animations=true
 font-name='Noto Sans Light 11'
 gtk-im-module='gtk-im-context-simple'
 gtk-theme='Numix'
@@ -283,7 +289,7 @@ name='Pop-Remix'
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1568452089
+check-timestamp=int64 1568610984
 
 [system/location]
 enabled=false
