@@ -44,6 +44,8 @@ sudo pacman -S --noconfirm --needed rdesktop postgresql putty community/perl-mai
 ## Python applications
 sudo pacman -S --noconfirm --needed python-pip community/python-pycryptodomex python-click community/python-paramiko python2-paramiko python-scp python2-scp pyinstaller python2-click blackarch/pymssql community/python2-pyftpdlib community/python-pipenv community/python2-pycryptodomex community/python2-gflags
 
+sudo pip install pyftpdlib
+
 # Wordlists
 echo "[-] Setting up wordlists"
 sudo pacman -S --noconfirm --needed wordlistctl
