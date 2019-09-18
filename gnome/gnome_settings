@@ -33,7 +33,7 @@ translate=true
 [desktop/background]
 color-shading-type='solid'
 picture-options='zoom'
-picture-uri='file:///home/zenitsu/void/pictures/39805878-bing-wallpapers.jpg'
+picture-uri='/home/zenitsu/.config/gnome-photos/backgrounds/62914368786-Screenshot from 2019-09-16 20-28-16.png'
 primary-color='#000000000000'
 secondary-color='#000000000000'
 
@@ -189,6 +189,9 @@ search-view='list-view'
 initial-size=(1034, 491)
 maximized=true
 
+[photos]
+window-maximized=true
+
 [power-manager]
 info-history-type='charge'
 info-last-device='/org/freedesktop/UPower/devices/battery_BAT0'
@@ -289,7 +292,7 @@ name='Pop-Remix'
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1568610984
+check-timestamp=int64 1568698776
 
 [system/location]
 enabled=false
@@ -447,8 +450,8 @@ bold-color-same-as-fg=true
 cursor-blink-mode='on'
 cursor-colors-set=false
 cursor-shape='underline'
-default-size-columns=120
-default-size-rows=34
+default-size-columns=155
+default-size-rows=40
 font='IBM Plex Mono 10'
 foreground-color='#ffffffffffff'
 palette=['#4d4d4d4d4d4d', '#ffff2b2b2b2b', '#9898fbfb9898', '#f0f0e6e68c8c', '#cdcd85853f3f', '#ffffdedeadad', '#ffffa0a0a0a0', '#f5f5dedeb3b3', '#555555555555', '#ffff55555555', '#5555ffff5555', '#ffffffff5555', '#8787ceceffff', '#ffff5555ffff', '#ffffd7d70000', '#ffffffffffff']
