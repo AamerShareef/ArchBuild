@@ -10,7 +10,7 @@ window-position=[0, 0]
 window-size=[1920, 1031]
 
 [Totem]
-active-plugins=['apple-trailers', 'variable-rate', 'recent', 'save-file', 'skipto', 'screensaver', 'autoload-subtitles', 'vimeo', 'movie-properties', 'rotation', 'screenshot', 'media_player_keys']
+active-plugins=['recent', 'skipto', 'screensaver', 'save-file', 'apple-trailers', 'open-directory', 'screenshot', 'variable-rate', 'vimeo', 'rotation', 'movie-properties', 'autoload-subtitles', 'media-player-keys']
 subtitle-encoding='UTF-8'
 
 [control-center]
@@ -46,7 +46,7 @@ xkb-options=['caps:ctrl_modifier']
 cursor-size=32
 cursor-theme='Bibata_Ice'
 document-font-name='Noto Sans Light 11'
-enable-animations=true
+enable-animations=false
 font-name='Noto Sans Light 11'
 gtk-im-module='gtk-im-context-simple'
 gtk-theme='Numix'
@@ -55,7 +55,7 @@ monospace-font-name='IBM Plex Mono 10'
 toolkit-accessibility=false
 
 [desktop/notifications]
-application-children=['gnome-shell-extension-prefs', 'org-gnome-nautilus', 'gnome-power-panel', 'libreoffice-draw', 'org-gnome-terminal', 'firefox']
+application-children=['gnome-shell-extension-prefs', 'org-gnome-nautilus', 'gnome-power-panel', 'libreoffice-draw', 'org-gnome-terminal', 'firefox', 'vmware-player']
 show-in-lock-screen=false
 
 [desktop/notifications/application/firefox]
@@ -75,6 +75,9 @@ application-id='org.gnome.Nautilus.desktop'
 
 [desktop/notifications/application/org-gnome-terminal]
 application-id='org.gnome.Terminal.desktop'
+
+[desktop/notifications/application/vmware-player]
+application-id='vmware-player.desktop'
 
 [desktop/peripherals/mouse]
 accel-profile='flat'
@@ -212,10 +215,10 @@ night-light-schedule-to=0.0
 night-light-temperature=uint32 5532
 
 [settings-daemon/plugins/media-keys]
-area-screenshot-clip='<Super>slash'
+area-screenshot-clip=['<Super>slash']
 custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
-logout='<Shift><Super>l'
-screencast='<Shift><Super>question'
+logout=['<Shift><Super>l']
+screencast=['<Shift><Super>question']
 
 [settings-daemon/plugins/media-keys/custom-keybindings/custom0]
 binding='<Super>Return'
@@ -237,7 +240,7 @@ hinting='medium'
 
 [shell]
 app-picker-view=uint32 1
-enabled-extensions=['panel-osd@berend.de.schouwer.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'no-workspace-switcher-popup@devbury.com', 'remove-rounded-corners@markbokil.com', 'simplenetspeed@biji.extension', 'dash-to-panel@jderose9.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'caffeine@patapon.info', 'cpupower@mko-sl.de']
+enabled-extensions=['panel-osd@berend.de.schouwer.gmail.com', 'user-theme@gnome-shell-extensions.gcampax.github.com', 'no-workspace-switcher-popup@devbury.com', 'remove-rounded-corners@markbokil.com', 'simplenetspeed@biji.extension', 'dash-to-panel@jderose9.github.com', 'remove-dropdown-arrows@mpdeimos.com', 'workspace-indicator@gnome-shell-extensions.gcampax.github.com', 'caffeine@patapon.info']
 favorite-apps=@as []
 
 [shell/extensions/caffeine]
@@ -246,6 +249,7 @@ user-enabled=true
 
 [shell/extensions/cpupower]
 profiles=[(0, 10, false, 'Energy Saver', '2235255354'), (0, 30, false, 'Quiet', '3492177154'), (20, 80, true, 'Multimedia', '3385255986'), (50, 100, true, 'High Performance', '1354971301')]
+show-freq-in-taskbar=true
 taskbar-freq-unit-ghz=true
 
 [shell/extensions/dash-to-panel]
@@ -283,7 +287,7 @@ x-pos=100.0
 y-pos=0.0
 
 [shell/extensions/simplenetspeed]
-mode=3
+mode=2
 
 [shell/extensions/user-theme]
 name='Pop-Remix'
@@ -292,7 +296,7 @@ name='Pop-Remix'
 toggle-overview=@as []
 
 [software]
-check-timestamp=int64 1568698776
+check-timestamp=int64 1568958487
 
 [system/location]
 enabled=false

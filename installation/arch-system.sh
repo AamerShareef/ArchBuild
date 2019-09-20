@@ -149,7 +149,7 @@ function setup_applications(){
 
     arch_chroot "pacman -S --noconfirm noto-fonts-emoji noto-fonts ttf-roboto otf-overpass ttf-ibm-plex ttf-hack ttf-liberation ttf-ubuntu-font-family fontconfig"
 
-    arch_chroot "pacman -S --noconfirm cups cups-pdf"
+    arch_chroot "pacman -S --noconfirm cups cups-pdf vlc"
     # arch_chroot "systemctl enable org.cups.cupsd.service"
 
     arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee bbswitch nvidia lib32-virtualgl lib32-nvidia-utils"
@@ -195,6 +195,9 @@ function cleanup(){
     arch_chroot "chown -hR $USERNAME:$USERNAME /home/$USERNAME/"
   ) >/dev/null 2>&1
   echo "[+] Arch Zero installation Complete!"
+  'ctrl-]': 'core:navigate-forward'
+  'ctrl-]': 'core:navigate-forward'
+  'ctrl-]': 'core:navigate-forward'
   read -p "[!] Unmount and reboot?"
   umount -R /mnt
   reboot
