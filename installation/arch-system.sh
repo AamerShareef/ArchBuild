@@ -149,7 +149,7 @@ function setup_applications(){
 
     arch_chroot "pacman -S --noconfirm noto-fonts-emoji noto-fonts ttf-roboto otf-overpass ttf-ibm-plex ttf-hack ttf-liberation ttf-ubuntu-font-family fontconfig"
 
-    arch_chroot "pacman -S --noconfirm cups cups-pdf vlc"
+    arch_chroot "pacman -S --noconfirm cups cups-pdf vlc gimp"
     # arch_chroot "systemctl enable org.cups.cupsd.service"
 
     arch_chroot "pacman -S --noconfirm  xf86-video-intel bumblebee bbswitch nvidia lib32-virtualgl lib32-nvidia-utils"
