@@ -13,6 +13,13 @@ window-size=[1920, 1031]
 active-plugins=['recent', 'skipto', 'screensaver', 'save-file', 'apple-trailers', 'open-directory', 'screenshot', 'variable-rate', 'vimeo', 'rotation', 'movie-properties', 'autoload-subtitles', 'media-player-keys']
 subtitle-encoding='UTF-8'
 
+[boxes]
+first-run=false
+view='icon-view'
+window-maximized=false
+window-position=[519, 251]
+window-size=[768, 600]
+
 [cheese]
 burst-delay=1000
 camera='UVC Camera (046d:0825)'
@@ -138,6 +145,14 @@ titlebar-font='Noto Sans Light 11'
 background-color='rgb(0,0,0)'
 use-background-color=true
 
+[epiphany]
+ask-for-default=false
+
+[epiphany/state]
+is-maximized=false
+window-position=(324, 175)
+window-size=(1024, 768)
+
 [evince/default]
 window-ratio=(0.9798319327731092, 0.74346793349168649)
 
@@ -161,9 +176,22 @@ sidebar-width=200
 window-height=480
 window-width=600
 
+[gedit/plugins]
+active-plugins=['time', 'docinfo', 'filebrowser', 'modelines', 'spell']
+
+[gedit/preferences/ui]
+show-tabs-mode='auto'
+
+[gedit/state/window]
+bottom-panel-size=140
+side-panel-active-page='GeditWindowDocumentsPanel'
+side-panel-size=200
+size=(900, 700)
+state=87168
+
 [gnome-system-monitor]
 cpu-colors=[(uint32 0, '#FF6E00'), (1, '#CB0C29'), (2, '#49A835'), (3, '#2D7DB3'), (4, '#f25915e815e8'), (5, '#f25915e815e8'), (6, '#f25915e815e8'), (7, '#f25915e815e8')]
-current-tab='disks'
+current-tab='processes'
 maximized=false
 show-dependencies=false
 show-whose-processes='user'
@@ -171,12 +199,12 @@ window-state=(700, 500, 620, 195)
 
 [gnome-system-monitor/disktreenew]
 col-6-visible=true
-col-6-width=0
+col-6-width=290
 
 [gnome-system-monitor/proctree]
 columns-order=[0, 1, 2, 3, 4, 6, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26]
 sort-col=15
-sort-order=1
+sort-order=0
 
 [mutter]
 center-new-windows=true
@@ -200,7 +228,7 @@ search-filter-time-type='last_modified'
 search-view='list-view'
 
 [nautilus/window-state]
-initial-size=(1034, 473)
+initial-size=(1323, 633)
 maximized=false
 start-with-sidebar=true
 
