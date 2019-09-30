@@ -113,6 +113,7 @@ function setup_scripts(){
   sudo rm -rf /usr/bin/vmware-stop.sh  >/dev/null 2>&1
   chmod +x ../scripts/vmware-st*
   sudo cp ../scripts/vmware-st* /usr/local/bin/
+  sudo cp ../scripts/virtualbox-st* /usr/local/bin/
   echo "[-] VMware Scripts Installed"
 
   echo "[-] Undervolt Scripts"
@@ -178,6 +179,7 @@ function setup_apps(){
   #yay cherrytree
   yay vmware-workstation --answerdiff N
   rm -rf ~/.config/yay
+  pacman -S virtualbox virtualbox-guest-utils xf86-video-vmware
 }
 
 function cleanup(){
